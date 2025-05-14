@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="Soluções - AAS Transportes"
+	description="Conheça as soluções de transporte e logística oferecidas pela AAS Transportes"
+	pubDate={new Date()}
+	heroImage="/images/solucoes-hero.jpg"
+>
+	<h2>Nossas Soluções</h2>
+	
+	<div class="solution-card">
+		<h3>Transporte Dedicado</h3>
+		<p>
+			Oferecemos serviços de transporte dedicado para empresas que necessitam de uma frota exclusiva. 
+			Nossa solução garante disponibilidade total de veículos e motoristas treinados para atender às 
+			necessidades específicas do seu negócio.
+		</p>
+	</div>
+	
+	<div class="solution-card">
+		<h3>Transporte de Cargas Fracionadas</h3>
+		<p>
+			Ideal para empresas que precisam transportar volumes menores de mercadorias. Nosso sistema 
+			otimizado permite o compartilhamento de veículos entre diferentes clientes, reduzindo custos 
+			e mantendo a eficiência.
+		</p>
+	</div>
+	
+	<div class="solution-card">
+		<h3>Logística Integrada</h3>
+		<p>
+			Nossa solução de logística integrada abrange desde o planejamento até a execução do transporte, 
+			incluindo armazenagem, gestão de estoque e distribuição. Trabalhamos com sistemas avançados de 
+			rastreamento e monitoramento para garantir a segurança e pontualidade das entregas.
+		</p>
+	</div>
+	
+	<div class="solution-card">
+		<h3>Transporte de Cargas Especiais</h3>
+		<p>
+			Contamos com veículos e equipamentos especializados para o transporte de cargas que exigem 
+			cuidados específicos, como produtos perecíveis, materiais perigosos e cargas de grandes dimensões.
+		</p>
+	</div>
+	
+	<div class="solution-card">
+		<h3>Consultoria em Logística</h3>
+		<p>
+			Nossa equipe de especialistas oferece consultoria para otimização de processos logísticos, 
+			redução de custos e melhoria de eficiência na cadeia de suprimentos.
+		</p>
+	</div>
+	
+	<div class="cta-section">
+		<h3>Precisa de uma solução personalizada?</h3>
+		<p>Entre em contato conosco para desenvolvermos uma solução sob medida para o seu negócio.</p>
+		<a href="/contato" class="cta-button">Fale Conosco</a>
+	</div>
+</Layout>
+
+<style>
+	.solution-card {
+		margin-bottom: 2rem;
+		padding: 1.5rem;
+		border-radius: 8px;
+		background-color: #f8f9fa;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	}
+	
+	.solution-card h3 {
+		color: #003366;
+		margin-top: 0;
+	}
+	
+	.cta-section {
+		margin-top: 3rem;
+		padding: 2rem;
+		text-align: center;
+		background-color: #003366;
+		color: white;
+		border-radius: 8px;
+	}
+	
+	.cta-button {
+		display: inline-block;
+		margin-top: 1rem;
+		padding: 0.8rem 1.5rem;
+		background-color: #FF9900;
+		color: white;
+		text-decoration: none;
+		border-radius: 4px;
+		font-weight: 600;
+		transition: background-color 0.3s ease;
+	}
+	
+	.cta-button:hover {
+		background-color: #e68a00;
+	}
+</style>
