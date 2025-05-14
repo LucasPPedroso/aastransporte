@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="Nossa Frota - AAS Transportes"
+	description="Conheça a frota moderna e diversificada da AAS Transportes"
+	pubDate={new Date()}
+	heroImage="/images/frota-hero.jpg"
+>
+	<h2>Nossa Frota</h2>
+	
+	<p class="intro-text">
+		A AAS Transportes conta com uma frota moderna, diversificada e em constante renovação para 
+		atender às mais variadas necessidades de transporte. Todos os nossos veículos passam por 
+		manutenções preventivas regulares e são equipados com tecnologia de rastreamento e monitoramento 
+		em tempo real.
+	</p>
+	
+	<div class="fleet-grid">
+		<div class="fleet-item">
+			<img src="/images/van.jpg" alt="Van de Entrega" />
+			<h3>Vans de Entrega</h3>
+			<p>
+				Ideais para entregas urbanas e transporte de cargas leves. Capacidade de até 1.500kg.
+			</p>
+			<ul>
+				<li>Rastreamento em tempo real</li>
+				<li>Ar-condicionado</li>
+				<li>Compartimento de carga isolado</li>
+			</ul>
+		</div>
+		
+		<div class="fleet-item">
+			<img src="/images/truck-small.jpg" alt="Caminhão 3/4" />
+			<h3>Caminhões 3/4</h3>
+			<p>
+				Perfeitos para entregas em áreas urbanas com restrições de circulação. Capacidade de até 4 toneladas.
+			</p>
+			<ul>
+				<li>Baú de alumínio</li>
+				<li>Plataforma elevatória</li>
+				<li>Sistema de segurança avançado</li>
+			</ul>
+		</div>
+		
+		<div class="fleet-item">
+			<img src="/images/truck-medium.jpg" alt="Caminhão Toco" />
+			<h3>Caminhões Toco</h3>
+			<p>
+				Versáteis para transporte urbano e rodoviário. Capacidade de até 6 toneladas.
+			</p>
+			<ul>
+				<li>Baú refrigerado disponível</li>
+				<li>Monitoramento de temperatura</li>
+				<li>Rastreamento via satélite</li>
+			</ul>
+		</div>
+		
+		<div class="fleet-item">
+			<img src="/images/truck-large.jpg" alt="Caminhão Truck" />
+			<h3>Caminhões Truck</h3>
+			<p>
+				Ideais para transporte de cargas maiores. Capacidade de até 14 toneladas.
+			</p>
+			<ul>
+				<li>Baú de alumínio ou sider</li>
+				<li>Sistema anti-tombamento</li>
+				<li>Monitoramento 24h</li>
+			</ul>
+		</div>
+		
+		<div class="fleet-item">
+			<img src="/images/truck-extra.jpg" alt="Carreta" />
+			<h3>Carretas</h3>
+			<p>
+				Para transporte de grandes volumes em longas distâncias. Capacidade de até 30 toneladas.
+			</p>
+			<ul>
+				<li>Baú, sider ou refrigerado</li>
+				<li>Rastreamento via satélite</li>
+				<li>Motoristas especializados</li>
+			</ul>
+		</div>
+		
+		<div class="fleet-item">
+			<img src="/images/truck-special.jpg" alt="Veículos Especiais" />
+			<h3>Veículos Especiais</h3>
+			<p>
+				Soluções para cargas específicas como produtos químicos, inflamáveis e cargas indivisíveis.
+			</p>
+			<ul>
+				<li>Equipamentos de segurança específicos</li>
+				<li>Licenças especiais</li>
+				<li>Equipe treinada para emergências</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="fleet-stats">
+		<div class="stat-item">
+			<span class="stat-number">50+</span>
+			<span class="stat-label">Veículos</span>
+		</div>
+		<div class="stat-item">
+			<span class="stat-number">100%</span>
+			<span class="stat-label">Rastreados</span>
+		</div>
+		<div class="stat-item">
+			<span class="stat-number">3</span>
+			<span class="stat-label">Anos de idade média</span>
+		</div>
+		<div class="stat-item">
+			<span class="stat-number">24h</span>
+			<span class="stat-label">Monitoramento</span>
+		</div>
+	</div>
+	
+	<div class="maintenance-section">
+		<h3>Manutenção e Segurança</h3>
+		<p>
+			Nossa frota passa por rigorosos processos de manutenção preventiva e corretiva, garantindo 
+			a segurança e confiabilidade dos nossos serviços. Contamos com uma equipe técnica especializada 
+			e utilizamos peças originais para manter nossos veículos sempre em perfeitas condições.
+		</p>
+	</div>
+</Layout>
+
+<style>
+	.intro-text {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		margin-bottom: 2rem;
+	}
+	
+	.fleet-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 2rem;
+		margin: 2rem 0;
+	}
+	
+	.fleet-item {
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		background-color: #f8f9fa;
+	}
+	
+	.fleet-item img {
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+	}
+	
+	.fleet-item h3 {
+		color: #003366;
+		padding: 1rem 1rem 0.5rem;
+		margin: 0;
+	}
+	
+	.fleet-item p {
+		padding: 0 1rem;
+		margin-top: 0;
+	}
+	
+	.fleet-item ul {
+		padding: 0 1rem 1rem 2rem;
+	}
+	
+	.fleet-stats {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		margin: 3rem 0;
+		padding: 2rem;
+		background-color: #003366;
+		border-radius: 8px;
+		color: white;
+	}
+	
+	.stat-item {
+		text-align: center;
+		padding: 1rem;
+	}
+	
+	.stat-number {
+		display: block;
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #FF9900;
+	}
+	
+	.stat-label {
+		font-size: 1.1rem;
+	}
+	
+	.maintenance-section {
+		margin-top: 2rem;
+		padding: 1.5rem;
+		background-color: #f8f9fa;
+		border-radius: 8px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	}
+	
+	.maintenance-section h3 {
+		color: #003366;
+		margin-top: 0;
+	}
+	
+	@media (max-width: 768px) {
+		.fleet-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.fleet-stats {
+			flex-direction: column;
+		}
+		
+		.stat-item {
+			width: 100%;
+			margin-bottom: 1rem;
+		}
+	}
+</style>
