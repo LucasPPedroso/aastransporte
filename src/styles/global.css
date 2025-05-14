@@ -1,155 +1,627 @@
+---
+const today = new Date();
+const yearsInBusiness = today.getFullYear() - 2010;
+---
+
+<footer>
+	<div class="footer-top">
+		<div class="footer-container">
+			<div class="footer-grid">
+				<div class="footer-column company-column">
+					<div class="footer-logo">
+						<h3>AAS Transportes</h3>
+					</div>
+					<p class="company-description">Soluções em transporte de cargas para todo o Brasil com {yearsInBusiness} anos de experiência no mercado.</p>
+					<div class="company-details">
+						<p><strong>CNPJ:</strong> 11.879.063/0001-86</p>
+						<p><strong>Razão Social:</strong> Aas Transportes LTDA</p>
+						<p><strong>Desde:</strong> 13/04/2010</p>
+					</div>
+				</div>
+				
+				<div class="footer-column">
+					<h4>Links Rápidos</h4>
+					<ul class="footer-links">
+						<li><a href="/">Início</a></li>
+						<li><a href="/solucoes">Soluções</a></li>
+						<li><a href="/frota">Nossa Frota</a></li>
+						<li><a href="/servicos">Serviços</a></li>
+						<li><a href="/sobre">Sobre Nós</a></li>
+						<li><a href="/contato">Contato</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-column">
+					<h4>Serviços</h4>
+					<ul class="footer-links">
+						<li><a href="/servicos/transporte-rodoviario">Transporte Rodoviário</a></li>
+						<li><a href="/servicos/carga-fracionada">Carga Fracionada</a></li>
+						<li><a href="/servicos/carga-completa">Carga Completa</a></li>
+						<li><a href="/servicos/armazenagem">Armazenagem</a></li>
+						<li><a href="/servicos/logistica">Logística</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-column contact-column">
+					<h4>Contato</h4>
+					<div class="contact-info">
+						<div class="contact-item">
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+							</svg>
+							<a href="tel:+5541988287226">(41) 98828-7226</a>
+						</div>
+						<div class="contact-item">
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+								<polyline points="22,6 12,13 2,6"></polyline>
+							</svg>
+							<a href="mailto:contato@aastransportes.com.br">contato@aastransportes.com.br</a>
+						</div>
+						<div class="contact-item">
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+								<circle cx="12" cy="10" r="3"></circle>
+							</svg>
+							<p>Rua Exemplo, 123<br>Bairro - Curitiba/PR<br>CEP: 80000-000</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="social-media">
+				<h4>Siga-nos</h4>
+				<div class="social-icons">
+					<a href="https://www.instagram.com/aastransportes/" target="_blank" class="social-icon" aria-label="Instagram">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+							<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+						</svg>
+					</a>
+					<a href="https://www.facebook.com/aastransportes" target="_blank" class="social-icon" aria-label="Facebook">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+							<path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+						</svg>
+					</a>
+					<a href="https://wa.me/5541996094648" target="_blank" class="social-icon" aria-label="WhatsApp">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+							<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+						</svg>
+					</a>
+					<a href="https://www.linkedin.com/company/aastransportes/" target="_blank" class="social-icon" aria-label="LinkedIn">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+							<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="footer-bottom">
+		<div class="footer-container">
+			<p>&copy; {today.getFullYear()} AAS Transportes LTDA. Todos os direitos reservados.</p>
+			<div class="footer-legal">
+				<a href="/politica-privacidade">Política de Privacidade</a>
+				<span class="separator">|</span>
+				<a href="/termos-uso">Termos de Uso</a>
+				<span class="separator">|</span>
+				<a href="/cookies">Cookies</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style>
+	footer {
+		background-color: #f8f9fa;
+		color: #333;
+		font-size: 0.95rem;
+	}
+	
+	.footer-container {
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+	
+	.footer-top {
+		padding: 4rem 0 3rem;
+	}
+	
+	.footer-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+	
+	.footer-column {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.footer-logo h3 {
+		color: #003366;
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+	
+	.company-description {
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+	
+	.company-details p {
+		margin: 0.3rem 0;
+		font-size: 0.9rem;
+	}
+	
+	h4 {
+		color: #003366;
+		font-size: 1.1rem;
+		margin-bottom: 1.2rem;
+		position: relative;
+		padding-bottom: 0.5rem;
+	}
+	
+	h4::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 40px;
+		height: 2px;
+		background-color: #FF9900;
+	}
+	
+	.footer-links {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.footer-links li {
+		margin-bottom: 0.7rem;
+	}
+	
+	.footer-links a {
+		color: #555;
+		text-decoration: none;
+		transition: color 0.3s ease, transform 0.3s ease;
+		display: inline-block;
+	}
+	
+	.footer-links a:hover {
+		color: #FF9900;
+		transform: translateX(5px);
+	}
+	
+	.contact-info {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	
+	.contact-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.8rem;
+	}
+	
+	.contact-item svg {
+		margin-top: 0.2rem;
+		flex-shrink: 0;
+		color: #FF9900;
+	}
+	
+	.contact-item a, .contact-item p {
+		margin: 0;
+		color: #555;
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+	
+	.contact-item a:hover {
+		color: #FF9900;
+	}
+	
+	.social-media {
+		margin-top: 3rem;
+		text-align: center;
+	}
+	
+	.social-media h4 {
+		display: inline-block;
+		margin-bottom: 1rem;
+	}
+	
+	.social-media h4::after {
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60px;
+	}
+	
+	.social-icons {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+	}
+	
+	.social-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background-color: #e9ecef;
+		color: #555;
+		transition: all 0.3s ease;
+	}
+	
+	.social-icon:hover {
+		background-color: #FF9900;
+		color: white;
+		transform: translateY(-5px);
+	}
+	
+	.footer-bottom {
+		background-color: #003366;
+		color: white;
+		padding: 1.5rem 0;
+	}
+	
+	.footer-bottom .footer-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+	
+	.footer-bottom p {
+		margin: 0;
+	}
+	
+	.footer-legal {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+	
+	.footer-legal a {
+		color: white;
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+	
+	.footer-legal a:hover {
+		color: #FF9900;
+	}
+	
+	.separator {
+		color: rgba(255, 255, 255, 0.5);
+	}
+	
+	@media (max-width: 992px) {
+		.footer-container {
+			padding: 0 1rem;
+		}
+	}
+	
+	@media (max-width: 768px) {
+		.footer-top {
+			padding: 3rem 0 2rem;
+		}
+		
+		.footer-grid {
+			gap: 2rem;
+		}
+		
+		.social-media {
+			margin-top: 2rem;
+		}
+		
+		.footer-bottom .footer-container {
+			flex-direction: column;
+			text-align: center;
+		}
+		
+		.footer-legal {
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+	}
+</style>
+
 /*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+  Estilos globais para AAS Transportes
  */
 
 :root {
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
-  --black: 15, 18, 25;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-dark: 34, 41, 57;
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-  --box-shadow:
-    0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-    0 16px 32px rgba(var(--gray), 33%);
+  --primary: #003366;
+  --primary-dark: #002244;
+  --secondary: #FF9900;
+  --secondary-dark: #e68a00;
+  --text-dark: #333333;
+  --text-light: #555555;
+  --text-lighter: #777777;
+  --background-light: #f8f9fa;
+  --background-white: #ffffff;
+  --border-light: #e9ecef;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 @font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-regular.woff") format("woff");
+  font-family: "Poppins";
+  src: url("/fonts/poppins-regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-bold.woff") format("woff");
+  font-family: "Poppins";
+  src: url("/fonts/poppins-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
+
 body {
-  font-family: "Atkinson", sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   text-align: left;
-  background: linear-gradient(var(--gray-gradient)) no-repeat;
-  background-size: 100% 600px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  color: rgb(var(--gray-dark));
-  font-size: 20px;
-  line-height: 1.7;
+  background-color: var(--background-white);
+  color: var(--text-dark);
+  font-size: 16px;
+  line-height: 1.6;
 }
+
 main {
-  width: 720px;
-  max-width: calc(100% - 2em);
+  width: 100%;
+  max-width: 1400px;
   margin: auto;
-  padding: 3em 1em;
+  padding: 2rem 1rem;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+h1, h2, h3, h4, h5, h6 {
   margin: 0 0 0.5rem 0;
-  color: rgb(var(--black));
+  color: var(--primary);
   line-height: 1.2;
+  font-weight: 600;
 }
+
 h1 {
-  font-size: 3.052em;
+  font-size: 2.5rem;
 }
+
 h2 {
-  font-size: 2.441em;
+  font-size: 2rem;
 }
+
 h3 {
-  font-size: 1.953em;
+  font-size: 1.75rem;
 }
+
 h4 {
-  font-size: 1.563em;
+  font-size: 1.5rem;
 }
-h5 {
-  font-size: 1.25em;
-}
-strong,
-b {
-  font-weight: 700;
-}
-a {
-  color: var(--accent);
-}
-a:hover {
-  color: var(--accent);
-}
+
 p {
-  margin-bottom: 1em;
+  margin: 0 0 1rem 0;
 }
-.prose p {
-  margin-bottom: 2em;
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
-textarea {
-  width: 100%;
-  font-size: 16px;
+
+a:hover {
+  color: var(--secondary);
 }
-input {
-  font-size: 16px;
-}
-table {
-  width: 100%;
-}
+
 img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
 }
-code {
-  padding: 2px 5px;
-  background-color: rgb(var(--gray-light));
-  border-radius: 2px;
-}
-pre {
-  padding: 1.5em;
-  border-radius: 8px;
-}
-pre > code {
-  all: unset;
-}
-blockquote {
-  border-left: 4px solid var(--accent);
-  padding: 0 0 0 20px;
-  margin: 0px;
-  font-size: 1.333em;
-}
-hr {
+
+button, .button {
+  display: inline-block;
+  background-color: var(--secondary);
+  color: white;
   border: none;
-  border-top: 1px solid rgb(var(--gray-light));
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-@media (max-width: 720px) {
-  body {
-    font-size: 18px;
-  }
-  main {
-    padding: 1em;
-  }
+
+button:hover, .button:hover {
+  background-color: var(--secondary-dark);
+}
+
+.button-outline {
+  background-color: transparent;
+  border: 2px solid var(--secondary);
+  color: var(--secondary);
+}
+
+.button-outline:hover {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-title p {
+  color: var(--text-light);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: var(--background-white);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+  align-items: center;
 }
 
 .sr-only {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  position: absolute !important;
-  height: 1px;
+  position: absolute;
   width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
-  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-  clip: rect(1px 1px 1px 1px);
-  /* maybe deprecated but we need to support legacy browsers */
-  clip: rect(1px, 1px, 1px, 1px);
-  /* modern browsers, clip-path works inwards from each corner */
-  clip-path: inset(50%);
-  /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
+  border-width: 0;
+}
+
+/* Estilos responsivos */
+@media (max-width: 1200px) {
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .grid-3, .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  h4 {
+    font-size: 1.25rem;
+  }
+  
+  .section {
+    padding: 2.5rem 0;
+  }
+  
+  .section-title h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .section {
+    padding: 2rem 0;
+  }
+  
+  button, .button {
+    padding: 0.6rem 1.2rem;
+  }
 }
