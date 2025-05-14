@@ -6,45 +6,605 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
+		
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-content">
+				<h1>Soluções de Transporte e Logística para o seu Negócio</h1>
+				<p>Eficiência, segurança e pontualidade em cada entrega</p>
+				<div class="hero-buttons">
+					<a href="/solucoes" class="btn btn-primary">Nossas Soluções</a>
+					<a href="/contato" class="btn btn-secondary">Solicitar Orçamento</a>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Serviços em Destaque -->
+		<section class="services">
+			<div class="container">
+				<h2 class="section-title">Serviços Especializados</h2>
+				<p class="section-subtitle">Conheça nossas principais soluções de transporte e logística</p>
+				
+				<div class="services-grid">
+					<div class="service-card">
+						<div class="service-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="1" y="3" width="15" height="13"></rect>
+								<polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+								<circle cx="5.5" cy="18.5" r="2.5"></circle>
+								<circle cx="18.5" cy="18.5" r="2.5"></circle>
+							</svg>
+						</div>
+						<h3>Transporte Rodoviário</h3>
+						<p>Transporte de cargas em todo o território nacional com segurança e pontualidade.</p>
+						<a href="/servicos#rodoviario" class="service-link">Saiba mais</a>
+					</div>
+					
+					<div class="service-card">
+						<div class="service-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2m5.66 0H14a2 2 0 0 1 2 2v3.34l1 1L23 7v10"></path>
+								<line x1="1" y1="1" x2="23" y2="23"></line>
+							</svg>
+						</div>
+						<h3>Logística Integrada</h3>
+						<p>Soluções completas de logística, desde o armazenamento até a entrega final.</p>
+						<a href="/servicos#logistica" class="service-link">Saiba mais</a>
+					</div>
+					
+					<div class="service-card">
+						<div class="service-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+								<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+							</svg>
+						</div>
+						<h3>Armazenagem</h3>
+						<p>Espaços de armazenamento estratégicos com gestão eficiente de estoque.</p>
+						<a href="/servicos#armazenagem" class="service-link">Saiba mais</a>
+					</div>
+					
+					<div class="service-card">
+						<div class="service-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+								<circle cx="12" cy="10" r="3"></circle>
+							</svg>
+						</div>
+						<h3>Rastreamento em Tempo Real</h3>
+						<p>Acompanhe suas cargas em tempo real com nossa tecnologia de rastreamento avançada.</p>
+						<a href="/servicos#rastreamento" class="service-link">Saiba mais</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Por que escolher a AAS -->
+		<section class="why-choose-us">
+			<div class="container">
+				<h2 class="section-title">Por que escolher a AAS Transportes?</h2>
+				<p class="section-subtitle">Conheça os diferenciais que fazem da AAS Transportes a escolha certa para o seu negócio</p>
+				
+				<div class="features-grid">
+					<div class="feature">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+								<polyline points="22 4 12 14.01 9 11.01"></polyline>
+							</svg>
+						</div>
+						<h3>Experiência Comprovada</h3>
+						<p>Mais de 10 anos de experiência no mercado de transporte e logística.</p>
+					</div>
+					
+					<div class="feature">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="10"></circle>
+								<polyline points="12 6 12 12 16 14"></polyline>
+							</svg>
+						</div>
+						<h3>Pontualidade</h3>
+						<p>Compromisso com prazos e horários, garantindo a entrega no tempo acordado.</p>
+					</div>
+					
+					<div class="feature">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+							</svg>
+						</div>
+						<h3>Segurança</h3>
+						<p>Frota moderna com sistemas de segurança avançados e motoristas treinados.</p>
+					</div>
+					
+					<div class="feature">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+								<circle cx="9" cy="7" r="4"></circle>
+								<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+								<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+							</svg>
+						</div>
+						<h3>Equipe Qualificada</h3>
+						<p>Profissionais capacitados e comprometidos com a excelência no atendimento.</p>
+					</div>
+					
+					<div class="feature">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+								<line x1="8" y1="21" x2="16" y2="21"></line>
+								<line x1="12" y1="17" x2="12" y2="21"></line>
+							</svg>
+						</div>
+						<h3>Tecnologia Avançada</h3>
+						<p>Sistemas de gestão e rastreamento que garantem eficiência e transparência.</p>
+					</div>
+					
+					<div class="feature">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+							</svg>
+						</div>
+						<h3>Atendimento Personalizado</h3>
+						<p>Soluções adaptadas às necessidades específicas de cada cliente.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Frota -->
+		<section class="fleet">
+			<div class="container">
+				<h2 class="section-title">Nossa Frota</h2>
+				<p class="section-subtitle">Veículos modernos e adequados para cada tipo de carga</p>
+				
+				<div class="fleet-slider">
+					<div class="fleet-item">
+						<img src="/images/truck-1.jpg" alt="Caminhão Baú" />
+						<h3>Caminhões Baú</h3>
+						<p>Ideais para cargas que necessitam de proteção contra intempéries.</p>
+					</div>
+					<div class="fleet-item">
+						<img src="/images/truck-2.jpg" alt="Caminhão Sider" />
+						<h3>Caminhões Sider</h3>
+						<p>Facilidade no carregamento lateral para cargas paletizadas.</p>
+					</div>
+					<div class="fleet-item">
+						<img src="/images/truck-3.jpg" alt="Caminhão Refrigerado" />
+						<h3>Caminhões Refrigerados</h3>
+						<p>Transporte de produtos que necessitam de controle de temperatura.</p>
+					</div>
+				</div>
+				
+				<div class="fleet-cta">
+					<a href="/nossa-frota" class="btn btn-primary">Conheça toda nossa frota</a>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Depoimentos -->
+		<section class="testimonials">
+			<div class="container">
+				<h2 class="section-title">O que nossos clientes dizem</h2>
+				<p class="section-subtitle">A satisfação de nossos clientes é o nosso maior orgulho</p>
+				
+				<div class="testimonials-slider">
+					<div class="testimonial">
+						<div class="testimonial-content">
+							<p>"A AAS Transportes tem sido uma parceira fundamental para o crescimento da nossa empresa. A pontualidade nas entregas e o cuidado com as mercadorias são diferenciais que fazem toda a diferença."</p>
+						</div>
+						<div class="testimonial-author">
+							<img src="/images/client-1.jpg" alt="João Silva" />
+							<div class="author-info">
+								<h4>João Silva</h4>
+								<p>Diretor Comercial - Empresa ABC</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="testimonial">
+						<div class="testimonial-content">
+							<p>"Desde que começamos a trabalhar com a AAS Transportes, os problemas com atrasos e avarias nas cargas praticamente desapareceram. Recomendo fortemente os serviços desta empresa."</p>
+						</div>
+						<div class="testimonial-author">
+							<img src="/images/client-2.jpg" alt="Maria Oliveira" />
+							<div class="author-info">
+								<h4>Maria Oliveira</h4>
+								<p>Gerente de Logística - Empresa XYZ</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="testimonial">
+						<div class="testimonial-content">
+							<p>"O atendimento personalizado e a flexibilidade da AAS Transportes foram fundamentais para atender às necessidades específicas da nossa empresa. Uma parceria que deu certo!"</p>
+						</div>
+						<div class="testimonial-author">
+							<img src="/images/client-3.jpg" alt="Carlos Santos" />
+							<div class="author-info">
+								<h4>Carlos Santos</h4>
+								<p>CEO - Empresa 123</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- CTA -->
+		<section class="cta">
+			<div class="container">
+				<h2>Pronto para otimizar a logística do seu negócio?</h2>
+				<p>Entre em contato conosco e descubra como a AAS Transportes pode ajudar sua empresa a crescer.</p>
+				<a href="/contato" class="btn btn-large">Solicite um orçamento</a>
+			</div>
+		</section>
+		
+		<!-- Clientes -->
+		<section class="clients">
+			<div class="container">
+				<h2 class="section-title">Nossos Clientes</h2>
+				<p class="section-subtitle">Empresas que confiam na AAS Transportes</p>
+				
+				<div class="clients-grid">
+					<!-- Substitua pelos logos reais dos clientes -->
+					<div class="client-logo"><img src="/images/client-logo-1.png" alt="Cliente 1" /></div>
+					<div class="client-logo"><img src="/images/client-logo-2.png" alt="Cliente 2" /></div>
+					<div class="client-logo"><img src="/images/client-logo-3.png" alt="Cliente 3" /></div>
+					<div class="client-logo"><img src="/images/client-logo-4.png" alt="Cliente 4" /></div>
+					<div class="client-logo"><img src="/images/client-logo-5.png" alt="Cliente 5" /></div>
+					<div class="client-logo"><img src="/images/client-logo-6.png" alt="Cliente 6" /></div>
+				</div>
+			</div>
+		</section>
+		
 		<Footer />
 	</body>
 </html>
+
+<style>
+	/* Estilos Gerais */
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+	
+	.section-title {
+		font-size: 2.5rem;
+		color: var(--primary);
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+	
+	.section-subtitle {
+		font-size: 1.2rem;
+		color: var(--text-light);
+		text-align: center;
+		margin-bottom: 3rem;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	section {
+		padding: 5rem 0;
+	}
+	
+	.btn {
+		display: inline-block;
+		padding: 0.8rem 1.5rem;
+		border-radius: 4px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+	
+	.btn-primary {
+		background-color: var(--primary);
+		color: white;
+	}
+	
+	.btn-primary:hover {
+		background-color: var(--primary-dark);
+	}
+	
+	.btn-secondary {
+		background-color: transparent;
+		color: var(--primary);
+		border: 2px solid var(--primary);
+	}
+	
+	.btn-secondary:hover {
+		background-color: var(--primary);
+		color: white;
+	}
+	
+	.btn-large {
+		padding: 1rem 2rem;
+		font-size: 1.1rem;
+	}
+	
+	/* Hero Section */
+	.hero {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/hero-bg.jpg');
+		background-size: cover;
+		background-position: center;
+		color: white;
+		text-align: center;
+		padding: 8rem 1rem;
+		margin-top: -2rem; /* Ajuste conforme necessário para alinhar com o header */
+	}
+	
+	.hero-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	
+	.hero h1 {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+		line-height: 1.2;
+	}
+	
+	.hero p {
+		font-size: 1.5rem;
+		margin-bottom: 2rem;
+	}
+	
+	.hero-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+	}
+	
+	/* Serviços */
+	.services {
+		background-color: var(--background-light);
+	}
+	
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+	
+	.service-card {
+		background-color: white;
+		border-radius: 8px;
+		padding: 2rem;
+		box-shadow: var(--box-shadow);
+		transition: transform 0.3s ease;
+	}
+	
+	.service-card:hover {
+		transform: translateY(-10px);
+	}
+	
+	.service-icon {
+		color: var(--primary);
+		margin-bottom: 1.5rem;
+	}
+	
+	.service-card h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		color: var(--primary);
+	}
+	
+	.service-link {
+		display: inline-block;
+		margin-top: 1rem;
+		color: var(--primary);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	
+	.service-link:hover {
+		text-decoration: underline;
+	}
+	
+	/* Por que escolher */
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+	
+	.feature {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	
+	.feature-icon {
+		color: var(--primary);
+		margin-bottom: 1rem;
+	}
+	
+	.feature h3 {
+		font-size: 1.3rem;
+		margin-bottom: 0.5rem;
+		color: var(--primary);
+	}
+	
+	/* Frota */
+	.fleet {
+		background-color: var(--background-light);
+	}
+	
+	.fleet-slider {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-bottom: 3rem;
+	}
+	
+	.fleet-item {
+		background-color: white;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: var(--box-shadow);
+	}
+	
+	.fleet-item img {
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+	}
+	
+	.fleet-item h3 {
+		padding: 1.5rem 1.5rem 0.5rem;
+		font-size: 1.3rem;
+		color: var(--primary);
+	}
+	
+	.fleet-item p {
+		padding: 0 1.5rem 1.5rem;
+	}
+	
+	.fleet-cta {
+		text-align: center;
+		margin-top: 2rem;
+	}
+	
+	/* Depoimentos */
+	.testimonials-slider {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+	
+	.testimonial {
+		background-color: white;
+		border-radius: 8px;
+		padding: 2rem;
+		box-shadow: var(--box-shadow);
+	}
+	
+	.testimonial-content {
+		margin-bottom: 1.5rem;
+		font-style: italic;
+	}
+	
+	.testimonial-author {
+		display: flex;
+		align-items: center;
+	}
+	
+	.testimonial-author img {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		object-fit: cover;
+		margin-right: 1rem;
+	}
+	
+	.author-info h4 {
+		margin: 0;
+		font-size: 1.1rem;
+	}
+	
+	.author-info p {
+		margin: 0;
+		font-size: 0.9rem;
+		color: var(--text-lighter);
+	}
+	
+	/* CTA */
+	.cta {
+		background-color: var(--primary);
+		color: white;
+		text-align: center;
+	}
+	
+	.cta h2 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+	
+	.cta p {
+		font-size: 1.2rem;
+		margin-bottom: 2rem;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.cta .btn {
+		background-color: white;
+		color: var(--primary);
+	}
+	
+	.cta .btn:hover {
+		background-color: var(--background-light);
+	}
+	
+	/* Clientes */
+	.clients-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 2rem;
+		align-items: center;
+	}
+	
+	.client-logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1.5rem;
+		background-color: white;
+		border-radius: 8px;
+		box-shadow: var(--box-shadow);
+		transition: transform 0.3s ease;
+	}
+	
+	.client-logo:hover {
+		transform: scale(1.05);
+	}
+	
+	.client-logo img {
+		max-width: 100%;
+		max-height: 80px;
+		filter: grayscale(100%);
+		transition: filter 0.3s ease;
+	}
+	
+	.client-logo:hover img {
+		filter: grayscale(0%);
+	}
+	
+	/* Responsividade */
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2.2rem;
+		}
+		
+		.hero p {
+			font-size: 1.2rem;
+		}
+		
+		.hero-buttons {
+			flex-direction: column;
+			gap: 1rem;
+		}
+		
+		.section-title {
+			font-size: 2rem;
+		}
+		
+		.cta h2 {
+			font-size: 2rem;
+		}
+	}
+</style>
