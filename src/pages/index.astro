@@ -319,6 +319,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 </html>
 
 <style>
+	:root {
+    --primary: #003366;
+    --primary-dark: #002244;
+    --background-light: #f8f9fa;
+    --text-light: #555;
+    --text-lighter: #888;
+    --box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
 	/* Estilos Gerais */
 	.container {
 		max-width: 1200px;
@@ -430,6 +439,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		display: flex;
 		gap: 1rem;
 		justify-content: center;
+		flex-wrap: wrap; /* Adicione esta linha para garantir que os botões não sumam em telas pequenas */
 	}
 	
 	/* Serviços */
@@ -661,6 +671,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		.hero-buttons {
 			flex-direction: column;
 			gap: 1rem;
+			align-items: center; /* Centraliza os botões na vertical em telas pequenas */
 		}
 		
 		.section-title {
