@@ -1,0 +1,132 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <BaseHead title="Motoristas - AAS Transportes" description="Conheça alguns dos motoristas especializados da AAS Transportes" />
+  </head>
+  <body>
+    <Header />
+
+    <section class="drivers">
+      <div class="container">
+        <h1 class="section-title">Nossos Motoristas</h1>
+        <p class="section-subtitle">
+          Profissionais experientes, treinados e certificados para garantir segurança e eficiência no transporte de cargas especiais, containers, alto valor agregado e transporte com escolta.
+        </p>
+        <div class="drivers-grid">
+          <div class="driver-card">
+            <img src="/images/motorista-joao.jpg" alt="João Batista" class="driver-photo" />
+            <h3>João Batista</h3>
+            <p><strong>Especialidade:</strong> Cargas Excedentes e Equipamentos Sensíveis</p>
+            <p>
+              Mais de 15 anos de experiência em transporte rodoviário de cargas especiais. Certificado para condução de veículos extrapesados e treinado em Road Survey e planejamento de rotas complexas.
+            </p>
+            <ul>
+              <li>CNH E</li>
+              <li>Curso MOPP</li>
+              <li>Treinamento em cargas excedentes</li>
+            </ul>
+          </div>
+          <div class="driver-card">
+            <img src="/images/motorista-maria.jpg" alt="Maria Oliveira" class="driver-photo" />
+            <h3>Maria Oliveira</h3>
+            <p><strong>Especialidade:</strong> Containers Flat Rack / Open Top e Alto Valor Agregado</p>
+            <p>
+              Atuando há mais de 10 anos no transporte de containers especiais e cargas de alto valor. Possui certificação em segurança de cargas e experiência em monitoramento e protocolos especiais.
+            </p>
+            <ul>
+              <li>CNH E</li>
+              <li>Curso de Segurança de Cargas</li>
+              <li>Experiência internacional em transporte de containers</li>
+            </ul>
+          </div>
+          <div class="driver-card">
+            <img src="/images/motorista-carlos.jpg" alt="Carlos Souza" class="driver-photo" />
+            <h3>Carlos Souza</h3>
+            <p><strong>Especialidade:</strong> Transporte com Escolta e Operações de Alto Risco</p>
+            <p>
+              Profissional certificado pela PRF para operações com escolta, com ampla experiência em cargas de alto risco e gerenciamento de comboios. Segue rigorosamente as normas do Manual de Procedimentos Operacionais (MPO).
+            </p>
+            <ul>
+              <li>CNH E</li>
+              <li>Certificação PRF para escolta</li>
+              <li>Treinamento em gerenciamento de riscos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.section-title {
+  font-size: 2.5rem;
+  color: var(--primary, #003366);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light, #555);
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.drivers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+.driver-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  text-align: center;
+  transition: transform 0.3s;
+}
+.driver-card:hover {
+  transform: translateY(-8px);
+}
+.driver-photo {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #00336622;
+}
+.driver-card h3 {
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+.driver-card ul {
+  list-style: disc;
+  margin: 1rem 0 0 1.2rem;
+  text-align: left;
+  color: #333;
+}
+.driver-card li {
+  margin-bottom: 0.3rem;
+}
+@media (max-width: 768px) {
+  .drivers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
