@@ -8,8 +8,26 @@ import Layout from '../layouts/BlogPost.astro';
 >
     <h2>Roteiros Atendidos</h2>
     <p class="intro-text">
-        A AAS Transportes oferece soluções logísticas completas para as principais cidades e polos industriais das regiões Sul e Sudoeste do Brasil. Atendemos demandas de transporte de cargas especiais, containers, alto valor agregado e equipamentos sensíveis, sempre com segurança, pontualidade e eficiência.
+        Atuamos estrategicamente nas principais regiões do Sul e Sudoeste do Brasil, conectando polos industriais, portos e centros logísticos com agilidade, segurança e excelência. Nossa experiência garante soluções sob medida para cada necessidade de transporte.
     </p>
+
+    <div class="highlights">
+        <div class="highlight-card">
+            <span class="highlight-icon">🚚</span>
+            <h4>Atuação Regional Especializada</h4>
+            <p>Conhecimento profundo das rotas e demandas locais, proporcionando entregas mais rápidas e seguras.</p>
+        </div>
+        <div class="highlight-card">
+            <span class="highlight-icon">⚓</span>
+            <h4>Integração com Portos</h4>
+            <p>Operação eficiente nos principais portos do Sul e Sudeste, facilitando importação e exportação.</p>
+        </div>
+        <div class="highlight-card">
+            <span class="highlight-icon">📦</span>
+            <h4>Flexibilidade de Destinos</h4>
+            <p>Atendemos desde grandes centros urbanos até cidades do interior, adaptando a logística à sua necessidade.</p>
+        </div>
+    </div>
 
     <div class="routes-section">
         <h3>Principais Estados Atendidos</h3>
@@ -26,49 +44,205 @@ import Layout from '../layouts/BlogPost.astro';
 
     <div class="routes-section">
         <h3>Cidades e Polos de Destaque</h3>
-        <ul class="cities-list">
-            <li>Curitiba, Londrina, Maringá, Cascavel, Ponta Grossa (PR)</li>
-            <li>Joinville, Itajaí, Blumenau, Chapecó, Florianópolis (SC)</li>
-            <li>Porto Alegre, Caxias do Sul, Canoas, Passo Fundo, Pelotas (RS)</li>
-            <li>São Paulo, Campinas, Sorocaba, Ribeirão Preto, São José dos Campos (SP)</li>
-            <li>Belo Horizonte, Uberlândia, Contagem, Juiz de Fora (MG)</li>
-            <li>Campo Grande, Dourados, Três Lagoas (MS)</li>
-            <li>Goiânia, Anápolis, Rio Verde (GO)</li>
-        </ul>
+        <div class="cities-grid">
+            <div>
+                <strong>Paraná</strong>
+                <ul>
+                    <li>Curitiba</li>
+                    <li>Londrina</li>
+                    <li>Maringá</li>
+                    <li>Cascavel</li>
+                    <li>Ponta Grossa</li>
+                </ul>
+            </div>
+            <div>
+                <strong>Santa Catarina</strong>
+                <ul>
+                    <li>Joinville</li>
+                    <li>Itajaí</li>
+                    <li>Blumenau</li>
+                    <li>Chapecó</li>
+                    <li>Florianópolis</li>
+                </ul>
+            </div>
+            <div>
+                <strong>Rio Grande do Sul</strong>
+                <ul>
+                    <li>Porto Alegre</li>
+                    <li>Caxias do Sul</li>
+                    <li>Canoas</li>
+                    <li>Passo Fundo</li>
+                    <li>Pelotas</li>
+                </ul>
+            </div>
+            <div>
+                <strong>São Paulo</strong>
+                <ul>
+                    <li>São Paulo</li>
+                    <li>Campinas</li>
+                    <li>Sorocaba</li>
+                    <li>Ribeirão Preto</li>
+                    <li>São José dos Campos</li>
+                </ul>
+            </div>
+            <div>
+                <strong>Minas Gerais</strong>
+                <ul>
+                    <li>Belo Horizonte</li>
+                    <li>Uberlândia</li>
+                    <li>Contagem</li>
+                    <li>Juiz de Fora</li>
+                </ul>
+            </div>
+            <div>
+                <strong>Mato Grosso do Sul</strong>
+                <ul>
+                    <li>Campo Grande</li>
+                    <li>Dourados</li>
+                    <li>Três Lagoas</li>
+                </ul>
+            </div>
+            <div>
+                <strong>Goiás</strong>
+                <ul>
+                    <li>Goiânia</li>
+                    <li>Anápolis</li>
+                    <li>Rio Verde</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <div class="routes-section">
         <h3>Portos e Terminais Atendidos</h3>
-        <ul class="ports-list">
-            <li>Porto de Paranaguá (PR)</li>
-            <li>Porto de Itajaí e Navegantes (SC)</li>
-            <li>Porto de Rio Grande (RS)</li>
-            <li>Porto de Santos (SP)</li>
-            <li>Terminais intermodais e retroportuários em toda a região</li>
-        </ul>
+        <div class="ports-list">
+            <div class="port-card">
+                <span class="port-icon">🛳️</span>
+                <div>
+                    <strong>Porto de Paranaguá (PR)</strong><br>
+                    <span>Exportação e importação de cargas gerais e especiais</span>
+                </div>
+            </div>
+            <div class="port-card">
+                <span class="port-icon">🛳️</span>
+                <div>
+                    <strong>Porto de Itajaí e Navegantes (SC)</strong><br>
+                    <span>Operação ágil para containers e cargas projeto</span>
+                </div>
+            </div>
+            <div class="port-card">
+                <span class="port-icon">🛳️</span>
+                <div>
+                    <strong>Porto de Rio Grande (RS)</strong><br>
+                    <span>Atendimento a cargas industriais e agrícolas</span>
+                </div>
+            </div>
+            <div class="port-card">
+                <span class="port-icon">🛳️</span>
+                <div>
+                    <strong>Porto de Santos (SP)</strong><br>
+                    <span>Integração com o maior porto da América Latina</span>
+                </div>
+            </div>
+            <div class="port-card">
+                <span class="port-icon">🚢</span>
+                <div>
+                    <strong>Terminais Intermodais</strong><br>
+                    <span>Retroportuários e centros logísticos em toda a região</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="cta-section">
         <h3>Precisa de transporte para outro destino?</h3>
-        <p>Entre em contato e consulte a disponibilidade para outras regiões do Brasil.</p>
+        <p>Entre em contato e consulte a disponibilidade para outras regiões do Brasil. Nossa equipe está pronta para criar a melhor solução logística para sua empresa.</p>
         <a href="/contato" class="cta-button">Solicitar Cotação</a>
     </div>
 </Layout>
 
 <style>
     .intro-text {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        margin-bottom: 2rem;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        margin-bottom: 2.2rem;
+        color: #003366;
+        text-align: center;
+    }
+    .highlights {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+        flex-wrap: wrap;
+    }
+    .highlight-card {
+        background: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        padding: 1.5rem 1.2rem;
+        max-width: 270px;
+        min-width: 220px;
+        text-align: center;
+        flex: 1 1 220px;
+        transition: transform 0.2s;
+    }
+    .highlight-card:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+    }
+    .highlight-icon {
+        font-size: 2.2rem;
+        display: block;
+        margin-bottom: 0.7rem;
     }
     .routes-section {
         margin-bottom: 2.5rem;
     }
-    .states-list, .cities-list, .ports-list {
+    .states-list {
         list-style: disc inside;
         margin: 1rem 0 0 1rem;
         padding: 0;
         font-size: 1.08rem;
+        columns: 2;
+        max-width: 400px;
+    }
+    .cities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.2rem;
+    }
+    .cities-grid strong {
+        color: #003366;
+        font-size: 1.08rem;
+    }
+    .cities-grid ul {
+        margin: 0.3rem 0 0 1rem;
+        padding: 0;
+        font-size: 1rem;
+        list-style: disc inside;
+    }
+    .ports-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 1.2rem;
+    }
+    .port-card {
+        background: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        padding: 1rem 1.2rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        min-width: 230px;
+        flex: 1 1 230px;
+    }
+    .port-icon {
+        font-size: 2rem;
+        margin-top: 0.2rem;
     }
     .cta-section {
         margin-top: 3rem;
@@ -91,5 +265,14 @@ import Layout from '../layouts/BlogPost.astro';
     }
     .cta-button:hover {
         background-color: #e68a00;
+    }
+    @media (max-width: 900px) {
+        .highlights, .ports-list {
+            flex-direction: column;
+            align-items: center;
+        }
+        .cities-grid {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
