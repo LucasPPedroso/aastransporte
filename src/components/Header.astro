@@ -6,10 +6,21 @@ import { SITE_TITLE } from '../consts';
 <header>
 	<div class="header-container">
 		<div class="logo-container">
-			<a href="/" class="logo">
-				<span class="logo-text">AAS Transportes</span>
-			</a>
-		</div>
+            <a href="/" class="logo">
+                <span class="logo-truck">
+                    <svg class="truck-anim" width="48" height="28" viewBox="0 0 48 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="12" width="22" height="10" rx="2" fill="#FF9900" stroke="#003366" stroke-width="2"/>
+                        <rect x="24" y="16" width="12" height="6" rx="1.5" fill="#003366" stroke="#003366" stroke-width="2"/>
+                        <rect x="36" y="10" width="10" height="12" rx="2" fill="#fff" stroke="#003366" stroke-width="2"/>
+                        <circle cx="10" cy="24" r="3" fill="#fff" stroke="#003366" stroke-width="2"/>
+                        <circle cx="34" cy="24" r="3" fill="#fff" stroke="#003366" stroke-width="2"/>
+                        <circle cx="42" cy="24" r="3" fill="#fff" stroke="#003366" stroke-width="2"/>
+                        <rect x="38" y="14" width="4" height="4" rx="1" fill="#FF9900"/>
+                    </svg>
+                </span>
+                <span class="logo-text">AAS Transportes</span>
+            </a>
+        </div>
 		
 		<input type="checkbox" id="menu-toggle" class="menu-toggle" />
 		<label for="menu-toggle" class="menu-button">
@@ -24,6 +35,7 @@ import { SITE_TITLE } from '../consts';
 				<HeaderLink href="/solucoes">Soluções</HeaderLink>
 				<HeaderLink href="/frota">Nossa Frota</HeaderLink>
 				<HeaderLink href="/servicos">Serviços</HeaderLink>
+				<HeaderLink href="/motoristas">Motoristas</HeaderLink>
 				<HeaderLink href="/sobre">Sobre Nós</HeaderLink>
 				<HeaderLink href="/contato" class="contact-button">Contato</HeaderLink>
 			</div>
@@ -59,25 +71,29 @@ import { SITE_TITLE } from '../consts';
 	}
 	
 	.logo-container {
-		flex: 1;
-	}
-	
-	.logo {
-		display: flex;
-		align-items: center;
-		text-decoration: none;
-	}
-	
-	.logo-text {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: #003366;
-		margin-left: 0.5rem;
-	}
-	
-	.main-nav {
-		flex: 2;
-	}
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.logo-truck {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+.truck-anim {
+    animation: truck-move 2.5s cubic-bezier(.6,.1,.4,1) infinite;
+}
+@keyframes truck-move {
+    0% { transform: translateX(-10px); }
+    10% { transform: translateX(0); }
+    90% { transform: translateX(0); }
+    100% { transform: translateX(-10px); }
+}
 	
 	.nav-links {
 		display: flex;
