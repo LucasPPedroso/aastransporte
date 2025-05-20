@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+    title="Roteiros Atendidos - AAS Transportes"
+    description="Conheça as principais regiões e cidades atendidas pela AAS Transportes no Sul e Sudoeste do Brasil"
+>
+    <h2>Roteiros Atendidos</h2>
+    <p class="intro-text">
+        A AAS Transportes oferece soluções logísticas completas para as principais cidades e polos industriais das regiões Sul e Sudoeste do Brasil. Atendemos demandas de transporte de cargas especiais, containers, alto valor agregado e equipamentos sensíveis, sempre com segurança, pontualidade e eficiência.
+    </p>
+
+    <div class="routes-section">
+        <h3>Principais Estados Atendidos</h3>
+        <ul class="states-list">
+            <li>Paraná</li>
+            <li>Santa Catarina</li>
+            <li>Rio Grande do Sul</li>
+            <li>São Paulo</li>
+            <li>Minas Gerais</li>
+            <li>Mato Grosso do Sul</li>
+            <li>Goiás</li>
+        </ul>
+    </div>
+
+    <div class="routes-section">
+        <h3>Cidades e Polos de Destaque</h3>
+        <ul class="cities-list">
+            <li>Curitiba, Londrina, Maringá, Cascavel, Ponta Grossa (PR)</li>
+            <li>Joinville, Itajaí, Blumenau, Chapecó, Florianópolis (SC)</li>
+            <li>Porto Alegre, Caxias do Sul, Canoas, Passo Fundo, Pelotas (RS)</li>
+            <li>São Paulo, Campinas, Sorocaba, Ribeirão Preto, São José dos Campos (SP)</li>
+            <li>Belo Horizonte, Uberlândia, Contagem, Juiz de Fora (MG)</li>
+            <li>Campo Grande, Dourados, Três Lagoas (MS)</li>
+            <li>Goiânia, Anápolis, Rio Verde (GO)</li>
+        </ul>
+    </div>
+
+    <div class="routes-section">
+        <h3>Portos e Terminais Atendidos</h3>
+        <ul class="ports-list">
+            <li>Porto de Paranaguá (PR)</li>
+            <li>Porto de Itajaí e Navegantes (SC)</li>
+            <li>Porto de Rio Grande (RS)</li>
+            <li>Porto de Santos (SP)</li>
+            <li>Terminais intermodais e retroportuários em toda a região</li>
+        </ul>
+    </div>
+
+    <div class="cta-section">
+        <h3>Precisa de transporte para outro destino?</h3>
+        <p>Entre em contato e consulte a disponibilidade para outras regiões do Brasil.</p>
+        <a href="/contato" class="cta-button">Solicitar Cotação</a>
+    </div>
+</Layout>
+
+<style>
+    .intro-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+    .routes-section {
+        margin-bottom: 2.5rem;
+    }
+    .states-list, .cities-list, .ports-list {
+        list-style: disc inside;
+        margin: 1rem 0 0 1rem;
+        padding: 0;
+        font-size: 1.08rem;
+    }
+    .cta-section {
+        margin-top: 3rem;
+        padding: 2rem;
+        text-align: center;
+        background-color: #003366;
+        color: white;
+        border-radius: 8px;
+    }
+    .cta-button {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.8rem 1.5rem;
+        background-color: #FF9900;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #e68a00;
+    }
+</style>

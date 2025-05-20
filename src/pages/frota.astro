@@ -105,25 +105,6 @@ import Layout from '../layouts/BlogPost.astro';
         </div>
     </div>
     
-    <div class="fleet-stats">
-        <div class="stat-item">
-            <span class="stat-number">50+</span>
-            <span class="stat-label">Veículos</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Rastreados</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">3</span>
-            <span class="stat-label">Anos de idade média</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">24h</span>
-            <span class="stat-label">Monitoramento</span>
-        </div>
-    </div>
-    
     <div class="maintenance-section">
         <h3>Manutenção e Segurança</h3>
         <p>
@@ -174,33 +155,6 @@ import Layout from '../layouts/BlogPost.astro';
         padding: 0 1rem 1rem 2rem;
     }
     
-    .fleet-stats {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin: 3rem 0;
-        padding: 2rem;
-        background-color: #003366;
-        border-radius: 8px;
-        color: white;
-    }
-    
-    .stat-item {
-        text-align: center;
-        padding: 1rem;
-    }
-    
-    .stat-number {
-        display: block;
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #FF9900;
-    }
-    
-    .stat-label {
-        font-size: 1.1rem;
-    }
-    
     .maintenance-section {
         margin-top: 2rem;
         padding: 1.5rem;
@@ -217,15 +171,6 @@ import Layout from '../layouts/BlogPost.astro';
     @media (max-width: 768px) {
         .fleet-grid {
             grid-template-columns: 1fr;
-        }
-        
-        .fleet-stats {
-            flex-direction: column;
-        }
-        
-        .stat-item {
-            width: 100%;
-            margin-bottom: 1rem;
         }
     }
 </style>
