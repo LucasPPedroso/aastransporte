@@ -14,17 +14,17 @@ import Footer from '../components/Footer.astro';
 
     <section class="drivers">
       <div class="container">
-        <h1 class="section-title animate-fadein">Nosso Motorista</h1>
+        <h1 class="section-title animate-fadein">Nossos Motoristas</h1>
         <p class="section-subtitle animate-fadein-delay">
-          Conheça Algar Sharneski (Junho), fundador da AAS Transportes e motorista com décadas de experiência em transporte rodoviário de cargas especiais, indivisíveis e perigosas.
+          Conheça Algacir Sharneski (Junho), fundador da AAS Transportes e motorista com décadas de experiência em transporte rodoviário de cargas especiais, indivisíveis e perigosas.
         </p>
         <div class="drivers-grid">
           <div class="driver-card animate-up">
-            <img src="/images/motorista-algar.jpg" alt="Algar Sharneski" class="driver-photo pulse" />
-            <h3>Algar Sharneski (Junho)</h3>
+            <img src="/images/motorista-Algacir.jpg" alt="Algacir Sharneski" class="driver-photo pulse" />
+            <h3>Algacir Sharneski (Junho)</h3>
             <p><strong>Fundador & Motorista Profissional</strong></p>
             <p>
-              Com uma trajetória de muitos anos nas estradas, Algar é referência em segurança, responsabilidade e excelência no transporte de cargas especiais, indivisíveis e perigosas.
+              Com uma trajetória de muitos anos nas estradas, Algacir é referência em segurança, responsabilidade e excelência no transporte de cargas especiais, indivisíveis e perigosas.
             </p>
             <ul class="driver-badges">
               <li title="CNH E">
@@ -144,7 +144,12 @@ import Footer from '../components/Footer.astro';
 .driver-card ul.driver-badges li:hover {
   background: #dbe7f6;
 }
+
+/* MELHORIAS MOBILE */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
   .drivers-grid {
     flex-direction: column;
     align-items: center;
@@ -152,7 +157,27 @@ import Footer from '../components/Footer.astro';
   .driver-card {
     min-width: 0;
     width: 100%;
-    max-width: 100%;
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem;
+  }
+  .section-title {
+    font-size: 1.7rem;
+  }
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .driver-photo {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 0.8rem;
+  }
+  .driver-card h3 {
+    font-size: 1.1rem;
+  }
+  .driver-card ul.driver-badges li {
+    font-size: 0.95rem;
+    padding: 0.3rem 0.6rem;
   }
 }
 
