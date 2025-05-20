@@ -14,305 +14,307 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<Header />
 		
 		<!-- Banner Section -->
-        <section class="banner">
-            <img 
-                src="https://res.cloudinary.com/seu-cloudinary/image/upload/v1680000000/banner-aas.jpg" 
-                alt="Banner AAS Transporte" 
-                class="banner-img"
-            />
-        </section>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Soluções de Transporte e Logística para o seu Negócio</h1>
-                <p>Eficiência, segurança e pontualidade em cada entrega</p>
-                <div class="hero-buttons">
-                    <a href="/solucoes" class="btn btn-primary">Nossas Soluções</a>
-                    <a href="/contato" class="btn btn-secondary">Solicitar Orçamento</a>
+<section class="banner">
+    <img 
+        src="https://images.unsplash.com/vector-1747701136793-af2a33ceae5d?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+        alt="Banner AAS Transporte" 
+        class="banner-img"
+        loading="eager"
+        style="background: #eaeaea;"
+    />
+</section>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Soluções de Transporte e Logística para o seu Negócio</h1>
+        <p>Eficiência, segurança e pontualidade em cada entrega</p>
+        <div class="hero-buttons">
+            <a href="/solucoes" class="btn btn-primary">Nossas Soluções</a>
+            <a href="/contato" class="btn btn-secondary">Solicitar Orçamento</a>
+        </div>
+    </div>
+</section>
+
+<!-- Serviços em Destaque -->
+<section class="services">
+    <div class="container">
+        <h2 class="section-title">Serviços Especializados</h2>
+        <p class="section-subtitle">Conheça nossas principais soluções para cargas especiais e transporte de alto valor</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="1" y="3" width="22" height="13"></rect>
+                        <polygon points="23 16 1 16 6 21 18 21 23 16"></polygon>
+                    </svg>
                 </div>
+                <h3>Cargas Excedentes</h3>
+                <p>Transporte seguro e planejado para cargas com dimensões e pesos acima do padrão.</p>
+                <a href="/servicos#excedentes" class="service-link">Saiba mais</a>
             </div>
-        </section>
-		
-		<!-- Serviços em Destaque -->
-		<section class="services">
-            <div class="container">
-                <h2 class="section-title">Serviços Especializados</h2>
-                <p class="section-subtitle">Conheça nossas principais soluções para cargas especiais e transporte de alto valor</p>
-                
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="1" y="3" width="22" height="13"></rect>
-                                <polygon points="23 16 1 16 6 21 18 21 23 16"></polygon>
-                            </svg>
-                        </div>
-                        <h3>Cargas Excedentes</h3>
-                        <p>Transporte seguro e planejado para cargas com dimensões e pesos acima do padrão.</p>
-                        <a href="/servicos#excedentes" class="service-link">Saiba mais</a>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="7" width="20" height="10" rx="2" ry="2"></rect>
-                                <rect x="5" y="10" width="4" height="4"></rect>
-                                <rect x="15" y="10" width="4" height="4"></rect>
-                            </svg>
-                        </div>
-                        <h3>Container 20’ e 40’ (Flat Rack / Open Top)</h3>
-                        <p>Especialistas no transporte de containers especiais, incluindo Flat Rack e Open Top, para cargas fora do padrão.</p>
-                        <a href="/servicos#container" class="service-link">Saiba mais</a>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <path d="M8 12l2 2 4-4"></path>
-                            </svg>
-                        </div>
-                        <h3>Cargas de Alto Valor Agregado</h3>
-                        <p>Segurança reforçada para transporte de mercadorias de alto valor, com monitoramento e protocolos especiais.</p>
-                        <a href="/servicos#alto-valor" class="service-link">Saiba mais</a>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                                <path d="M9 9h6v6H9z"></path>
-                            </svg>
-                        </div>
-                        <h3>Equipamentos Sensíveis</h3>
-                        <p>Transporte especializado para equipamentos que exigem cuidados extras e proteção contra impactos.</p>
-                        <a href="/servicos#sensiveis" class="service-link">Saiba mais</a>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div>
-                        <h3>Transporte com Escolta</h3>
-                        <p>Serviço de escolta para cargas especiais, garantindo segurança total durante todo o trajeto.</p>
-                        <a href="/servicos#escolta" class="service-link">Saiba mais</a>
-                    </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="10" rx="2" ry="2"></rect>
+                        <rect x="5" y="10" width="4" height="4"></rect>
+                        <rect x="15" y="10" width="4" height="4"></rect>
+                    </svg>
                 </div>
+                <h3>Container 20’ e 40’ (Flat Rack / Open Top)</h3>
+                <p>Especialistas no transporte de containers especiais, incluindo Flat Rack e Open Top, para cargas fora do padrão.</p>
+                <a href="/servicos#container" class="service-link">Saiba mais</a>
             </div>
-        </section>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 12l2 2 4-4"></path>
+                    </svg>
+                </div>
+                <h3>Cargas de Alto Valor Agregado</h3>
+                <p>Segurança reforçada para transporte de mercadorias de alto valor, com monitoramento e protocolos especiais.</p>
+                <a href="/servicos#alto-valor" class="service-link">Saiba mais</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                        <path d="M9 9h6v6H9z"></path>
+                    </svg>
+                </div>
+                <h3>Equipamentos Sensíveis</h3>
+                <p>Transporte especializado para equipamentos que exigem cuidados extras e proteção contra impactos.</p>
+                <a href="/servicos#sensiveis" class="service-link">Saiba mais</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <h3>Transporte com Escolta</h3>
+                <p>Serviço de escolta para cargas especiais, garantindo segurança total durante todo o trajeto.</p>
+                <a href="/servicos#escolta" class="service-link">Saiba mais</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Por que escolher a AAS -->
+<section class="why-choose-us">
+	<div class="container">
+		<h2 class="section-title">Por que escolher a AAS Transportes?</h2>
+		<p class="section-subtitle">Conheça os diferenciais que fazem da AAS Transportes a escolha certa para o seu negócio</p>
 		
-		<!-- Por que escolher a AAS -->
-		<section class="why-choose-us">
-			<div class="container">
-				<h2 class="section-title">Por que escolher a AAS Transportes?</h2>
-				<p class="section-subtitle">Conheça os diferenciais que fazem da AAS Transportes a escolha certa para o seu negócio</p>
-				
-				<div class="features-grid">
-					<div class="feature">
-						<div class="feature-icon">
-							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-								<polyline points="22 4 12 14.01 9 11.01"></polyline>
-							</svg>
-						</div>
-						<h3>Experiência Comprovada</h3>
-						<p>Mais de 10 anos de experiência no mercado de transporte e logística.</p>
-					</div>
-					
-					<div class="feature">
-						<div class="feature-icon">
-							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<circle cx="12" cy="12" r="10"></circle>
-								<polyline points="12 6 12 12 16 14"></polyline>
-							</svg>
-						</div>
-						<h3>Pontualidade</h3>
-						<p>Compromisso com prazos e horários, garantindo a entrega no tempo acordado.</p>
-					</div>
-					
-					<div class="feature">
-						<div class="feature-icon">
-							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-							</svg>
-						</div>
-						<h3>Segurança</h3>
-						<p>Frota moderna com sistemas de segurança avançados e motoristas treinados.</p>
-					</div>
-					
-					<div class="feature">
-						<div class="feature-icon">
-							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-								<circle cx="9" cy="7" r="4"></circle>
-								<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-								<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-							</svg>
-						</div>
-						<h3>Equipe Qualificada</h3>
-						<p>Profissionais capacitados e comprometidos com a excelência no atendimento.</p>
-					</div>
-					
-					<div class="feature">
-						<div class="feature-icon">
-							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-								<line x1="8" y1="21" x2="16" y2="21"></line>
-								<line x1="12" y1="17" x2="12" y2="21"></line>
-							</svg>
-						</div>
-						<h3>Tecnologia Avançada</h3>
-						<p>Sistemas de gestão e rastreamento que garantem eficiência e transparência.</p>
-					</div>
-					
-					<div class="feature">
-						<div class="feature-icon">
-							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-							</svg>
-						</div>
-						<h3>Atendimento Personalizado</h3>
-						<p>Soluções adaptadas às necessidades específicas de cada cliente.</p>
-					</div>
+		<div class="features-grid">
+			<div class="feature">
+				<div class="feature-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+						<polyline points="22 4 12 14.01 9 11.01"></polyline>
+					</svg>
 				</div>
+				<h3>Experiência Comprovada</h3>
+				<p>Mais de 10 anos de experiência no mercado de transporte e logística.</p>
 			</div>
-		</section>
-		
-		<!-- Road Survey e Escolta -->
-        <section class="road-survey-escolta">
-            <div class="container">
-                <h2 class="section-title">Road Survey &amp; Escolta Especializada</h2>
-                <p class="section-subtitle">
-                    Planejamento e gerenciamento completos para operações de transporte de cargas especiais.
+			
+			<div class="feature">
+				<div class="feature-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="12" cy="12" r="10"></circle>
+						<polyline points="12 6 12 12 16 14"></polyline>
+					</svg>
+				</div>
+				<h3>Pontualidade</h3>
+				<p>Compromisso com prazos e horários, garantindo a entrega no tempo acordado.</p>
+			</div>
+			
+			<div class="feature">
+				<div class="feature-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+					</svg>
+				</div>
+				<h3>Segurança</h3>
+				<p>Frota moderna com sistemas de segurança avançados e motoristas treinados.</p>
+			</div>
+			
+			<div class="feature">
+				<div class="feature-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+						<circle cx="9" cy="7" r="4"></circle>
+						<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+						<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+					</svg>
+				</div>
+				<h3>Equipe Qualificada</h3>
+				<p>Profissionais capacitados e comprometidos com a excelência no atendimento.</p>
+			</div>
+			
+			<div class="feature">
+				<div class="feature-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+						<line x1="8" y1="21" x2="16" y2="21"></line>
+						<line x1="12" y1="17" x2="12" y2="21"></line>
+					</svg>
+				</div>
+				<h3>Tecnologia Avançada</h3>
+				<p>Sistemas de gestão e rastreamento que garantem eficiência e transparência.</p>
+			</div>
+			
+			<div class="feature">
+				<div class="feature-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+					</svg>
+				</div>
+				<h3>Atendimento Personalizado</h3>
+				<p>Soluções adaptadas às necessidades específicas de cada cliente.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Road Survey e Escolta -->
+<section class="road-survey-escolta">
+    <div class="container">
+        <h2 class="section-title">Road Survey &amp; Escolta Especializada</h2>
+        <p class="section-subtitle">
+            Planejamento e gerenciamento completos para operações de transporte de cargas especiais.
+        </p>
+        <div class="features-grid">
+            <div class="feature">
+                <h3>Road Survey - Planejamento e Gerenciamento</h3>
+                <p>
+                    Realizamos estudos detalhados de rota, análise de viabilidade e gerenciamento de todo o percurso para garantir a segurança e eficiência do transporte.
                 </p>
-                <div class="features-grid">
-                    <div class="feature">
-                        <h3>Road Survey - Planejamento e Gerenciamento</h3>
-                        <p>
-                            Realizamos estudos detalhados de rota, análise de viabilidade e gerenciamento de todo o percurso para garantir a segurança e eficiência do transporte.
-                        </p>
-                    </div>
-                    <div class="feature">
-                        <h3>Escolta Especializada</h3>
-                        <p>
-                            Além de proteger a carga, nosso serviço de escolta para cargas especiais assegura a segurança durante toda a jornada. O número de veículos de escolta pode variar com base em fatores como rota, tipo de pista (simples ou dupla) e dimensões da carga.
-                            <br /><br />
-                            Temos certificação da Polícia Rodoviária Federal (PRF) e seguimos as diretrizes do Manual de Procedimentos Operacionais (MPO), que regulamenta o credenciamento, operação e fiscalização desses serviços.
-                        </p>
-                    </div>
-                </div>
             </div>
-        </section>
-		
-		<!-- Frota -->
-		<section class="fleet">
-            <div class="container">
-                <h2 class="section-title">Nossa Frota</h2>
-                <p class="section-subtitle">Veículos leves, pesados e extrapesados, com tração e equipamentos para todo tipo de carga</p>
-                
-                <div class="fleet-slider">
-                    <div class="fleet-item">
-                        <img src="/images/truck-1.jpg" alt="Truck / Cavalos Mecânicos" />
-                        <h3>Truck / Cavalos Mecânicos</h3>
-                        <p>4×2 / 6×2 / 6×4 – Versatilidade para diferentes demandas de transporte.</p>
-                    </div>
-                    <div class="fleet-item">
-                        <img src="/images/truck-2.jpg" alt="Carreta Convencional e Prancha" />
-                        <h3>Carreta Convencional e Prancha</h3>
-                        <p>Prancha 3, 4 eixos, Super Rebaixada, Extensiva e Pescoço Removível. Equipamentos com porta container 20 e 40 pés.</p>
-                    </div>
-                    <div class="fleet-item">
-                        <img src="/images/truck-3.jpg" alt="Semi Reboque / Equipamentos" />
-                        <h3>Semi Reboque / Equipamentos</h3>
-                        <p>Estrutura adequada para cargas excedentes e especiais, com máxima segurança e eficiência.</p>
-                    </div>
-                </div>
-                
-                <div class="fleet-cta">
-                    <a href="/nossa-frota" class="btn btn-primary">Conheça toda nossa frota</a>
-                </div>
+            <div class="feature">
+                <h3>Escolta Especializada</h3>
+                <p>
+                    Além de proteger a carga, nosso serviço de escolta para cargas especiais assegura a segurança durante toda a jornada. O número de veículos de escolta pode variar com base em fatores como rota, tipo de pista (simples ou dupla) e dimensões da carga.
+                    <br /><br />
+                    Temos certificação da Polícia Rodoviária Federal (PRF) e seguimos as diretrizes do Manual de Procedimentos Operacionais (MPO), que regulamenta o credenciamento, operação e fiscalização desses serviços.
+                </p>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
+
+<!-- Frota -->
+<section class="fleet">
+    <div class="container">
+        <h2 class="section-title">Nossa Frota</h2>
+        <p class="section-subtitle">Veículos leves, pesados e extrapesados, com tração e equipamentos para todo tipo de carga</p>
+        
+        <div class="fleet-slider">
+            <div class="fleet-item">
+                <img src="/images/truck-1.jpg" alt="Truck / Cavalos Mecânicos" />
+                <h3>Truck / Cavalos Mecânicos</h3>
+                <p>4×2 / 6×2 / 6×4 – Versatilidade para diferentes demandas de transporte.</p>
+            </div>
+            <div class="fleet-item">
+                <img src="/images/truck-2.jpg" alt="Carreta Convencional e Prancha" />
+                <h3>Carreta Convencional e Prancha</h3>
+                <p>Prancha 3, 4 eixos, Super Rebaixada, Extensiva e Pescoço Removível. Equipamentos com porta container 20 e 40 pés.</p>
+            </div>
+            <div class="fleet-item">
+                <img src="/images/truck-3.jpg" alt="Semi Reboque / Equipamentos" />
+                <h3>Semi Reboque / Equipamentos</h3>
+                <p>Estrutura adequada para cargas excedentes e especiais, com máxima segurança e eficiência.</p>
+            </div>
+        </div>
+        
+        <div class="fleet-cta">
+            <a href="/nossa-frota" class="btn btn-primary">Conheça toda nossa frota</a>
+        </div>
+    </div>
+</section>
+
+<!-- Depoimentos -->
+<section class="testimonials">
+	<div class="container">
+		<h2 class="section-title">O que nossos clientes dizem</h2>
+		<p class="section-subtitle">A satisfação de nossos clientes é o nosso maior orgulho</p>
 		
-		<!-- Depoimentos -->
-		<section class="testimonials">
-			<div class="container">
-				<h2 class="section-title">O que nossos clientes dizem</h2>
-				<p class="section-subtitle">A satisfação de nossos clientes é o nosso maior orgulho</p>
-				
-				<div class="testimonials-slider">
-					<div class="testimonial">
-						<div class="testimonial-content">
-							<p>"A AAS Transportes tem sido uma parceira fundamental para o crescimento da nossa empresa. A pontualidade nas entregas e o cuidado com as mercadorias são diferenciais que fazem toda a diferença."</p>
-						</div>
-						<div class="testimonial-author">
-							<img src="/images/client-1.jpg" alt="João Silva" />
-							<div class="author-info">
-								<h4>João Silva</h4>
-								<p>Diretor Comercial - Empresa ABC</p>
-							</div>
-						</div>
-					</div>
-					
-					<div class="testimonial">
-						<div class="testimonial-content">
-							<p>"Desde que começamos a trabalhar com a AAS Transportes, os problemas com atrasos e avarias nas cargas praticamente desapareceram. Recomendo fortemente os serviços desta empresa."</p>
-						</div>
-						<div class="testimonial-author">
-							<img src="/images/client-2.jpg" alt="Maria Oliveira" />
-							<div class="author-info">
-								<h4>Maria Oliveira</h4>
-								<p>Gerente de Logística - Empresa XYZ</p>
-							</div>
-						</div>
-					</div>
-					
-					<div class="testimonial">
-						<div class="testimonial-content">
-							<p>"O atendimento personalizado e a flexibilidade da AAS Transportes foram fundamentais para atender às necessidades específicas da nossa empresa. Uma parceria que deu certo!"</p>
-						</div>
-						<div class="testimonial-author">
-							<img src="/images/client-3.jpg" alt="Carlos Santos" />
-							<div class="author-info">
-								<h4>Carlos Santos</h4>
-								<p>CEO - Empresa 123</p>
-							</div>
-						</div>
+		<div class="testimonials-slider">
+			<div class="testimonial">
+				<div class="testimonial-content">
+					<p>"A AAS Transportes tem sido uma parceira fundamental para o crescimento da nossa empresa. A pontualidade nas entregas e o cuidado com as mercadorias são diferenciais que fazem toda a diferença."</p>
+				</div>
+				<div class="testimonial-author">
+					<img src="/images/client-1.jpg" alt="João Silva" />
+					<div class="author-info">
+						<h4>João Silva</h4>
+						<p>Diretor Comercial - Empresa ABC</p>
 					</div>
 				</div>
 			</div>
-		</section>
-		
-		<!-- CTA -->
-		<section class="cta">
-			<div class="container">
-				<h2>Pronto para otimizar a logística do seu negócio?</h2>
-				<p>Entre em contato conosco e descubra como a AAS Transportes pode ajudar sua empresa a crescer.</p>
-				<a href="/contato" class="btn btn-large">Solicite um orçamento</a>
-			</div>
-		</section>
-		
-		<!-- Clientes -->
-		<section class="clients">
-			<div class="container">
-				<h2 class="section-title">Nossos Clientes</h2>
-				<p class="section-subtitle">Empresas que confiam na AAS Transportes</p>
-				
-				<div class="clients-grid">
-					<!-- Substitua pelos logos reais dos clientes -->
-					<div class="client-logo"><img src="/images/client-logo-1.png" alt="Cliente 1" /></div>
-					<div class="client-logo"><img src="/images/client-logo-2.png" alt="Cliente 2" /></div>
-					<div class="client-logo"><img src="/images/client-logo-3.png" alt="Cliente 3" /></div>
-					<div class="client-logo"><img src="/images/client-logo-4.png" alt="Cliente 4" /></div>
-					<div class="client-logo"><img src="/images/client-logo-5.png" alt="Cliente 5" /></div>
-					<div class="client-logo"><img src="/images/client-logo-6.png" alt="Cliente 6" /></div>
+			
+			<div class="testimonial">
+				<div class="testimonial-content">
+					<p>"Desde que começamos a trabalhar com a AAS Transportes, os problemas com atrasos e avarias nas cargas praticamente desapareceram. Recomendo fortemente os serviços desta empresa."</p>
+				</div>
+				<div class="testimonial-author">
+					<img src="/images/client-2.jpg" alt="Maria Oliveira" />
+					<div class="author-info">
+						<h4>Maria Oliveira</h4>
+						<p>Gerente de Logística - Empresa XYZ</p>
+					</div>
 				</div>
 			</div>
-		</section>
+			
+			<div class="testimonial">
+				<div class="testimonial-content">
+					<p>"O atendimento personalizado e a flexibilidade da AAS Transportes foram fundamentais para atender às necessidades específicas da nossa empresa. Uma parceria que deu certo!"</p>
+				</div>
+				<div class="testimonial-author">
+					<img src="/images/client-3.jpg" alt="Carlos Santos" />
+					<div class="author-info">
+						<h4>Carlos Santos</h4>
+						<p>CEO - Empresa 123</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+	<div class="container">
+		<h2>Pronto para otimizar a logística do seu negócio?</h2>
+		<p>Entre em contato conosco e descubra como a AAS Transportes pode ajudar sua empresa a crescer.</p>
+		<a href="/contato" class="btn btn-large">Solicite um orçamento</a>
+	</div>
+</section>
+
+<!-- Clientes -->
+<section class="clients">
+	<div class="container">
+		<h2 class="section-title">Nossos Clientes</h2>
+		<p class="section-subtitle">Empresas que confiam na AAS Transportes</p>
 		
+		<div class="clients-grid">
+			<!-- Substitua pelos logos reais dos clientes -->
+			<div class="client-logo"><img src="/images/client-logo-1.png" alt="Cliente 1" /></div>
+			<div class="client-logo"><img src="/images/client-logo-2.png" alt="Cliente 2" /></div>
+			<div class="client-logo"><img src="/images/client-logo-3.png" alt="Cliente 3" /></div>
+			<div class="client-logo"><img src="/images/client-logo-4.png" alt="Cliente 4" /></div>
+			<div class="client-logo"><img src="/images/client-logo-5.png" alt="Cliente 5" /></div>
+			<div class="client-logo"><img src="/images/client-logo-6.png" alt="Cliente 6" /></div>
+		</div>
+	</div>
+</section>
+
 		<Footer />
 	</body>
 </html>
@@ -386,7 +388,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		overflow: hidden;
 		padding: 0;
 		margin: 0;
-		background: #222;
+		background: none; /* Removido o fundo escuro */
+		min-height: 120px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	
 	.banner-img {
@@ -394,6 +400,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		height: 260px;
 		object-fit: cover;
 		display: block;
+		background: #eaeaea;
 	}
 	
 	@media (max-width: 768px) {
