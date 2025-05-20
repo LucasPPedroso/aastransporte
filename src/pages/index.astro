@@ -20,7 +20,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         alt="Banner AAS Transporte" 
         class="banner-img"
         loading="eager"
-        style="background: #eaeaea;"
     />
 </section>
 <!-- Hero Section -->
@@ -388,54 +387,45 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		overflow: hidden;
 		padding: 0;
 		margin: 0;
-		background: none; /* Removido o fundo escuro */
-		min-height: 120px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		background: none;
+		min-height: 0;
+		display: block;
 	}
-	
 	.banner-img {
 		width: 100%;
-		height: 260px;
+		height: 320px;
 		object-fit: cover;
 		display: block;
 		background: #eaeaea;
+		border: none;
 	}
-	
 	@media (max-width: 768px) {
 		.banner-img {
-			height: 120px;
+			height: 140px;
 		}
 	}
 	
 	/* Hero Section */
 	.hero {
-		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/hero-bg.jpg');
-		background-size: cover;
-		background-position: center;
-		color: white;
+		background: none;
+		color: #222;
 		text-align: center;
-		padding: 8rem 1rem;
-		margin-top: -2rem; /* Ajuste conforme necessário para alinhar com o header */
+		padding: 5rem 1rem 4rem 1rem;
+		margin: 0;
 	}
-	
 	.hero-content {
 		max-width: 800px;
 		margin: 0 auto;
 	}
-	
 	.hero h1 {
 		font-size: 3rem;
 		margin-bottom: 1.5rem;
 		line-height: 1.2;
 	}
-	
 	.hero p {
 		font-size: 1.5rem;
 		margin-bottom: 2rem;
 	}
-	
 	.hero-buttons {
 		display: flex;
 		gap: 1rem;
