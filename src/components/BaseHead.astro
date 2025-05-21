@@ -4,9 +4,9 @@
 import '../styles/global.css';
 
 interface Props {
-	title: string;
-	description: string;
-	image?: string;
+    title: string;
+    description: string;
+    image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -17,6 +17,7 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- Favicon do site (adicione favicon.ico ou favicon.svg na pasta /public) -->
 <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
 
@@ -37,6 +38,7 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
+<!-- Imagem para compartilhamento social (adicione imagem-og.png na pasta /public) -->
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
 <!-- Twitter -->
@@ -44,4 +46,22 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
+<!-- Imagem para Twitter Cards (adicione imagem-og.png na pasta /public) -->
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Dados estruturados: logo da empresa (adicione logo.png na pasta /public) -->
+<script type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AAS Transportes",
+  "url": "https://www.aastransportes.com.br",
+  "logo": "https://www.aastransportes.com.br/logo.png", // Logo da empresa (adicione logo.png na pasta /public)
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+55-41-98828-7226",
+    "contactType": "customer service",
+    "areaServed": "BR"
+  }]
+})}
+</script>
