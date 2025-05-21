@@ -7,18 +7,11 @@ import { SITE_TITLE } from '../consts';
     <div class="header-container">
         <div class="logo-container">
             <a href="/" class="logo">
-                <span class="logo-truck">
-                    <svg class="truck-anim" width="48" height="28" viewBox="0 0 48 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="2" y="12" width="22" height="10" rx="2" fill="#FF9900" stroke="#003366" stroke-width="2"/>
-                        <rect x="24" y="16" width="12" height="6" rx="1.5" fill="#003366" stroke="#003366" stroke-width="2"/>
-                        <rect x="36" y="10" width="10" height="12" rx="2" fill="#fff" stroke="#003366" stroke-width="2"/>
-                        <circle cx="10" cy="24" r="3" fill="#fff" stroke="#003366" stroke-width="2"/>
-                        <circle cx="34" cy="24" r="3" fill="#fff" stroke="#003366" stroke-width="2"/>
-                        <circle cx="42" cy="24" r="3" fill="#fff" stroke="#003366" stroke-width="2"/>
-                        <rect x="38" y="14" width="4" height="4" rx="1" fill="#FF9900"/>
-                    </svg>
-                </span>
-                <span class="logo-text" style="color: #003366; font-weight: 600;">AAS Transportes</span>
+                <img 
+                    src="/logo.png" 
+                    alt="AAS Transportes Logo" 
+                    class="logo-img"
+                />
             </a>
         </div>
         
@@ -85,20 +78,17 @@ import { SITE_TITLE } from '../consts';
     align-items: center;
     text-decoration: none;
 }
-.logo-truck {
-    display: flex;
-    align-items: center;
-    margin-right: 0.5rem;
-}
-.truck-anim {
-    animation: truck-move 2.5s cubic-bezier(.6,.1,.4,1) infinite;
-}
-@keyframes truck-move {
-    0% { transform: translateX(-10px); }
-    10% { transform: translateX(0); }
-    90% { transform: translateX(0); }
-    100% { transform: translateX(-10px); }
-}
+.logo-img {
+        height: 48px;
+        width: auto;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .logo-img {
+            height: 40px;
+        }
+    }
 	
 	.nav-links {
 		display: flex;
