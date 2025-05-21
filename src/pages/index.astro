@@ -336,20 +336,30 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 <!-- Clientes -->
 <section class="clients">
-	<div class="container">
-		<h2 class="section-title">Nossos Clientes</h2>
-		<p class="section-subtitle">Empresas que confiam na AAS Transportes</p>
-		
-		<div class="clients-grid">
-			<!-- Substitua pelos logos reais dos clientes -->
-			<div class="client-logo"><img src="/images/client-logo-1.png" alt="Cliente 1" /></div>
-			<div class="client-logo"><img src="/images/client-logo-2.png" alt="Cliente 2" /></div>
-			<div class="client-logo"><img src="/images/client-logo-3.png" alt="Cliente 3" /></div>
-			<div class="client-logo"><img src="/images/client-logo-4.png" alt="Cliente 4" /></div>
-			<div class="client-logo"><img src="/images/client-logo-5.png" alt="Cliente 5" /></div>
-			<div class="client-logo"><img src="/images/client-logo-6.png" alt="Cliente 6" /></div>
-		</div>
-	</div>
+    <div class="container">
+        <h2 class="section-title">Nossos Clientes</h2>
+        <p class="section-subtitle">Empresas que já contrataram nossos serviços</p>
+        
+        <div class="clients-carousel" id="clients-carousel">
+            <div class="carousel-track">
+                <div class="client-logo"><img src="/client-logo-1.png" alt="Cliente 1" /></div>
+                <div class="client-logo"><img src="/client-logo-2.png" alt="Cliente 2" /></div>
+                <div class="client-logo"><img src="/client-logo-3.png" alt="Cliente 3" /></div>
+                <div class="client-logo"><img src="/client-logo-4.png" alt="Cliente 4" /></div>
+                <div class="client-logo"><img src="/client-logo-5.png" alt="Cliente 5" /></div>
+                <div class="client-logo"><img src="/client-logo-6.png" alt="Cliente 6" /></div>
+                <div class="client-logo"><img src="/client-logo-7.png" alt="Cliente 7" /></div>
+                <!-- Duplicação para efeito infinito -->
+                <div class="client-logo"><img src="/client-logo-1.png" alt="Cliente 1" /></div>
+                <div class="client-logo"><img src="/client-logo-2.png" alt="Cliente 2" /></div>
+                <div class="client-logo"><img src="/client-logo-3.png" alt="Cliente 3" /></div>
+                <div class="client-logo"><img src="/client-logo-4.png" alt="Cliente 4" /></div>
+                <div class="client-logo"><img src="/client-logo-5.png" alt="Cliente 5" /></div>
+                <div class="client-logo"><img src="/client-logo-6.png" alt="Cliente 6" /></div>
+                <div class="client-logo"><img src="/client-logo-7.png" alt="Cliente 7" /></div>
+            </div>
+        </div>
+    </div>
 </section>
 
 		<Footer />
@@ -663,38 +673,64 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	}
 	
 	/* Clientes */
-	.clients-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-		gap: 2rem;
-		align-items: center;
-	}
-	
-	.client-logo {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 1.5rem;
-		background-color: white;
-		border-radius: 8px;
-		box-shadow: var(--box-shadow);
-		transition: transform 0.3s ease;
-	}
-	
-	.client-logo:hover {
-		transform: scale(1.05);
-	}
-	
-	.client-logo img {
-		max-width: 100%;
-		max-height: 80px;
-		filter: grayscale(100%);
-		transition: filter 0.3s ease;
-	}
-	
-	.client-logo:hover img {
-		filter: grayscale(0%);
-	}
+	.clients-carousel {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    animation: scroll-carousel 25s linear infinite;
+}
+
+.client-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    min-width: 180px;
+    max-width: 220px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+.client-logo img {
+    max-width: 100%;
+    max-height: 80px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.client-logo:hover img {
+    filter: grayscale(0%);
+}
+
+@keyframes scroll-carousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-track {
+        gap: 1rem;
+    }
+    .client-logo {
+        min-width: 120px;
+        max-width: 150px;
+        height: 70px;
+        padding: 0.5rem;
+    }
+}
 	
 	/* Responsividade */
 	@media (max-width: 768px) {
