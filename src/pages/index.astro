@@ -298,55 +298,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     </div>
 </section>
 
-<!-- Depoimentos -->
-<section class="testimonials">
-	<div class="container">
-		<h2 class="section-title">O que nossos clientes dizem</h2>
-		<p class="section-subtitle">A satisfação de nossos clientes é o nosso maior orgulho</p>
-		
-		<div class="testimonials-slider">
-			<div class="testimonial">
-				<div class="testimonial-content">
-					<p>"A AAS Transportes tem sido uma parceira fundamental para o crescimento da nossa empresa. A pontualidade nas entregas e o cuidado com as mercadorias são diferenciais que fazem toda a diferença."</p>
-				</div>
-				<div class="testimonial-author">
-					<img src="/images/client-1.jpg" alt="João Silva" />
-					<div class="author-info">
-						<h4>João Silva</h4>
-						<p>Diretor Comercial - Empresa ABC</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="testimonial">
-				<div class="testimonial-content">
-					<p>"Desde que começamos a trabalhar com a AAS Transportes, os problemas com atrasos e avarias nas cargas praticamente desapareceram. Recomendo fortemente os serviços desta empresa."</p>
-				</div>
-				<div class="testimonial-author">
-					<img src="/images/client-2.jpg" alt="Maria Oliveira" />
-					<div class="author-info">
-						<h4>Maria Oliveira</h4>
-						<p>Gerente de Logística - Empresa XYZ</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="testimonial">
-				<div class="testimonial-content">
-					<p>"O atendimento personalizado e a flexibilidade da AAS Transportes foram fundamentais para atender às necessidades específicas da nossa empresa. Uma parceria que deu certo!"</p>
-				</div>
-				<div class="testimonial-author">
-					<img src="/images/client-3.jpg" alt="Carlos Santos" />
-					<div class="author-info">
-						<h4>Carlos Santos</h4>
-						<p>CEO - Empresa 123</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
 <!-- CTA -->
 <section class="cta">
 	<div class="container">
@@ -517,12 +468,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	}
 	@media (max-width: 900px) {
 		.banner-carousel {
-			height: 56vw; /* 16:9 para mobile */
-			max-height: 400px;
-			min-height: 120px;
-		}
-		.banner-slide, .banner-img {
-			width: 100vw;
+			height: 45vw; /* Reduz a altura no mobile */
+			max-height: 280px;
+			min-height: 140px;
 		}
 	}
 	
@@ -662,49 +610,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	.fleet-cta {
 		text-align: center;
 		margin-top: 2rem;
-	}
-	
-	/* Depoimentos */
-	.testimonials-slider {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-	}
-	
-	.testimonial {
-		background-color: white;
-		border-radius: 8px;
-		padding: 2rem;
-		box-shadow: var(--box-shadow);
-	}
-	
-	.testimonial-content {
-		margin-bottom: 1.5rem;
-		font-style: italic;
-	}
-	
-	.testimonial-author {
-		display: flex;
-		align-items: center;
-	}
-	
-	.testimonial-author img {
-		width: 60px;
-		height: 60px;
-		border-radius: 50%;
-		object-fit: cover;
-		margin-right: 1rem;
-	}
-	
-	.author-info h4 {
-		margin: 0;
-		font-size: 1.1rem;
-	}
-	
-	.author-info p {
-		margin: 0;
-		font-size: 0.9rem;
-		color: var(--text-lighter);
 	}
 	
 	/* CTA */
