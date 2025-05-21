@@ -17,12 +17,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <section class="banner-carousel">
     <div class="banner-track" id="banner-track">
         <div class="banner-slide">
+          <picture>
+            <source srcset="/banner-1-mobile.png" media="(max-width: 900px)" />
             <img 
-                src="/banner-1.png" 
-                alt="Banner Institucional AAS Transportes" 
-                class="banner-img"
-                loading="eager"
+              src="/banner-1-desktop.png"
+              alt="Banner Institucional AAS Transportes"
+              class="banner-img"
+              loading="eager"
             />
+          </picture>
         </div>
         <div class="banner-slide">
             <img 
@@ -457,7 +460,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	/* Banner */
 	.banner-carousel {
 		width: 100%;
-		height: 48vw; /* Mantém proporção 2:1 */
+		height: 38vw; /* 16:5 proporção para desktop */
 		max-height: 600px;
 		min-height: 180px;
 		position: relative;
@@ -478,7 +481,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	.banner-img {
 		width: 100%;
 		height: 100%;
-		object-fit: contain; /* Mostra o banner inteiro, sem cortes */
+		object-fit: cover;
 		object-position: center;
 		display: block;
 		background: #eaeaea;
@@ -510,9 +513,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	}
 	@media (max-width: 900px) {
 		.banner-carousel {
-			height: 38vw;
+			height: 56vw; /* 16:9 proporção para mobile */
+			max-height: 400px;
 			min-height: 120px;
-			max-height: 220px;
 		}
 	}
 	
