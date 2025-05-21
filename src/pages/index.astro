@@ -14,13 +14,29 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<Header />
 		
 		<!-- Banner Section -->
-<section class="banner">
-    <img 
-        src="https://res.cloudinary.com/dhmsxwk57/image/upload/v1747709529/BannerAAS-Transportes-Astro_1_qldpj2.png" 
-        alt="Banner AAS Transporte" 
-        class="banner-img"
-        loading="eager"
-    />
+<section class="banner-carousel">
+    <div class="banner-track" id="banner-track">
+        <div class="banner-slide">
+            <img 
+                src="/banner-1.png" 
+                alt="Banner Institucional AAS Transportes" 
+                class="banner-img"
+                loading="eager"
+            />
+        </div>
+        <div class="banner-slide">
+            <img 
+                src="/banner-2.png" 
+                alt="Banner Serviços AAS Transportes" 
+                class="banner-img"
+                loading="lazy"
+            />
+        </div>
+    </div>
+    <div class="banner-dots" id="banner-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+    </div>
 </section>
 <!-- Hero Section -->
 <section class="hero">
@@ -29,7 +45,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <p>Eficiência, segurança e pontualidade em cada entrega</p>
         <div class="hero-buttons">
             <a href="/solucoes" class="btn btn-primary">Nossas Soluções</a>
-            <a href="/contato" class="btn btn-secondary">Solicitar Orçamento</a>
+            <a href="/contato" class="btn btn-secondary">Solicitar Cotação</a>
         </div>
     </div>
 </section>
@@ -439,29 +455,61 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	}
 	
 	/* Banner */
-	.banner {
+	.banner-carousel {
 		width: 100%;
-		height: 320px;
-		overflow: hidden;
+		height: 380px;
 		position: relative;
-		background: #eaeaea;
+		overflow: hidden;
 		margin: 0;
 		padding: 0;
+		background: #eaeaea;
+	}
+	.banner-track {
+		display: flex;
+		width: 200%;
+		height: 100%;
+		transition: transform 1s cubic-bezier(.4,0,.2,1);
+	}
+	.banner-slide {
+		min-width: 100%;
+		height: 100%;
+		position: relative;
 	}
 	.banner-img {
 		width: 100%;
-		height: 320px;
+		height: 380px;
 		object-fit: cover;
+		object-position: center;
 		display: block;
-		background: #eaeaea;
-		border: none;
-		/* Parallax effect */
+		filter: brightness(0.92);
+		transition: transform 0.7s cubic-bezier(.4,0,.2,1);
 		will-change: transform;
-		transition: transform 0.3s cubic-bezier(.4,0,.2,1);
 	}
-	@media (max-width: 768px) {
-		.banner, .banner-img {
-			height: 140px;
+	.banner-dots {
+		position: absolute;
+		left: 50%;
+		bottom: 18px;
+		transform: translateX(-50%);
+		display: flex;
+		gap: 0.7rem;
+		z-index: 2;
+	}
+	.banner-dots .dot {
+		width: 13px;
+		height: 13px;
+		border-radius: 50%;
+		background: rgba(0,51,102,0.25);
+		border: 2px solid #fff;
+		cursor: pointer;
+		transition: background 0.3s;
+	}
+	.banner-dots .dot.active {
+		background: #003366;
+		border-color: #FF9900;
+	}
+	@media (max-width: 900px) {
+		.banner-carousel, .banner-img {
+			height: 160px;
 		}
 	}
 	
@@ -762,11 +810,39 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 </style>
 
 <script>
-	window.addEventListener('scroll', () => {
-    const banner = document.querySelector('.banner-img');
-    if (banner) {
-        const scrolled = window.scrollY;
-        banner.style.transform = `translateY(${scrolled * 0.2}px) scale(1.05)`;
-    }
+	// Banner Carousel JS
+let currentBanner = 0;
+const banners = document.querySelectorAll('.banner-slide');
+const dots = document.querySelectorAll('.banner-dots .dot');
+const track = document.getElementById('banner-track');
+let bannerInterval;
+
+function showBanner(idx) {
+    currentBanner = idx;
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+}
+
+function nextBanner() {
+    showBanner((currentBanner + 1) % banners.length);
+}
+
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        showBanner(i);
+        clearInterval(bannerInterval);
+        bannerInterval = setInterval(nextBanner, 6000);
+    });
+});
+
+bannerInterval = setInterval(nextBanner, 6000);
+
+// Parallax effect (opcional, para suavidade)
+window.addEventListener('scroll', () => {
+    const imgs = document.querySelectorAll('.banner-img');
+    const scrolled = window.scrollY;
+    imgs.forEach(img => {
+        img.style.transform = `translateY(${scrolled * 0.15}px) scale(1.04)`;
+    });
 });
 </script>
