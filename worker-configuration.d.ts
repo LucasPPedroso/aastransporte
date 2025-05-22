@@ -2385,1574 +2385,1574 @@ declare abstract class SqlStorageCursor<T extends Record<string, SqlStorageValue
     get rowsWritten(): number;
     [Symbol.iterator](): IterableIterator<T>;
 }
-interface Socket {
-    get readable(): ReadableStream;
-    get writable(): WritableStream;
-    get closed(): Promise<void>;
-    get opened(): Promise<SocketInfo>;
-    get upgraded(): boolean;
-    get secureTransport(): "on" | "off" | "starttls";
-    close(): Promise<void>;
-    startTls(options?: TlsOptions): Socket;
-}
-interface SocketOptions {
-    secureTransport?: string;
-    allowHalfOpen: boolean;
-    highWaterMark?: (number | bigint);
-}
-interface SocketAddress {
-    hostname: string;
-    port: number;
-}
-interface TlsOptions {
-    expectedServerHostname?: string;
-}
-interface SocketInfo {
-    remoteAddress?: string;
-    localAddress?: string;
-}
-/* [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource) */
-declare class EventSource extends EventTarget {
-    constructor(url: string, init?: EventSourceEventSourceInit);
+interface SecretsStoreSecret {
     /**
-     * Aborts any instances of the fetch algorithm started for this EventSource object, and sets the readyState attribute to CLOSED.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource/close)
+     * Get a secret from the Secrets Store, returning a string of the secret value
+     * if it exists, or throws an error if it does not exist
      */
-    close(): void;
-    /**
-     * Returns the URL providing the event stream.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource/url)
-     */
-    get url(): string;
-    /**
-     * Returns true if the credentials mode for connection requests to the URL providing the event stream is set to "include", and false otherwise.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource/withCredentials)
-     */
-    get withCredentials(): boolean;
-    /**
-     * Returns the state of this EventSource object's connection. It can have the values described below.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource/readyState)
-     */
-    get readyState(): number;
-    /* [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource/open_event) */
-    get onopen(): any | null;
-    /* [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource/open_event) */
-    set onopen(value: any | null);
-    /* [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource/message_event) */
-    get onmessage(): any | null;
-    /* [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource/message_event) */
-    set onmessage(value: any | null);
-    /* [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource/error_event) */
-    get onerror(): any | null;
-    /* [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource/error_event) */
-    set onerror(value: any | null);
-    static readonly CONNECTING: number;
-    static readonly OPEN: number;
-    static readonly CLOSED: number;
-    static from(stream: ReadableStream): EventSource;
+    get(): Promise<string>;
 }
-interface EventSourceEventSourceInit {
-    withCredentials?: boolean;
-    fetcher?: Fetcher;
-}
-interface Container {
-    get running(): boolean;
-    start(options?: ContainerStartupOptions): void;
-    monitor(): Promise<void>;
-    destroy(error?: any): Promise<void>;
-    signal(signo: number): void;
-    getTcpPort(port: number): Fetcher;
-}
-interface ContainerStartupOptions {
-    entrypoint?: string[];
-    enableInternet: boolean;
-    env?: Record<string, string>;
-}
-type AiImageClassificationInput = {
-    image: number[];
-};
-type AiImageClassificationOutput = {
-    score?: number;
-    label?: string;
-}[];
-declare abstract class BaseAiImageClassification {
-    inputs: AiImageClassificationInput;
-    postProcessedOutputs: AiImageClassificationOutput;
-}
-type AiImageToTextInput = {
-    image: number[];
-    prompt?: string;
-    max_tokens?: number;
-    temperature?: number;
-    top_p?: number;
-    top_k?: number;
-    seed?: number;
-    repetition_penalty?: number;
-    frequency_penalty?: number;
-    presence_penalty?: number;
-    raw?: boolean;
-    messages?: RoleScopedChatInput[];
-};
-type AiImageToTextOutput = {
-    description: string;
-};
-declare abstract class BaseAiImageToText {
-    inputs: AiImageToTextInput;
-    postProcessedOutputs: AiImageToTextOutput;
-}
-type AiImageTextToTextInput = {
-    image: string;
-    prompt?: string;
-    max_tokens?: number;
-    temperature?: number;
-    ignore_eos?: boolean;
-    top_p?: number;
-    top_k?: number;
-    seed?: number;
-    repetition_penalty?: number;
-    frequency_penalty?: number;
-    presence_penalty?: number;
-    raw?: boolean;
-    messages?: RoleScopedChatInput[];
-};
-type AiImageTextToTextOutput = {
-    description: string;
-};
-declare abstract class BaseAiImageTextToText {
-    inputs: AiImageTextToTextInput;
-    postProcessedOutputs: AiImageTextToTextOutput;
-}
-type AiObjectDetectionInput = {
-    image: number[];
-};
-type AiObjectDetectionOutput = {
-    score?: number;
-    label?: string;
-}[];
-declare abstract class BaseAiObjectDetection {
-    inputs: AiObjectDetectionInput;
-    postProcessedOutputs: AiObjectDetectionOutput;
-}
-type AiSentenceSimilarityInput = {
-    source: string;
-    sentences: string[];
-};
-type AiSentenceSimilarityOutput = number[];
-declare abstract class BaseAiSentenceSimilarity {
-    inputs: AiSentenceSimilarityInput;
-    postProcessedOutputs: AiSentenceSimilarityOutput;
-}
-type AiAutomaticSpeechRecognitionInput = {
-    audio: number[];
-};
-type AiAutomaticSpeechRecognitionOutput = {
-    text?: string;
-    words?: {
-        word: string;
-        start: number;
-        end: number;
-    }[];
-    vtt?: string;
-};
-declare abstract class BaseAiAutomaticSpeechRecognition {
-    inputs: AiAutomaticSpeechRecognitionInput;
-    postProcessedOutputs: AiAutomaticSpeechRecognitionOutput;
-}
-type AiSummarizationInput = {
-    input_text: string;
-    max_length?: number;
-};
-type AiSummarizationOutput = {
-    summary: string;
-};
-declare abstract class BaseAiSummarization {
-    inputs: AiSummarizationInput;
-    postProcessedOutputs: AiSummarizationOutput;
-}
-type AiTextClassificationInput = {
-    text: string;
-};
-type AiTextClassificationOutput = {
-    score?: number;
-    label?: string;
-}[];
-declare abstract class BaseAiTextClassification {
-    inputs: AiTextClassificationInput;
-    postProcessedOutputs: AiTextClassificationOutput;
-}
-type AiTextEmbeddingsInput = {
-    text: string | string[];
-};
-type AiTextEmbeddingsOutput = {
-    shape: number[];
-    data: number[][];
-};
-declare abstract class BaseAiTextEmbeddings {
-    inputs: AiTextEmbeddingsInput;
-    postProcessedOutputs: AiTextEmbeddingsOutput;
-}
-type RoleScopedChatInput = {
-    role: "user" | "assistant" | "system" | "tool" | (string & NonNullable<unknown>);
-    content: string;
-    name?: string;
-};
-type AiTextGenerationToolLegacyInput = {
-    name: string;
-    description: string;
-    parameters?: {
-        type: "object" | (string & NonNullable<unknown>);
-        properties: {
-            [key: string]: {
-                type: string;
-                description?: string;
-            };
-        };
-        required: string[];
+declare module "cloudflare:pipelines" {
+    export abstract class PipelineTransformationEntrypoint<Env = unknown, I extends PipelineRecord = PipelineRecord, O extends PipelineRecord = PipelineRecord> {
+        protected env: Env;
+        protected ctx: ExecutionContext;
+        constructor(ctx: ExecutionContext, env: Env);
+        /**
+         * run recieves an array of PipelineRecord which can be
+         * transformed and returned to the pipeline
+         * @param records Incoming records from the pipeline to be transformed
+         * @param metadata Information about the specific pipeline calling the transformation entrypoint
+         * @returns A promise containing the transformed PipelineRecord array
+         */
+        public run(records: I[], metadata: PipelineBatchMetadata): Promise<O[]>;
+    }
+    export type PipelineRecord = Record<string, unknown>;
+    export type PipelineBatchMetadata = {
+        pipelineId: string;
+        pipelineName: string;
     };
-};
-type AiTextGenerationToolInput = {
-    type: "function" | (string & NonNullable<unknown>);
-    function: {
-        name: string;
-        description: string;
-        parameters?: {
-            type: "object" | (string & NonNullable<unknown>);
-            properties: {
-                [key: string]: {
-                    type: string;
-                    description?: string;
-                };
-            };
-            required: string[];
-        };
-    };
-};
-type AiTextGenerationFunctionsInput = {
-    name: string;
-    code: string;
-};
-type AiTextGenerationResponseFormat = {
-    type: string;
-    json_schema?: any;
-};
-type AiTextGenerationInput = {
-    prompt?: string;
-    raw?: boolean;
-    stream?: boolean;
-    max_tokens?: number;
-    temperature?: number;
-    top_p?: number;
-    top_k?: number;
-    seed?: number;
-    repetition_penalty?: number;
-    frequency_penalty?: number;
-    presence_penalty?: number;
-    messages?: RoleScopedChatInput[];
-    response_format?: AiTextGenerationResponseFormat;
-    tools?: AiTextGenerationToolInput[] | AiTextGenerationToolLegacyInput[] | (object & NonNullable<unknown>);
-    functions?: AiTextGenerationFunctionsInput[];
-};
-type AiTextGenerationOutput = {
-    response?: string;
-    tool_calls?: {
-        name: string;
-        arguments: unknown;
-    }[];
-} | ReadableStream;
-declare abstract class BaseAiTextGeneration {
-    inputs: AiTextGenerationInput;
-    postProcessedOutputs: AiTextGenerationOutput;
+    export interface Pipeline<T extends PipelineRecord = PipelineRecord> {
+        /**
+         * The Pipeline interface represents the type of a binding to a Pipeline
+         *
+         * @param records The records to send to the pipeline
+         */
+        send(records: T[]): Promise<void>;
+    }
 }
-type AiTextToSpeechInput = {
-    prompt: string;
-    lang?: string;
-};
-type AiTextToSpeechOutput = Uint8Array | {
-    audio: string;
-};
-declare abstract class BaseAiTextToSpeech {
-    inputs: AiTextToSpeechInput;
-    postProcessedOutputs: AiTextToSpeechOutput;
+// PubSubMessage represents an incoming PubSub message.
+// The message includes metadata about the broker, the client, and the payload
+// itself.
+// https://developers.cloudflare.com/pub-sub/
+interface PubSubMessage {
+    // Message ID
+    readonly mid: number;
+    // MQTT broker FQDN in the form mqtts://BROKER.NAMESPACE.cloudflarepubsub.com:PORT
+    readonly broker: string;
+    // The MQTT topic the message was sent on.
+    readonly topic: string;
+    // The client ID of the client that published this message.
+    readonly clientId: string;
+    // The unique identifier (JWT ID) used by the client to authenticate, if token
+    // auth was used.
+    readonly jti?: string;
+    // A Unix timestamp (seconds from Jan 1, 1970), set when the Pub/Sub Broker
+    // received the message from the client.
+    readonly receivedAt: number;
+    // An (optional) string with the MIME type of the payload, if set by the
+    // client.
+    readonly contentType: string;
+    // Set to 1 when the payload is a UTF-8 string
+    // https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901063
+    readonly payloadFormatIndicator: number;
+    // Pub/Sub (MQTT) payloads can be UTF-8 strings, or byte arrays.
+    // You can use payloadFormatIndicator to inspect this before decoding.
+    payload: string | Uint8Array;
 }
-type AiTextToImageInput = {
-    prompt: string;
-    negative_prompt?: string;
-    height?: number;
-    width?: number;
-    image?: number[];
-    image_b64?: string;
-    mask?: number[];
-    num_steps?: number;
-    strength?: number;
-    guidance?: number;
-    seed?: number;
-};
-type AiTextToImageOutput = ReadableStream<Uint8Array>;
-declare abstract class BaseAiTextToImage {
-    inputs: AiTextToImageInput;
-    postProcessedOutputs: AiTextToImageOutput;
+// JsonWebKey extended by kid parameter
+interface JsonWebKeyWithKid extends JsonWebKey {
+    // Key Identifier of the JWK
+    readonly kid: string;
 }
-type AiTranslationInput = {
-    text: string;
-    target_lang: string;
-    source_lang?: string;
-};
-type AiTranslationOutput = {
-    translated_text?: string;
-};
-declare abstract class BaseAiTranslation {
-    inputs: AiTranslationInput;
-    postProcessedOutputs: AiTranslationOutput;
+interface RateLimitOptions {
+    key: string;
 }
-type Ai_Cf_Openai_Whisper_Input = string | {
-    /**
-     * An array of integers that represent the audio data constrained to 8-bit unsigned integer values
-     */
-    audio: number[];
-};
-interface Ai_Cf_Openai_Whisper_Output {
-    /**
-     * The transcription
-     */
-    text: string;
-    word_count?: number;
-    words?: {
-        word?: string;
-        /**
-         * The second this word begins in the recording
-         */
-        start?: number;
-        /**
-         * The ending second when the word completes
-         */
-        end?: number;
-    }[];
-    vtt?: string;
-}
-declare abstract class Base_Ai_Cf_Openai_Whisper {
-    inputs: Ai_Cf_Openai_Whisper_Input;
-    postProcessedOutputs: Ai_Cf_Openai_Whisper_Output;
-}
-type Ai_Cf_Unum_Uform_Gen2_Qwen_500M_Input = string | {
-    /**
-     * The input text prompt for the model to generate a response.
-     */
-    prompt?: string;
-    /**
-     * If true, a chat template is not applied and you must adhere to the specific model's expected formatting.
-     */
-    raw?: boolean;
-    /**
-     * Controls the creativity of the AI's responses by adjusting how many possible words it considers. Lower values make outputs more predictable; higher values allow for more varied and creative responses.
-     */
-    top_p?: number;
-    /**
-     * Limits the AI to choose from the top 'k' most probable words. Lower values make responses more focused; higher values introduce more variety and potential surprises.
-     */
-    top_k?: number;
-    /**
-     * Random seed for reproducibility of the generation.
-     */
-    seed?: number;
-    /**
-     * Penalty for repeated tokens; higher values discourage repetition.
-     */
-    repetition_penalty?: number;
-    /**
-     * Decreases the likelihood of the model repeating the same lines verbatim.
-     */
-    frequency_penalty?: number;
-    /**
-     * Increases the likelihood of the model introducing new topics.
-     */
-    presence_penalty?: number;
-    image: number[] | (string & NonNullable<unknown>);
-    /**
-     * The maximum number of tokens to generate in the response.
-     */
-    max_tokens?: number;
-};
-interface Ai_Cf_Unum_Uform_Gen2_Qwen_500M_Output {
-    description?: string;
-}
-declare abstract class Base_Ai_Cf_Unum_Uform_Gen2_Qwen_500M {
-    inputs: Ai_Cf_Unum_Uform_Gen2_Qwen_500M_Input;
-    postProcessedOutputs: Ai_Cf_Unum_Uform_Gen2_Qwen_500M_Output;
-}
-type Ai_Cf_Openai_Whisper_Tiny_En_Input = string | {
-    /**
-     * An array of integers that represent the audio data constrained to 8-bit unsigned integer values
-     */
-    audio: number[];
-};
-interface Ai_Cf_Openai_Whisper_Tiny_En_Output {
-    /**
-     * The transcription
-     */
-    text: string;
-    word_count?: number;
-    words?: {
-        word?: string;
-        /**
-         * The second this word begins in the recording
-         */
-        start?: number;
-        /**
-         * The ending second when the word completes
-         */
-        end?: number;
-    }[];
-    vtt?: string;
-}
-declare abstract class Base_Ai_Cf_Openai_Whisper_Tiny_En {
-    inputs: Ai_Cf_Openai_Whisper_Tiny_En_Input;
-    postProcessedOutputs: Ai_Cf_Openai_Whisper_Tiny_En_Output;
-}
-interface Ai_Cf_Openai_Whisper_Large_V3_Turbo_Input {
-    /**
-     * Base64 encoded value of the audio data.
-     */
-    audio: string;
-    /**
-     * Supported tasks are 'translate' or 'transcribe'.
-     */
-    task?: string;
-    /**
-     * The language of the audio being transcribed or translated.
-     */
-    language?: string;
-    /**
-     * Preprocess the audio with a voice activity detection model.
-     */
-    vad_filter?: string;
-    /**
-     * A text prompt to help provide context to the model on the contents of the audio.
-     */
-    initial_prompt?: string;
-    /**
-     * The prefix it appended the the beginning of the output of the transcription and can guide the transcription result.
-     */
-    prefix?: string;
-}
-interface Ai_Cf_Openai_Whisper_Large_V3_Turbo_Output {
-    transcription_info?: {
-        /**
-         * The language of the audio being transcribed or translated.
-         */
-        language?: string;
-        /**
-         * The confidence level or probability of the detected language being accurate, represented as a decimal between 0 and 1.
-         */
-        language_probability?: number;
-        /**
-         * The total duration of the original audio file, in seconds.
-         */
-        duration?: number;
-        /**
-         * The duration of the audio after applying Voice Activity Detection (VAD) to remove silent or irrelevant sections, in seconds.
-         */
-        duration_after_vad?: number;
-    };
-    /**
-     * The complete transcription of the audio.
-     */
-    text: string;
-    /**
-     * The total number of words in the transcription.
-     */
-    word_count?: number;
-    segments?: {
-        /**
-         * The starting time of the segment within the audio, in seconds.
-         */
-        start?: number;
-        /**
-         * The ending time of the segment within the audio, in seconds.
-         */
-        end?: number;
-        /**
-         * The transcription of the segment.
-         */
-        text?: string;
-        /**
-         * The temperature used in the decoding process, controlling randomness in predictions. Lower values result in more deterministic outputs.
-         */
-        temperature?: number;
-        /**
-         * The average log probability of the predictions for the words in this segment, indicating overall confidence.
-         */
-        avg_logprob?: number;
-        /**
-         * The compression ratio of the input to the output, measuring how much the text was compressed during the transcription process.
-         */
-        compression_ratio?: number;
-        /**
-         * The probability that the segment contains no speech, represented as a decimal between 0 and 1.
-         */
-        no_speech_prob?: number;
-        words?: {
-            /**
-             * The individual word transcribed from the audio.
-             */
-            word?: string;
-            /**
-             * The starting time of the word within the audio, in seconds.
-             */
-            start?: number;
-            /**
-             * The ending time of the word within the audio, in seconds.
-             */
-            end?: number;
-        }[];
-    }[];
-    /**
-     * The transcription in WebVTT format, which includes timing and text information for use in subtitles.
-     */
-    vtt?: string;
-}
-declare abstract class Base_Ai_Cf_Openai_Whisper_Large_V3_Turbo {
-    inputs: Ai_Cf_Openai_Whisper_Large_V3_Turbo_Input;
-    postProcessedOutputs: Ai_Cf_Openai_Whisper_Large_V3_Turbo_Output;
-}
-type Ai_Cf_Baai_Bge_M3_Input = BGEM3InputQueryAndContexts | BGEM3InputEmbedding;
-interface BGEM3InputQueryAndContexts {
-    /**
-     * A query you wish to perform against the provided contexts. If no query is provided the model with respond with embeddings for contexts
-     */
-    query?: string;
-    /**
-     * List of provided contexts. Note that the index in this array is important, as the response will refer to it.
-     */
-    contexts: {
-        /**
-         * One of the provided context content
-         */
-        text?: string;
-    }[];
-    /**
-     * When provided with too long context should the model error out or truncate the context to fit?
-     */
-    truncate_inputs?: boolean;
-}
-interface BGEM3InputEmbedding {
-    text: string | string[];
-    /**
-     * When provided with too long context should the model error out or truncate the context to fit?
-     */
-    truncate_inputs?: boolean;
-}
-type Ai_Cf_Baai_Bge_M3_Output = BGEM3OuputQuery | BGEM3OutputEmbeddingForContexts | BGEM3OuputEmbedding;
-interface BGEM3OuputQuery {
-    response?: {
-        /**
-         * Index of the context in the request
-         */
-        id?: number;
-        /**
-         * Score of the context under the index.
-         */
-        score?: number;
-    }[];
-}
-interface BGEM3OutputEmbeddingForContexts {
-    response?: number[][];
-    shape?: number[];
-    /**
-     * The pooling method used in the embedding process.
-     */
-    pooling?: "mean" | "cls";
-}
-interface BGEM3OuputEmbedding {
-    shape?: number[];
-    /**
-     * Embeddings of the requested text values
-     */
-    data?: number[][];
-    /**
-     * The pooling method used in the embedding process.
-     */
-    pooling?: "mean" | "cls";
-}
-declare abstract class Base_Ai_Cf_Baai_Bge_M3 {
-    inputs: Ai_Cf_Baai_Bge_M3_Input;
-    postProcessedOutputs: Ai_Cf_Baai_Bge_M3_Output;
-}
-interface Ai_Cf_Black_Forest_Labs_Flux_1_Schnell_Input {
-    /**
-     * A text description of the image you want to generate.
-     */
-    prompt: string;
-    /**
-     * The number of diffusion steps; higher values can improve quality but take longer.
-     */
-    steps?: number;
-}
-interface Ai_Cf_Black_Forest_Labs_Flux_1_Schnell_Output {
-    /**
-     * The generated image in Base64 format.
-     */
-    image?: string;
-}
-declare abstract class Base_Ai_Cf_Black_Forest_Labs_Flux_1_Schnell {
-    inputs: Ai_Cf_Black_Forest_Labs_Flux_1_Schnell_Input;
-    postProcessedOutputs: Ai_Cf_Black_Forest_Labs_Flux_1_Schnell_Output;
-}
-type Ai_Cf_Meta_Llama_3_2_11B_Vision_Instruct_Input = Prompt | Messages;
-interface Prompt {
-    /**
-     * The input text prompt for the model to generate a response.
-     */
-    prompt: string;
-    image?: number[] | (string & NonNullable<unknown>);
-    /**
-     * If true, a chat template is not applied and you must adhere to the specific model's expected formatting.
-     */
-    raw?: boolean;
-    /**
-     * If true, the response will be streamed back incrementally using SSE, Server Sent Events.
-     */
-    stream?: boolean;
-    /**
-     * The maximum number of tokens to generate in the response.
-     */
-    max_tokens?: number;
-    /**
-     * Controls the randomness of the output; higher values produce more random results.
-     */
-    temperature?: number;
-    /**
-     * Adjusts the creativity of the AI's responses by controlling how many possible words it considers. Lower values make outputs more predictable; higher values allow for more varied and creative responses.
-     */
-    top_p?: number;
-    /**
-     * Limits the AI to choose from the top 'k' most probable words. Lower values make responses more focused; higher values introduce more variety and potential surprises.
-     */
-    top_k?: number;
-    /**
-     * Random seed for reproducibility of the generation.
-     */
-    seed?: number;
-    /**
-     * Penalty for repeated tokens; higher values discourage repetition.
-     */
-    repetition_penalty?: number;
-    /**
-     * Decreases the likelihood of the model repeating the same lines verbatim.
-     */
-    frequency_penalty?: number;
-    /**
-     * Increases the likelihood of the model introducing new topics.
-     */
-    presence_penalty?: number;
-    /**
-     * Name of the LoRA (Low-Rank Adaptation) model to fine-tune the base model.
-     */
-    lora?: string;
-}
-interface Messages {
-    /**
-     * An array of message objects representing the conversation history.
-     */
-    messages: {
-        /**
-         * The role of the message sender (e.g., 'user', 'assistant', 'system', 'tool').
-         */
-        role: string;
-        /**
-         * The content of the message as a string.
-         */
-        content: string;
-    }[];
-    image?: number[] | string;
-    functions?: {
-        name: string;
-        code: string;
-    }[];
-    /**
-     * A list of tools available for the assistant to use.
-     */
-    tools?: ({
-        /**
-         * The name of the tool. More descriptive the better.
-         */
-        name: string;
-        /**
-         * A brief description of what the tool does.
-         */
-        description: string;
-        /**
-         * Schema defining the parameters accepted by the tool.
-         */
-        parameters: {
-            /**
-             * The type of the parameters object (usually 'object').
-             */
-            type: string;
-            /**
-             * List of required parameter names.
-             */
-            required?: string[];
-            /**
-             * Definitions of each parameter.
-             */
-            properties: {
-                [k: string]: {
-                    /**
-                     * The data type of the parameter.
-                     */
-                    type: string;
-                    /**
-                     * A description of the expected parameter.
-                     */
-                    description: string;
-                };
-            };
-        };
-    } | {
-        /**
-         * Specifies the type of tool (e.g., 'function').
-         */
-        type: string;
-        /**
-         * Details of the function tool.
-         */
-        function: {
-            /**
-             * The name of the function.
-             */
-            name: string;
-            /**
-             * A brief description of what the function does.
-             */
-            description: string;
-            /**
-             * Schema defining the parameters accepted by the function.
-             */
-            parameters: {
-                /**
-                 * The type of the parameters object (usually 'object').
-                 */
-                type: string;
-                /**
-                 * List of required parameter names.
-                 */
-                required?: string[];
-                /**
-                 * Definitions of each parameter.
-                 */
-                properties: {
-                    [k: string]: {
-                        /**
-                         * The data type of the parameter.
-                         */
-                        type: string;
-                        /**
-                         * A description of the expected parameter.
-                         */
-                        description: string;
-                    };
-                };
-            };
-        };
-    })[];
-    /**
-     * If true, the response will be streamed back incrementally.
-     */
-    stream?: boolean;
-    /**
-     * The maximum number of tokens to generate in the response.
-     */
-    max_tokens?: number;
-    /**
-     * Controls the randomness of the output; higher values produce more random results.
-     */
-    temperature?: number;
-    /**
-     * Controls the creativity of the AI's responses by adjusting how many possible words it considers. Lower values make outputs more predictable; higher values allow for more varied and creative responses.
-     */
-    top_p?: number;
-    /**
-     * Limits the AI to choose from the top 'k' most probable words. Lower values make responses more focused; higher values introduce more variety and potential surprises.
-     */
-    top_k?: number;
-    /**
-     * Random seed for reproducibility of the generation.
-     */
-    seed?: number;
-    /**
-     * Penalty for repeated tokens; higher values discourage repetition.
-     */
-    repetition_penalty?: number;
-    /**
-     * Decreases the likelihood of the model repeating the same lines verbatim.
-     */
-    frequency_penalty?: number;
-    /**
-     * Increases the likelihood of the model introducing new topics.
-     */
-    presence_penalty?: number;
-}
-type Ai_Cf_Meta_Llama_3_2_11B_Vision_Instruct_Output = {
-    /**
-     * The generated text response from the model
-     */
-    response?: string;
-    /**
-     * An array of tool calls requests made during the response generation
-     */
-    tool_calls?: {
-        /**
-         * The arguments passed to be passed to the tool call request
-         */
-        arguments?: object;
-        /**
-         * The name of the tool to be called
-         */
-        name?: string;
-    }[];
-} | ReadableStream;
-declare abstract class Base_Ai_Cf_Meta_Llama_3_2_11B_Vision_Instruct {
-    inputs: Ai_Cf_Meta_Llama_3_2_11B_Vision_Instruct_Input;
-    postProcessedOutputs: Ai_Cf_Meta_Llama_3_2_11B_Vision_Instruct_Output;
-}
-interface Ai_Cf_Meta_Llama_Guard_3_8B_Input {
-    /**
-     * An array of message objects representing the conversation history.
-     */
-    messages: {
-        /**
-         * The role of the message sender must alternate between 'user' and 'assistant'.
-         */
-        role: "user" | "assistant";
-        /**
-         * The content of the message as a string.
-         */
-        content: string;
-    }[];
-    /**
-     * The maximum number of tokens to generate in the response.
-     */
-    max_tokens?: number;
-    /**
-     * Controls the randomness of the output; higher values produce more random results.
-     */
-    temperature?: number;
-    /**
-     * Dictate the output format of the generated response.
-     */
-    response_format?: {
-        /**
-         * Set to json_object to process and output generated text as JSON.
-         */
-        type?: string;
-    };
-}
-interface Ai_Cf_Meta_Llama_Guard_3_8B_Output {
-    response?: string | {
-        /**
-         * Whether the conversation is safe or not.
-         */
-        safe?: boolean;
-        /**
-         * A list of what hazard categories predicted for the conversation, if the conversation is deemed unsafe.
-         */
-        categories?: string[];
-    };
-    /**
-     * Usage statistics for the inference request
-     */
-    usage?: {
-        /**
-         * Total number of tokens in input
-         */
-        prompt_tokens?: number;
-        /**
-         * Total number of tokens in output
-         */
-        completion_tokens?: number;
-        /**
-         * Total number of input and output tokens
-         */
-        total_tokens?: number;
-    };
-}
-declare abstract class Base_Ai_Cf_Meta_Llama_Guard_3_8B {
-    inputs: Ai_Cf_Meta_Llama_Guard_3_8B_Input;
-    postProcessedOutputs: Ai_Cf_Meta_Llama_Guard_3_8B_Output;
-}
-interface Ai_Cf_Baai_Bge_Reranker_Base_Input {
-    /**
-     * A query you wish to perform against the provided contexts.
-     */
-    /**
-     * Number of returned results starting with the best score.
-     */
-    top_k?: number;
-    /**
-     * List of provided contexts. Note that the index in this array is important, as the response will refer to it.
-     */
-    contexts: {
-        /**
-         * One of the provided context content
-         */
-        text?: string;
-    }[];
-}
-interface Ai_Cf_Baai_Bge_Reranker_Base_Output {
-    response?: {
-        /**
-         * Index of the context in the request
-         */
-        id?: number;
-        /**
-         * Score of the context under the index.
-         */
-        score?: number;
-    }[];
-}
-declare abstract class Base_Ai_Cf_Baai_Bge_Reranker_Base {
-    inputs: Ai_Cf_Baai_Bge_Reranker_Base_Input;
-    postProcessedOutputs: Ai_Cf_Baai_Bge_Reranker_Base_Output;
-}
-type Ai_Cf_Meta_Llama_4_Scout_17B_16E_Instruct_Input = Ai_Cf_Meta_Llama_4_Prompt | Ai_Cf_Meta_Llama_4_Messages;
-interface Ai_Cf_Meta_Llama_4_Prompt {
-    /**
-     * The input text prompt for the model to generate a response.
-     */
-    prompt: string;
-    /**
-     * JSON schema that should be fulfilled for the response.
-     */
-    guided_json?: object;
-    /**
-     * If true, a chat template is not applied and you must adhere to the specific model's expected formatting.
-     */
-    raw?: boolean;
-    /**
-     * If true, the response will be streamed back incrementally using SSE, Server Sent Events.
-     */
-    stream?: boolean;
-    /**
-     * The maximum number of tokens to generate in the response.
-     */
-    max_tokens?: number;
-    /**
-     * Controls the randomness of the output; higher values produce more random results.
-     */
-    temperature?: number;
-    /**
-     * Adjusts the creativity of the AI's responses by controlling how many possible words it considers. Lower values make outputs more predictable; higher values allow for more varied and creative responses.
-     */
-    top_p?: number;
-    /**
-     * Limits the AI to choose from the top 'k' most probable words. Lower values make responses more focused; higher values introduce more variety and potential surprises.
-     */
-    top_k?: number;
-    /**
-     * Random seed for reproducibility of the generation.
-     */
-    seed?: number;
-    /**
-     * Penalty for repeated tokens; higher values discourage repetition.
-     */
-    repetition_penalty?: number;
-    /**
-     * Decreases the likelihood of the model repeating the same lines verbatim.
-     */
-    frequency_penalty?: number;
-    /**
-     * Increases the likelihood of the model introducing new topics.
-     */
-    presence_penalty?: number;
-}
-interface Ai_Cf_Meta_Llama_4_Messages {
-    /**
-     * An array of message objects representing the conversation history.
-     */
-    messages: {
-        /**
-         * The role of the message sender (e.g., 'user', 'assistant', 'system', 'tool').
-         */
-        role?: string;
-        /**
-         * The tool call id. Must be supplied for tool calls for Mistral-3. If you don't know what to put here you can fall back to 000000001
-         */
-        tool_call_id?: string;
-        content?: string | {
-            /**
-             * Type of the content provided
-             */
-            type?: string;
-            text?: string;
-            image_url?: {
-                /**
-                 * image uri with data (e.g. data:image/jpeg;base64,/9j/...). HTTP URL will not be accepted
-                 */
-                url?: string;
-            };
-        }[] | {
-            /**
-             * Type of the content provided
-             */
-            type?: string;
-            text?: string;
-            image_url?: {
-                /**
-                 * image uri with data (e.g. data:image/jpeg;base64,/9j/...). HTTP URL will not be accepted
-                 */
-                url?: string;
-            };
-        };
-    }[];
-    functions?: {
-        name: string;
-        code: string;
-    }[];
-    /**
-     * A list of tools available for the assistant to use.
-     */
-    tools?: ({
-        /**
-         * The name of the tool. More descriptive the better.
-         */
-        name: string;
-        /**
-         * A brief description of what the tool does.
-         */
-        description: string;
-        /**
-         * Schema defining the parameters accepted by the tool.
-         */
-        parameters: {
-            /**
-             * The type of the parameters object (usually 'object').
-             */
-            type: string;
-            /**
-             * List of required parameter names.
-             */
-            required?: string[];
-            /**
-             * Definitions of each parameter.
-             */
-            properties: {
-                [k: string]: {
-                    /**
-                     * The data type of the parameter.
-                     */
-                    type: string;
-                    /**
-                     * A description of the expected parameter.
-                     */
-                    description: string;
-                };
-            };
-        };
-    } | {
-        /**
-         * Specifies the type of tool (e.g., 'function').
-         */
-        type: string;
-        /**
-         * Details of the function tool.
-         */
-        function: {
-            /**
-             * The name of the function.
-             */
-            name: string;
-            /**
-             * A brief description of what the function does.
-             */
-            description: string;
-            /**
-             * Schema defining the parameters accepted by the function.
-             */
-            parameters: {
-                /**
-                 * The type of the parameters object (usually 'object').
-                 */
-                type: string;
-                /**
-                 * List of required parameter names.
-                 */
-                required?: string[];
-                /**
-                 * Definitions of each parameter.
-                 */
-                properties: {
-                    [k: string]: {
-                        /**
-                         * The data type of the parameter.
-                         */
-                        type: string;
-                        /**
-                         * A description of the expected parameter.
-                         */
-                        description: string;
-                    };
-                };
-            };
-        };
-    })[];
-    /**
-     * JSON schema that should be fufilled for the response.
-     */
-    guided_json?: object;
-    /**
-     * If true, a chat template is not applied and you must adhere to the specific model's expected formatting.
-     */
-    raw?: boolean;
-    /**
-     * If true, the response will be streamed back incrementally using SSE, Server Sent Events.
-     */
-    stream?: boolean;
-    /**
-     * The maximum number of tokens to generate in the response.
-     */
-    max_tokens?: number;
-    /**
-     * Controls the randomness of the output; higher values produce more random results.
-     */
-    temperature?: number;
-    /**
-     * Adjusts the creativity of the AI's responses by controlling how many possible words it considers. Lower values make outputs more predictable; higher values allow for more varied and creative responses.
-     */
-    top_p?: number;
-    /**
-     * Limits the AI to choose from the top 'k' most probable words. Lower values make responses more focused; higher values introduce more variety and potential surprises.
-     */
-    top_k?: number;
-    /**
-     * Random seed for reproducibility of the generation.
-     */
-    seed?: number;
-    /**
-     * Penalty for repeated tokens; higher values discourage repetition.
-     */
-    repetition_penalty?: number;
-    /**
-     * Decreases the likelihood of the model repeating the same lines verbatim.
-     */
-    frequency_penalty?: number;
-    /**
-     * Increases the likelihood of the model introducing new topics.
-     */
-    presence_penalty?: number;
-}
-type Ai_Cf_Meta_Llama_4_Scout_17B_16E_Instruct_Output = {
-    /**
-     * The generated text response from the model
-     */
-    response: string;
-    /**
-     * Usage statistics for the inference request
-     */
-    usage?: {
-        /**
-         * Total number of tokens in input
-         */
-        prompt_tokens?: number;
-        /**
-         * Total number of tokens in output
-         */
-        completion_tokens?: number;
-        /**
-         * Total number of input and output tokens
-         */
-        total_tokens?: number;
-    };
-    /**
-     * An array of tool calls requests made during the response generation
-     */
-    tool_calls?: {
-        /**
-         * The arguments passed to be passed to the tool call request
-         */
-        arguments?: object;
-        /**
-         * The name of the tool to be called
-         */
-        name?: string;
-    }[];
-} | string;
-declare abstract class Base_Ai_Cf_Meta_Llama_4_Scout_17B_16E_Instruct {
-    inputs: Ai_Cf_Meta_Llama_4_Scout_17B_16E_Instruct_Input;
-    postProcessedOutputs: Ai_Cf_Meta_Llama_4_Scout_17B_16E_Instruct_Output;
-}
-interface AiModels {
-    "@cf/huggingface/distilbert-sst-2-int8": BaseAiTextClassification;
-    "@cf/stabilityai/stable-diffusion-xl-base-1.0": BaseAiTextToImage;
-    "@cf/runwayml/stable-diffusion-v1-5-inpainting": BaseAiTextToImage;
-    "@cf/runwayml/stable-diffusion-v1-5-img2img": BaseAiTextToImage;
-    "@cf/lykon/dreamshaper-8-lcm": BaseAiTextToImage;
-    "@cf/bytedance/stable-diffusion-xl-lightning": BaseAiTextToImage;
-    "@cf/myshell-ai/melotts": BaseAiTextToSpeech;
-    "@cf/baai/bge-base-en-v1.5": BaseAiTextEmbeddings;
-    "@cf/baai/bge-small-en-v1.5": BaseAiTextEmbeddings;
-    "@cf/baai/bge-large-en-v1.5": BaseAiTextEmbeddings;
-    "@cf/microsoft/resnet-50": BaseAiImageClassification;
-    "@cf/facebook/detr-resnet-50": BaseAiObjectDetection;
-    "@cf/meta/llama-2-7b-chat-int8": BaseAiTextGeneration;
-    "@cf/mistral/mistral-7b-instruct-v0.1": BaseAiTextGeneration;
-    "@cf/meta/llama-2-7b-chat-fp16": BaseAiTextGeneration;
-    "@hf/thebloke/llama-2-13b-chat-awq": BaseAiTextGeneration;
-    "@hf/thebloke/mistral-7b-instruct-v0.1-awq": BaseAiTextGeneration;
-    "@hf/thebloke/zephyr-7b-beta-awq": BaseAiTextGeneration;
-    "@hf/thebloke/openhermes-2.5-mistral-7b-awq": BaseAiTextGeneration;
-    "@hf/thebloke/neural-chat-7b-v3-1-awq": BaseAiTextGeneration;
-    "@hf/thebloke/llamaguard-7b-awq": BaseAiTextGeneration;
-    "@hf/thebloke/deepseek-coder-6.7b-base-awq": BaseAiTextGeneration;
-    "@hf/thebloke/deepseek-coder-6.7b-instruct-awq": BaseAiTextGeneration;
-    "@cf/deepseek-ai/deepseek-math-7b-instruct": BaseAiTextGeneration;
-    "@cf/defog/sqlcoder-7b-2": BaseAiTextGeneration;
-    "@cf/openchat/openchat-3.5-0106": BaseAiTextGeneration;
-    "@cf/tiiuae/falcon-7b-instruct": BaseAiTextGeneration;
-    "@cf/thebloke/discolm-german-7b-v1-awq": BaseAiTextGeneration;
-    "@cf/qwen/qwen1.5-0.5b-chat": BaseAiTextGeneration;
-    "@cf/qwen/qwen1.5-7b-chat-awq": BaseAiTextGeneration;
-    "@cf/qwen/qwen1.5-14b-chat-awq": BaseAiTextGeneration;
-    "@cf/tinyllama/tinyllama-1.1b-chat-v1.0": BaseAiTextGeneration;
-    "@cf/microsoft/phi-2": BaseAiTextGeneration;
-    "@cf/qwen/qwen1.5-1.8b-chat": BaseAiTextGeneration;
-    "@cf/mistral/mistral-7b-instruct-v0.2-lora": BaseAiTextGeneration;
-    "@hf/nousresearch/hermes-2-pro-mistral-7b": BaseAiTextGeneration;
-    "@hf/nexusflow/starling-lm-7b-beta": BaseAiTextGeneration;
-    "@hf/google/gemma-7b-it": BaseAiTextGeneration;
-    "@cf/meta-llama/llama-2-7b-chat-hf-lora": BaseAiTextGeneration;
-    "@cf/google/gemma-2b-it-lora": BaseAiTextGeneration;
-    "@cf/google/gemma-7b-it-lora": BaseAiTextGeneration;
-    "@hf/mistral/mistral-7b-instruct-v0.2": BaseAiTextGeneration;
-    "@cf/meta/llama-3-8b-instruct": BaseAiTextGeneration;
-    "@cf/fblgit/una-cybertron-7b-v2-bf16": BaseAiTextGeneration;
-    "@cf/meta/llama-3-8b-instruct-awq": BaseAiTextGeneration;
-    "@hf/meta-llama/meta-llama-3-8b-instruct": BaseAiTextGeneration;
-    "@cf/meta/llama-3.1-8b-instruct": BaseAiTextGeneration;
-    "@cf/meta/llama-3.1-8b-instruct-fp8": BaseAiTextGeneration;
-    "@cf/meta/llama-3.1-8b-instruct-awq": BaseAiTextGeneration;
-    "@cf/meta/llama-3.2-3b-instruct": BaseAiTextGeneration;
-    "@cf/meta/llama-3.2-1b-instruct": BaseAiTextGeneration;
-    "@cf/meta/llama-3.3-70b-instruct-fp8-fast": BaseAiTextGeneration;
-    "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b": BaseAiTextGeneration;
-    "@cf/meta/m2m100-1.2b": BaseAiTranslation;
-    "@cf/facebook/bart-large-cnn": BaseAiSummarization;
-    "@cf/llava-hf/llava-1.5-7b-hf": BaseAiImageToText;
-    "@cf/openai/whisper": Base_Ai_Cf_Openai_Whisper;
-    "@cf/unum/uform-gen2-qwen-500m": Base_Ai_Cf_Unum_Uform_Gen2_Qwen_500M;
-    "@cf/openai/whisper-tiny-en": Base_Ai_Cf_Openai_Whisper_Tiny_En;
-    "@cf/openai/whisper-large-v3-turbo": Base_Ai_Cf_Openai_Whisper_Large_V3_Turbo;
-    "@cf/baai/bge-m3": Base_Ai_Cf_Baai_Bge_M3;
-    "@cf/black-forest-labs/flux-1-schnell": Base_Ai_Cf_Black_Forest_Labs_Flux_1_Schnell;
-    "@cf/meta/llama-3.2-11b-vision-instruct": Base_Ai_Cf_Meta_Llama_3_2_11B_Vision_Instruct;
-    "@cf/meta/llama-guard-3-8b": Base_Ai_Cf_Meta_Llama_Guard_3_8B;
-    "@cf/baai/bge-reranker-base": Base_Ai_Cf_Baai_Bge_Reranker_Base;
-    "@cf/meta/llama-4-scout-17b-16e-instruct": Base_Ai_Cf_Meta_Llama_4_Scout_17B_16E_Instruct;
-}
-type AiOptions = {
-    gateway?: GatewayOptions;
-    returnRawResponse?: boolean;
-    prefix?: string;
-    extraHeaders?: object;
-};
-type ConversionResponse = {
-    name: string;
-    mimeType: string;
-    format: "markdown";
-    tokens: number;
-    data: string;
-};
-type AiModelsSearchParams = {
-    author?: string;
-    hide_experimental?: boolean;
-    page?: number;
-    per_page?: number;
-    search?: string;
-    source?: number;
-    task?: string;
-};
-type AiModelsSearchObject = {
-    id: string;
-    source: number;
-    name: string;
-    description: string;
-    task: {
-        id: string;
-        name: string;
-        description: string;
-    };
-    tags: string[];
-    properties: {
-        property_id: string;
-        value: string;
-    }[];
-};
-interface InferenceUpstreamError extends Error {
-}
-interface AiInternalError extends Error {
-}
-type AiModelListType = Record<string, any>;
-declare abstract class Ai<AiModelList extends AiModelListType = AiModels> {
-    aiGatewayLogId: string | null;
-    gateway(gatewayId: string): AiGateway;
-    autorag(autoragId: string): AutoRAG;
-    run<Name extends keyof AiModelList, Options extends AiOptions>(model: Name, inputs: AiModelList[Name]["inputs"], options?: Options): Promise<Options extends {
-        returnRawResponse: true;
-    } ? Response : AiModelList[Name]["postProcessedOutputs"]>;
-    models(params?: AiModelsSearchParams): Promise<AiModelsSearchObject[]>;
-    toMarkdown(files: {
-        name: string;
-        blob: Blob;
-    }[], options?: {
-        gateway?: GatewayOptions;
-        extraHeaders?: object;
-    }): Promise<ConversionResponse[]>;
-    toMarkdown(files: {
-        name: string;
-        blob: Blob;
-    }, options?: {
-        gateway?: GatewayOptions;
-        extraHeaders?: object;
-    }): Promise<ConversionResponse>;
-}
-type GatewayOptions = {
-    id: string;
-    cacheKey?: string;
-    cacheTtl?: number;
-    skipCache?: boolean;
-    metadata?: Record<string, number | string | boolean | null | bigint>;
-    collectLog?: boolean;
-};
-type AiGatewayPatchLog = {
-    score?: number | null;
-    feedback?: -1 | 1 | null;
-    metadata?: Record<string, number | string | boolean | null | bigint> | null;
-};
-type AiGatewayLog = {
-    id: string;
-    provider: string;
-    model: string;
-    model_type?: string;
-    path: string;
-    duration: number;
-    request_type?: string;
-    request_content_type?: string;
-    status_code: number;
-    response_content_type?: string;
+interface RateLimitOutcome {
     success: boolean;
-    cached: boolean;
-    tokens_in?: number;
-    tokens_out?: number;
-    metadata?: Record<string, number | string | boolean | null | bigint>;
-    step?: number;
-    cost?: number;
-    custom_cost?: boolean;
-    request_size: number;
-    request_head?: string;
-    request_head_complete: boolean;
-    response_size: number;
-    response_head?: string;
-    response_head_complete: boolean;
-    created_at: Date;
-};
-type AIGatewayProviders = "workers-ai" | "anthropic" | "aws-bedrock" | "azure-openai" | "google-vertex-ai" | "huggingface" | "openai" | "perplexity-ai" | "replicate" | "groq" | "cohere" | "google-ai-studio" | "mistral" | "grok" | "openrouter" | "deepseek" | "cerebras" | "cartesia" | "elevenlabs" | "adobe-firefly";
-type AIGatewayHeaders = {
-    "cf-aig-metadata": Record<string, number | string | boolean | null | bigint> | string;
-    "cf-aig-custom-cost": {
-        per_token_in?: number;
-        per_token_out?: number;
-    } | {
-        total_cost?: number;
-    } | string;
-    "cf-aig-cache-ttl": number | string;
-    "cf-aig-skip-cache": boolean | string;
-    "cf-aig-cache-key": string;
-    "cf-aig-collect-log": boolean | string;
-    Authorization: string;
-    "Content-Type": string;
-    [key: string]: string | number | boolean | object;
-};
-type AIGatewayUniversalRequest = {
-    provider: AIGatewayProviders | string; // eslint-disable-line
-    endpoint: string;
-    headers: Partial<AIGatewayHeaders>;
-    query: unknown;
-};
-interface AiGatewayInternalError extends Error {
 }
-interface AiGatewayLogNotFound extends Error {
+interface RateLimit {
+    /**
+     * Rate limit a request based on the provided options.
+     * @see https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/
+     * @returns A promise that resolves with the outcome of the rate limit.
+     */
+    limit(options: RateLimitOptions): Promise<RateLimitOutcome>;
 }
-declare abstract class AiGateway {
-    patchLog(logId: string, data: AiGatewayPatchLog): Promise<void>;
-    getLog(logId: string): Promise<AiGatewayLog>;
-    run(data: AIGatewayUniversalRequest | AIGatewayUniversalRequest[]): Promise<Response>;
-    getUrl(provider?: AIGatewayProviders | string): Promise<string>; // eslint-disable-line
-}
-interface AutoRAGInternalError extends Error {
-}
-interface AutoRAGNotFoundError extends Error {
-}
-interface AutoRAGUnauthorizedError extends Error {
-}
-type AutoRagSearchRequest = {
-    query: string;
-    max_num_results?: number;
-    ranking_options?: {
-        ranker?: string;
-        score_threshold?: number;
+// Namespace for RPC utility types. Unfortunately, we can't use a `module` here as these types need
+// to referenced by `Fetcher`. This is included in the "importable" version of the types which
+// strips all `module` blocks.
+declare namespace Rpc {
+    // Branded types for identifying `WorkerEntrypoint`/`DurableObject`/`Target`s.
+    // TypeScript uses *structural* typing meaning anything with the same shape as type `T` is a `T`.
+    // For the classes exported by `cloudflare:workers` we want *nominal* typing (i.e. we only want to
+    // accept `WorkerEntrypoint` from `cloudflare:workers`, not any other class with the same shape)
+    export const __RPC_STUB_BRAND: '__RPC_STUB_BRAND';
+    export const __RPC_TARGET_BRAND: '__RPC_TARGET_BRAND';
+    export const __WORKER_ENTRYPOINT_BRAND: '__WORKER_ENTRYPOINT_BRAND';
+    export const __DURABLE_OBJECT_BRAND: '__DURABLE_OBJECT_BRAND';
+    export const __WORKFLOW_ENTRYPOINT_BRAND: '__WORKFLOW_ENTRYPOINT_BRAND';
+    export interface RpcTargetBranded {
+        [__RPC_TARGET_BRAND]: never;
+    }
+    export interface WorkerEntrypointBranded {
+        [__WORKER_ENTRYPOINT_BRAND]: never;
+    }
+    export interface DurableObjectBranded {
+        [__DURABLE_OBJECT_BRAND]: never;
+    }
+    export interface WorkflowEntrypointBranded {
+        [__WORKFLOW_ENTRYPOINT_BRAND]: never;
+    }
+    export type EntrypointBranded = WorkerEntrypointBranded | DurableObjectBranded | WorkflowEntrypointBranded;
+    // Types that can be used through `Stub`s
+    export type Stubable = RpcTargetBranded | ((...args: any[]) => any);
+    // Types that can be passed over RPC
+    // The reason for using a generic type here is to build a serializable subset of structured
+    //   cloneable composite types. This allows types defined with the "interface" keyword to pass the
+    //   serializable check as well. Otherwise, only types defined with the "type" keyword would pass.
+    type Serializable<T> = 
+    // Structured cloneables
+    BaseType
+    // Structured cloneable composites
+     | Map<T extends Map<infer U, unknown> ? Serializable<U> : never, T extends Map<unknown, infer U> ? Serializable<U> : never> | Set<T extends Set<infer U> ? Serializable<U> : never> | ReadonlyArray<T extends ReadonlyArray<infer U> ? Serializable<U> : never> | {
+        [K in keyof T]: K extends number | string ? Serializable<T[K]> : never;
+    }
+    // Special types
+     | Stub<Stubable>
+    // Serialized as stubs, see `Stubify`
+     | Stubable;
+    // Base type for all RPC stubs, including common memory management methods.
+    // `T` is used as a marker type for unwrapping `Stub`s later.
+    interface StubBase<T extends Stubable> extends Disposable {
+        [__RPC_STUB_BRAND]: T;
+        dup(): this;
+    }
+    export type Stub<T extends Stubable> = Provider<T> & StubBase<T>;
+    // This represents all the types that can be sent as-is over an RPC boundary
+    type BaseType = void | undefined | null | boolean | number | bigint | string | TypedArray | ArrayBuffer | DataView | Date | Error | RegExp | ReadableStream<Uint8Array> | WritableStream<Uint8Array> | Request | Response | Headers;
+    // Recursively rewrite all `Stubable` types with `Stub`s
+    // prettier-ignore
+    type Stubify<T> = T extends Stubable ? Stub<T> : T extends Map<infer K, infer V> ? Map<Stubify<K>, Stubify<V>> : T extends Set<infer V> ? Set<Stubify<V>> : T extends Array<infer V> ? Array<Stubify<V>> : T extends ReadonlyArray<infer V> ? ReadonlyArray<Stubify<V>> : T extends BaseType ? T : T extends {
+        [key: string | number]: any;
+    } ? {
+        [K in keyof T]: Stubify<T[K]>;
+    } : T;
+    // Recursively rewrite all `Stub<T>`s with the corresponding `T`s.
+    // Note we use `StubBase` instead of `Stub` here to avoid circular dependencies:
+    // `Stub` depends on `Provider`, which depends on `Unstubify`, which would depend on `Stub`.
+    // prettier-ignore
+    type Unstubify<T> = T extends StubBase<infer V> ? V : T extends Map<infer K, infer V> ? Map<Unstubify<K>, Unstubify<V>> : T extends Set<infer V> ? Set<Unstubify<V>> : T extends Array<infer V> ? Array<Unstubify<V>> : T extends ReadonlyArray<infer V> ? ReadonlyArray<Unstubify<V>> : T extends BaseType ? T : T extends {
+        [key: string | number]: unknown;
+    } ? {
+        [K in keyof T]: Unstubify<T[K]>;
+    } : T;
+    type UnstubifyAll<A extends any[]> = {
+        [I in keyof A]: Unstubify<A[I]>;
     };
-    rewrite_query?: boolean;
-};
-type AutoRagAiSearchRequest = AutoRagSearchRequest & {
-    stream?: boolean;
-};
-type AutoRagAiSearchRequestStreaming = Omit<AutoRagAiSearchRequest, 'stream'> & {
-    stream: true;
-};
-type AutoRagSearchResponse = {
-    object: 'vector_store.search_results.page';
-    search_query: string;
-    data: {
-        file_id: string;
-        filename: string;
-        score: number;
-        attributes: Record<string, string | number | boolean | null>;
-        content: {
-            type: 'text';
-            text: string;
-        }[];
-    }[];
-    has_more: boolean;
-    next_page: string | null;
-};
-type AutoRagAiSearchResponse = AutoRagSearchResponse & {
-    response: string;
-};
-declare abstract class AutoRAG {
-    search(params: AutoRagSearchRequest): Promise<AutoRagSearchResponse>;
-    aiSearch(params: AutoRagAiSearchRequestStreaming): Promise<Response>;
-    aiSearch(params: AutoRagAiSearchRequest): Promise<AutoRagAiSearchResponse>;
-    aiSearch(params: AutoRagAiSearchRequest): Promise<AutoRagAiSearchResponse | Response>;
+    // Utility type for adding `Provider`/`Disposable`s to `object` types only.
+    // Note `unknown & T` is equivalent to `T`.
+    type MaybeProvider<T> = T extends object ? Provider<T> : unknown;
+    type MaybeDisposable<T> = T extends object ? Disposable : unknown;
+    // Type for method return or property on an RPC interface.
+    // - Stubable types are replaced by stubs.
+    // - Serializable types are passed by value, with stubable types replaced by stubs
+    //   and a top-level `Disposer`.
+    // Everything else can't be passed over PRC.
+    // Technically, we use custom thenables here, but they quack like `Promise`s.
+    // Intersecting with `(Maybe)Provider` allows pipelining.
+    // prettier-ignore
+    type Result<R> = R extends Stubable ? Promise<Stub<R>> & Provider<R> : R extends Serializable<R> ? Promise<Stubify<R> & MaybeDisposable<R>> & MaybeProvider<R> : never;
+    // Type for method or property on an RPC interface.
+    // For methods, unwrap `Stub`s in parameters, and rewrite returns to be `Result`s.
+    // Unwrapping `Stub`s allows calling with `Stubable` arguments.
+    // For properties, rewrite types to be `Result`s.
+    // In each case, unwrap `Promise`s.
+    type MethodOrProperty<V> = V extends (...args: infer P) => infer R ? (...args: UnstubifyAll<P>) => Result<Awaited<R>> : Result<Awaited<V>>;
+    // Type for the callable part of an `Provider` if `T` is callable.
+    // This is intersected with methods/properties.
+    type MaybeCallableProvider<T> = T extends (...args: any[]) => any ? MethodOrProperty<T> : unknown;
+    // Base type for all other types providing RPC-like interfaces.
+    // Rewrites all methods/properties to be `MethodOrProperty`s, while preserving callable types.
+    // `Reserved` names (e.g. stub method names like `dup()`) and symbols can't be accessed over RPC.
+    export type Provider<T extends object, Reserved extends string = never> = MaybeCallableProvider<T> & {
+        [K in Exclude<keyof T, Reserved | symbol | keyof StubBase<never>>]: MethodOrProperty<T[K]>;
+    };
 }
-interface BasicImageTransformations {
+declare namespace Cloudflare {
+    interface Env {
+    }
+}
+declare module "cloudflare:workers" {
+    export type RpcStub<T extends Rpc.Stubable> = Rpc.Stub<T>;
+    export const RpcStub: {
+        new <T extends Rpc.Stubable>(value: T): Rpc.Stub<T>;
+    };
+    export abstract class RpcTarget implements Rpc.RpcTargetBranded {
+        [Rpc.__RPC_TARGET_BRAND]: never;
+    }
+    // `protected` fields don't appear in `keyof`s, so can't be accessed over RPC
+    export abstract class WorkerEntrypoint<Env = unknown> implements Rpc.WorkerEntrypointBranded {
+        [Rpc.__WORKER_ENTRYPOINT_BRAND]: never;
+        protected ctx: ExecutionContext;
+        protected env: Env;
+        constructor(ctx: ExecutionContext, env: Env);
+        fetch?(request: Request): Response | Promise<Response>;
+        tail?(events: TraceItem[]): void | Promise<void>;
+        trace?(traces: TraceItem[]): void | Promise<void>;
+        scheduled?(controller: ScheduledController): void | Promise<void>;
+        queue?(batch: MessageBatch<unknown>): void | Promise<void>;
+        test?(controller: TestController): void | Promise<void>;
+    }
+    export abstract class DurableObject<Env = unknown> implements Rpc.DurableObjectBranded {
+        [Rpc.__DURABLE_OBJECT_BRAND]: never;
+        protected ctx: DurableObjectState;
+        protected env: Env;
+        constructor(ctx: DurableObjectState, env: Env);
+        fetch?(request: Request): Response | Promise<Response>;
+        alarm?(alarmInfo?: AlarmInvocationInfo): void | Promise<void>;
+        webSocketMessage?(ws: WebSocket, message: string | ArrayBuffer): void | Promise<void>;
+        webSocketClose?(ws: WebSocket, code: number, reason: string, wasClean: boolean): void | Promise<void>;
+        webSocketError?(ws: WebSocket, error: unknown): void | Promise<void>;
+    }
+    export type WorkflowDurationLabel = 'second' | 'minute' | 'hour' | 'day' | 'week' | 'month' | 'year';
+    export type WorkflowSleepDuration = `${number} ${WorkflowDurationLabel}${'s' | ''}` | number;
+    export type WorkflowDelayDuration = WorkflowSleepDuration;
+    export type WorkflowTimeoutDuration = WorkflowSleepDuration;
+    export type WorkflowBackoff = 'constant' | 'linear' | 'exponential';
+    export type WorkflowStepConfig = {
+        retries?: {
+            limit: number;
+            delay: WorkflowDelayDuration | number;
+            backoff?: WorkflowBackoff;
+        };
+        timeout?: WorkflowTimeoutDuration | number;
+    };
+    export type WorkflowEvent<T> = {
+        payload: Readonly<T>;
+        timestamp: Date;
+        instanceId: string;
+    };
+    export type WorkflowStepEvent<T> = {
+        payload: Readonly<T>;
+        timestamp: Date;
+        type: string;
+    };
+    export abstract class WorkflowStep {
+        do<T extends Rpc.Serializable<T>>(name: string, callback: () => Promise<T>): Promise<T>;
+        do<T extends Rpc.Serializable<T>>(name: string, config: WorkflowStepConfig, callback: () => Promise<T>): Promise<T>;
+        sleep: (name: string, duration: WorkflowSleepDuration) => Promise<void>;
+        sleepUntil: (name: string, timestamp: Date | number) => Promise<void>;
+        waitForEvent<T extends Rpc.Serializable<T>>(name: string, options: {
+            type: string;
+            timeout?: WorkflowTimeoutDuration | number;
+        }): Promise<WorkflowStepEvent<T>>;
+    }
+    export abstract class WorkflowEntrypoint<Env = unknown, T extends Rpc.Serializable<T> | unknown = unknown> implements Rpc.WorkflowEntrypointBranded {
+        [Rpc.__WORKFLOW_ENTRYPOINT_BRAND]: never;
+        protected ctx: ExecutionContext;
+        protected env: Env;
+        constructor(ctx: ExecutionContext, env: Env);
+        run(event: Readonly<WorkflowEvent<T>>, step: WorkflowStep): Promise<unknown>;
+    }
+    export const env: Cloudflare.Env;
+}
+declare module "cloudflare:email" {
+    let _EmailMessage: {
+        prototype: EmailMessage;
+        new (from: string, to: string, raw: ReadableStream | string): EmailMessage;
+    };
+    export { _EmailMessage as EmailMessage };
+}
+interface Hyperdrive {
     /**
-     * Maximum width in image pixels. The value must be an integer.
+     * Connect directly to Hyperdrive as if it's your database, returning a TCP socket.
+     *
+     * Calling this method returns an idential socket to if you call
+     * `connect("host:port")` using the `host` and `port` fields from this object.
+     * Pick whichever approach works better with your preferred DB client library.
+     *
+     * Note that this socket is not yet authenticated -- it's expected that your
+     * code (or preferably, the client library of your choice) will authenticate
+     * using the information in this class's readonly fields.
      */
+    connect(): Socket;
+    /**
+     * A valid DB connection string that can be passed straight into the typical
+     * client library/driver/ORM. This will typically be the easiest way to use
+     * Hyperdrive.
+     */
+    readonly connectionString: string;
+    /*
+     * A randomly generated hostname that is only valid within the context of the
+     * currently running Worker which, when passed into `connect()` function from
+     * the "cloudflare:sockets" module, will connect to the Hyperdrive instance
+     * for your database.
+     */
+    readonly host: string;
+    /*
+     * The port that must be paired the the host field when connecting.
+     */
+    readonly port: number;
+    /*
+     * The username to use when authenticating to your database via Hyperdrive.
+     * Unlike the host and password, this will be the same every time
+     */
+    readonly user: string;
+    /*
+     * The randomly generated password to use when authenticating to your
+     * database via Hyperdrive. Like the host field, this password is only valid
+     * within the context of the currently running Worker instance from which
+     * it's read.
+     */
+    readonly password: string;
+    /*
+     * The name of the database to connect to.
+     */
+    readonly database: string;
+}
+// Copyright (c) 2024 Cloudflare, Inc.
+// Licensed under the Apache 2.0 license found in the LICENSE file or at:
+//     https://opensource.org/licenses/Apache-2.0
+type ImageInfoResponse = {
+    format: 'image/svg+xml';
+} | {
+    format: string;
+    fileSize: number;
+    width: number;
+    height: number;
+};
+type ImageTransform = {
     width?: number;
-    /**
-     * Maximum height in image pixels. The value must be an integer.
-     */
     height?: number;
-    /**
-     * Resizing mode as a string. It affects interpretation of width and height
-     * options:
-     *  - scale-down: Similar to contain, but the image is never enlarged. If
-     *    the image is larger than given width or height, it will be resized.
-     *    Otherwise its original size will be kept.
-     *  - contain: Resizes to maximum size that fits within the given width and
-     *    height. If only a single dimension is given (e.g. only width), the
-     *    image will be shrunk or enlarged to exactly match that dimension.
-     *    Aspect ratio is always preserved.
-     *  - cover: Resizes (shrinks or enlarges) to fill the entire area of width
-     *    and height. If the image has an aspect ratio different from the ratio
-     *    of width and height, it will be cropped to fit.
-     *  - crop: The image will be shrunk and cropped to fit within the area
-     *    specified by width and height. The image will not be enlarged. For images
-     *    smaller than the given dimensions it's the same as scale-down. For
-     *    images larger than the given dimensions, it's the same as cover.
-     *    See also trim.
-     *  - pad: Resizes to the maximum size that fits within the given width and
-     *    height, and then fills the remaining area with a background color
-     *    (white by default). Use of this mode is not recommended, as the same
-     *    effect can be more efficiently achieved with the contain mode and the
-     *    CSS object-fit: contain property.
-     *  - squeeze: Stretches and deforms to the width and height given, even if it
-     *    breaks aspect ratio
-     */
-    fit?: "scale-down" | "contain" | "cover" | "crop" | "pad" | "squeeze";
-    /**
-     * When cropping with fit: "cover", this defines the side or point that should
-     * be left uncropped. The value is either a string
-     * "left", "right", "top", "bottom", "auto", or "center" (the default),
-     * or an object {x, y} containing focal point coordinates in the original
-     * image expressed as fractions ranging from 0.0 (top or left) to 1.0
-     * (bottom or right), 0.5 being the center. {fit: "cover", gravity: "top"} will
-     * crop bottom or left and right sides as necessary, but won’t crop anything
-     * from the top. {fit: "cover", gravity: {x:0.5, y:0.2}} will crop each side to
-     * preserve as much as possible around a point at 20% of the height of the
-     * source image.
-     */
-    gravity?: 'left' | 'right' | 'top' | 'bottom' | 'center' | 'auto' | 'entropy' | BasicImageTransformationsGravityCoordinates;
-    /**
-     * Background color to add underneath the image. Applies only to images with
-     * transparency (such as PNG). Accepts any CSS color (#RRGGBB, rgba(…),
-     * hsl(…), etc.)
-     */
     background?: string;
+    blur?: number;
+    border?: {
+        color?: string;
+        width?: number;
+    } | {
+        top?: number;
+        bottom?: number;
+        left?: number;
+        right?: number;
+    };
+    brightness?: number;
+    contrast?: number;
+    fit?: 'scale-down' | 'contain' | 'pad' | 'squeeze' | 'cover' | 'crop';
+    flip?: 'h' | 'v' | 'hv';
+    gamma?: number;
+    gravity?: 'left' | 'right' | 'top' | 'bottom' | 'center' | 'auto' | 'entropy' | {
+        x?: number;
+        y?: number;
+        mode: 'remainder' | 'box-center';
+    };
+    rotate?: 0 | 90 | 180 | 270;
+    saturation?: number;
+    sharpen?: number;
+    trim?: "border" | {
+        top?: number;
+        bottom?: number;
+        left?: number;
+        right?: number;
+        width?: number;
+        height?: number;
+        border?: boolean | {
+            color?: string;
+            tolerance?: number;
+            keep?: number;
+        };
+    };
+};
+type ImageDrawOptions = {
+    opacity?: number;
+    repeat?: boolean | string;
+    top?: number;
+    left?: number;
+    bottom?: number;
+    right?: number;
+};
+type ImageOutputOptions = {
+    format: 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp' | 'image/avif' | 'rgb' | 'rgba';
+    quality?: number;
+    background?: string;
+};
+interface ImagesBinding {
     /**
-     * Number of degrees (90, 180, 270) to rotate the image by. width and height
-     * options refer to axes after rotation.
+     * Get image metadata (type, width and height)
+     * @throws {@link ImagesError} with code 9412 if input is not an image
+     * @param stream The image bytes
      */
-    rotate?: 0 | 90 | 180 | 270 | 360;
+    info(stream: ReadableStream<Uint8Array>): Promise<ImageInfoResponse>;
+    /**
+     * Begin applying a series of transformations to an image
+     * @param stream The image bytes
+     * @returns A transform handle
+     */
+    input(stream: ReadableStream<Uint8Array>): ImageTransformer;
 }
-interface BasicImageTransformationsGravityCoordinates {
-    x?: number;
-    y?: number;
-    mode?: 'remainder' | 'box-center';
+interface ImageTransformer {
+    /**
+     * Apply transform next, returning a transform handle.
+     * You can then apply more transformations, draw, or retrieve the output.
+     * @param transform
+     */
+    transform(transform: ImageTransform): ImageTransformer;
+    /**
+     * Draw an image on this transformer, returning a transform handle.
+     * You can then apply more transformations, draw, or retrieve the output.
+     * @param image The image (or transformer that will give the image) to draw
+     * @param options The options configuring how to draw the image
+     */
+    draw(image: ReadableStream<Uint8Array> | ImageTransformer, options?: ImageDrawOptions): ImageTransformer;
+    /**
+     * Retrieve the image that results from applying the transforms to the
+     * provided input
+     * @param options Options that apply to the output e.g. output format
+     */
+    output(options: ImageOutputOptions): Promise<ImageTransformationResult>;
 }
-/**
- * In addition to the properties you can set in the RequestInit dict
- * that you pass as an argument to the Request constructor, you can
- * set certain properties of a `cf` object to control how Cloudflare
- * features are applied to that new Request.
- *
- * Note: Currently, these properties cannot be tested in the
- * playground.
- */
-interface RequestInitCfProperties extends Record<string, unknown> {
-    cacheEverything?: boolean;
+interface ImageTransformationResult {
     /**
-     * A request's cache key is what determines if two requests are
-     * "the same" for caching purposes. If a request has the same cache key
-     * as some previous request, then we can serve the same cached response for
-     * both. (e.g. 'some-key')
+     * The image as a response, ready to store in cache or return to users
+     */
+    response(): Response;
+    /**
+     * The content type of the returned image
+     */
+    contentType(): string;
+    /**
+     * The bytes of the response
+     */
+    image(): ReadableStream<Uint8Array>;
+}
+interface ImagesError extends Error {
+    readonly code: number;
+    readonly message: string;
+    readonly stack?: string;
+}
+type Params<P extends string = any> = Record<P, string | string[]>;
+type EventContext<Env, P extends string, Data> = {
+    request: Request<unknown, IncomingRequestCfProperties<unknown>>;
+    functionPath: string;
+    waitUntil: (promise: Promise<any>) => void;
+    passThroughOnException: () => void;
+    next: (input?: Request | string, init?: RequestInit) => Promise<Response>;
+    env: Env & {
+        ASSETS: {
+            fetch: typeof fetch;
+        };
+    };
+    params: Params<P>;
+    data: Data;
+};
+type PagesFunction<Env = unknown, Params extends string = any, Data extends Record<string, unknown> = Record<string, unknown>> = (context: EventContext<Env, Params, Data>) => Response | Promise<Response>;
+type EventPluginContext<Env, P extends string, Data, PluginArgs> = {
+    request: Request<unknown, IncomingRequestCfProperties<unknown>>;
+    functionPath: string;
+    waitUntil: (promise: Promise<any>) => void;
+    passThroughOnException: () => void;
+    next: (input?: Request | string, init?: RequestInit) => Promise<Response>;
+    env: Env & {
+        ASSETS: {
+            fetch: typeof fetch;
+        };
+    };
+    params: Params<P>;
+    data: Data;
+    pluginArgs: PluginArgs;
+};
+type PagesPluginFunction<Env = unknown, Params extends string = any, Data extends Record<string, unknown> = Record<string, unknown>, PluginArgs = unknown> = (context: EventPluginContext<Env, Params, Data, PluginArgs>) => Response | Promise<Response>;
+declare module "assets:*" {
+    export const onRequest: PagesFunction;
+}
+// Copyright (c) 2022-2023 Cloudflare, Inc.
+// Licensed under the Apache 2.0 license found in the LICENSE file or at:
+//     https://opensource.org/licenses/Apache-2.0
+declare module "cloudflare:pipelines" {
+    export abstract class PipelineTransformationEntrypoint<Env = unknown, I extends PipelineRecord = PipelineRecord, O extends PipelineRecord = PipelineRecord> {
+        protected env: Env;
+        protected ctx: ExecutionContext;
+        constructor(ctx: ExecutionContext, env: Env);
+        /**
+         * run recieves an array of PipelineRecord which can be
+         * transformed and returned to the pipeline
+         * @param records Incoming records from the pipeline to be transformed
+         * @param metadata Information about the specific pipeline calling the transformation entrypoint
+         * @returns A promise containing the transformed PipelineRecord array
+         */
+        public run(records: I[], metadata: PipelineBatchMetadata): Promise<O[]>;
+    }
+    export type PipelineRecord = Record<string, unknown>;
+    export type PipelineBatchMetadata = {
+        pipelineId: string;
+        pipelineName: string;
+    };
+    export interface Pipeline<T extends PipelineRecord = PipelineRecord> {
+        /**
+         * The Pipeline interface represents the type of a binding to a Pipeline
+         *
+         * @param records The records to send to the pipeline
+         */
+        send(records: T[]): Promise<void>;
+    }
+}
+// PubSubMessage represents an incoming PubSub message.
+// The message includes metadata about the broker, the client, and the payload
+// itself.
+// https://developers.cloudflare.com/pub-sub/
+interface PubSubMessage {
+    // Message ID
+    readonly mid: number;
+    // MQTT broker FQDN in the form mqtts://BROKER.NAMESPACE.cloudflarepubsub.com:PORT
+    readonly broker: string;
+    // The MQTT topic the message was sent on.
+    readonly topic: string;
+    // The client ID of the client that published this message.
+    readonly clientId: string;
+    // The unique identifier (JWT ID) used by the client to authenticate, if token
+    // auth was used.
+    readonly jti?: string;
+    // A Unix timestamp (seconds from Jan 1, 1970), set when the Pub/Sub Broker
+    // received the message from the client.
+    readonly receivedAt: number;
+    // An (optional) string with the MIME type of the payload, if set by the
+    // client.
+    readonly contentType: string;
+    // Set to 1 when the payload is a UTF-8 string
+    // https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901063
+    readonly payloadFormatIndicator: number;
+    // Pub/Sub (MQTT) payloads can be UTF-8 strings, or byte arrays.
+    // You can use payloadFormatIndicator to inspect this before decoding.
+    payload: string | Uint8Array;
+}
+// JsonWebKey extended by kid parameter
+interface JsonWebKeyWithKid extends JsonWebKey {
+    // Key Identifier of the JWK
+    readonly kid: string;
+}
+interface RateLimitOptions {
+    key: string;
+}
+interface RateLimitOutcome {
+    success: boolean;
+}
+interface RateLimit {
+    /**
+     * Rate limit a request based on the provided options.
+     * @see https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/
+     * @returns A promise that resolves with the outcome of the rate limit.
+     */
+    limit(options: RateLimitOptions): Promise<RateLimitOutcome>;
+}
+// Namespace for RPC utility types. Unfortunately, we can't use a `module` here as these types need
+// to referenced by `Fetcher`. This is included in the "importable" version of the types which
+// strips all `module` blocks.
+declare namespace Rpc {
+    // Branded types for identifying `WorkerEntrypoint`/`DurableObject`/`Target`s.
+    // TypeScript uses *structural* typing meaning anything with the same shape as type `T` is a `T`.
+    // For the classes exported by `cloudflare:workers` we want *nominal* typing (i.e. we only want to
+    // accept `WorkerEntrypoint` from `cloudflare:workers`, not any other class with the same shape)
+    export const __RPC_STUB_BRAND: '__RPC_STUB_BRAND';
+    export const __RPC_TARGET_BRAND: '__RPC_TARGET_BRAND';
+    export const __WORKER_ENTRYPOINT_BRAND: '__WORKER_ENTRYPOINT_BRAND';
+    export const __DURABLE_OBJECT_BRAND: '__DURABLE_OBJECT_BRAND';
+    export const __WORKFLOW_ENTRYPOINT_BRAND: '__WORKFLOW_ENTRYPOINT_BRAND';
+    export interface RpcTargetBranded {
+        [__RPC_TARGET_BRAND]: never;
+    }
+    export interface WorkerEntrypointBranded {
+        [__WORKER_ENTRYPOINT_BRAND]: never;
+    }
+    export interface DurableObjectBranded {
+        [__DURABLE_OBJECT_BRAND]: never;
+    }
+    export interface WorkflowEntrypointBranded {
+        [__WORKFLOW_ENTRYPOINT_BRAND]: never;
+    }
+    export type EntrypointBranded = WorkerEntrypointBranded | DurableObjectBranded | WorkflowEntrypointBranded;
+    // Types that can be used through `Stub`s
+    export type Stubable = RpcTargetBranded | ((...args: any[]) => any);
+    // Types that can be passed over RPC
+    // The reason for using a generic type here is to build a serializable subset of structured
+    //   cloneable composite types. This allows types defined with the "interface" keyword to pass the
+    //   serializable check as well. Otherwise, only types defined with the "type" keyword would pass.
+    type Serializable<T> = 
+    // Structured cloneables
+    BaseType
+    // Structured cloneable composites
+     | Map<T extends Map<infer U, unknown> ? Serializable<U> : never, T extends Map<unknown, infer U> ? Serializable<U> : never> | Set<T extends Set<infer U> ? Serializable<U> : never> | ReadonlyArray<T extends ReadonlyArray<infer U> ? Serializable<U> : never> | {
+        [K in keyof T]: K extends number | string ? Serializable<T[K]> : never;
+    }
+    // Special types
+     | Stub<Stubable>
+    // Serialized as stubs, see `Stubify`
+     | Stubable;
+    // Base type for all RPC stubs, including common memory management methods.
+    // `T` is used as a marker type for unwrapping `Stub`s later.
+    interface StubBase<T extends Stubable> extends Disposable {
+        [__RPC_STUB_BRAND]: T;
+        dup(): this;
+    }
+    export type Stub<T extends Stubable> = Provider<T> & StubBase<T>;
+    // This represents all the types that can be sent as-is over an RPC boundary
+    type BaseType = void | undefined | null | boolean | number | bigint | string | TypedArray | ArrayBuffer | DataView | Date | Error | RegExp | ReadableStream<Uint8Array> | WritableStream<Uint8Array> | Request | Response | Headers;
+    // Recursively rewrite all `Stubable` types with `Stub`s
+    // prettier-ignore
+    type Stubify<T> = T extends Stubable ? Stub<T> : T extends Map<infer K, infer V> ? Map<Stubify<K>, Stubify<V>> : T extends Set<infer V> ? Set<Stubify<V>> : T extends Array<infer V> ? Array<Stubify<V>> : T extends ReadonlyArray<infer V> ? ReadonlyArray<Stubify<V>> : T extends BaseType ? T : T extends {
+        [key: string | number]: any;
+    } ? {
+        [K in keyof T]: Stubify<T[K]>;
+    } : T;
+    // Recursively rewrite all `Stub<T>`s with the corresponding `T`s.
+    // Note we use `StubBase` instead of `Stub` here to avoid circular dependencies:
+    // `Stub` depends on `Provider`, which depends on `Unstubify`, which would depend on `Stub`.
+    // prettier-ignore
+    type Unstubify<T> = T extends StubBase<infer V> ? V : T extends Map<infer K, infer V> ? Map<Unstubify<K>, Unstubify<V>> : T extends Set<infer V> ? Set<Unstubify<V>> : T extends Array<infer V> ? Array<Unstubify<V>> : T extends ReadonlyArray<infer V> ? ReadonlyArray<Unstubify<V>> : T extends BaseType ? T : T extends {
+        [key: string | number]: unknown;
+    } ? {
+        [K in keyof T]: Unstubify<T[K]>;
+    } : T;
+    type UnstubifyAll<A extends any[]> = {
+        [I in keyof A]: Unstubify<A[I]>;
+    };
+    // Utility type for adding `Provider`/`Disposable`s to `object` types only.
+    // Note `unknown & T` is equivalent to `T`.
+    type MaybeProvider<T> = T extends object ? Provider<T> : unknown;
+    type MaybeDisposable<T> = T extends object ? Disposable : unknown;
+    // Type for method return or property on an RPC interface.
+    // - Stubable types are replaced by stubs.
+    // - Serializable types are passed by value, with stubable types replaced by stubs
+    //   and a top-level `Disposer`.
+    // Everything else can't be passed over PRC.
+    // Technically, we use custom thenables here, but they quack like `Promise`s.
+    // Intersecting with `(Maybe)Provider` allows pipelining.
+    // prettier-ignore
+    type Result<R> = R extends Stubable ? Promise<Stub<R>> & Provider<R> : R extends Serializable<R> ? Promise<Stubify<R> & MaybeDisposable<R>> & MaybeProvider<R> : never;
+    // Type for method or property on an RPC interface.
+    // For methods, unwrap `Stub`s in parameters, and rewrite returns to be `Result`s.
+    // Unwrapping `Stub`s allows calling with `Stubable` arguments.
+    // For properties, rewrite types to be `Result`s.
+    // In each case, unwrap `Promise`s.
+    type MethodOrProperty<V> = V extends (...args: infer P) => infer R ? (...args: UnstubifyAll<P>) => Result<Awaited<R>> : Result<Awaited<V>>;
+    // Type for the callable part of an `Provider` if `T` is callable.
+    // This is intersected with methods/properties.
+    type MaybeCallableProvider<T> = T extends (...args: any[]) => any ? MethodOrProperty<T> : unknown;
+    // Base type for all other types providing RPC-like interfaces.
+    // Rewrites all methods/properties to be `MethodOrProperty`s, while preserving callable types.
+    // `Reserved` names (e.g. stub method names like `dup()`) and symbols can't be accessed over RPC.
+    export type Provider<T extends object, Reserved extends string = never> = MaybeCallableProvider<T> & {
+        [K in Exclude<keyof T, Reserved | symbol | keyof StubBase<never>>]: MethodOrProperty<T[K]>;
+    };
+}
+declare namespace Cloudflare {
+    interface Env {
+    }
+}
+declare module "cloudflare:workers" {
+    export type RpcStub<T extends Rpc.Stubable> = Rpc.Stub<T>;
+    export const RpcStub: {
+        new <T extends Rpc.Stubable>(value: T): Rpc.Stub<T>;
+    };
+    export abstract class RpcTarget implements Rpc.RpcTargetBranded {
+        [Rpc.__RPC_TARGET_BRAND]: never;
+    }
+    // `protected` fields don't appear in `keyof`s, so can't be accessed over RPC
+    export abstract class WorkerEntrypoint<Env = unknown> implements Rpc.WorkerEntrypointBranded {
+        [Rpc.__WORKER_ENTRYPOINT_BRAND]: never;
+        protected ctx: ExecutionContext;
+        protected env: Env;
+        constructor(ctx: ExecutionContext, env: Env);
+        fetch?(request: Request): Response | Promise<Response>;
+        tail?(events: TraceItem[]): void | Promise<void>;
+        trace?(traces: TraceItem[]): void | Promise<void>;
+        scheduled?(controller: ScheduledController): void | Promise<void>;
+        queue?(batch: MessageBatch<unknown>): void | Promise<void>;
+        test?(controller: TestController): void | Promise<void>;
+    }
+    export abstract class DurableObject<Env = unknown> implements Rpc.DurableObjectBranded {
+        [Rpc.__DURABLE_OBJECT_BRAND]: never;
+        protected ctx: DurableObjectState;
+        protected env: Env;
+        constructor(ctx: DurableObjectState, env: Env);
+        fetch?(request: Request): Response | Promise<Response>;
+        alarm?(alarmInfo?: AlarmInvocationInfo): void | Promise<void>;
+        webSocketMessage?(ws: WebSocket, message: string | ArrayBuffer): void | Promise<void>;
+        webSocketClose?(ws: WebSocket, code: number, reason: string, wasClean: boolean): void | Promise<void>;
+        webSocketError?(ws: WebSocket, error: unknown): void | Promise<void>;
+    }
+    export type WorkflowDurationLabel = 'second' | 'minute' | 'hour' | 'day' | 'week' | 'month' | 'year';
+    export type WorkflowSleepDuration = `${number} ${WorkflowDurationLabel}${'s' | ''}` | number;
+    export type WorkflowDelayDuration = WorkflowSleepDuration;
+    export type WorkflowTimeoutDuration = WorkflowSleepDuration;
+    export type WorkflowBackoff = 'constant' | 'linear' | 'exponential';
+    export type WorkflowStepConfig = {
+        retries?: {
+            limit: number;
+            delay: WorkflowDelayDuration | number;
+            backoff?: WorkflowBackoff;
+        };
+        timeout?: WorkflowTimeoutDuration | number;
+    };
+    export type WorkflowEvent<T> = {
+        payload: Readonly<T>;
+        timestamp: Date;
+        instanceId: string;
+    };
+    export type WorkflowStepEvent<T> = {
+        payload: Readonly<T>;
+        timestamp: Date;
+        type: string;
+    };
+    export abstract class WorkflowStep {
+        do<T extends Rpc.Serializable<T>>(name: string, callback: () => Promise<T>): Promise<T>;
+        do<T extends Rpc.Serializable<T>>(name: string, config: WorkflowStepConfig, callback: () => Promise<T>): Promise<T>;
+        sleep: (name: string, duration: WorkflowSleepDuration) => Promise<void>;
+        sleepUntil: (name: string, timestamp: Date | number) => Promise<void>;
+        waitForEvent<T extends Rpc.Serializable<T>>(name: string, options: {
+            type: string;
+            timeout?: WorkflowTimeoutDuration | number;
+        }): Promise<WorkflowStepEvent<T>>;
+    }
+    export abstract class WorkflowEntrypoint<Env = unknown, T extends Rpc.Serializable<T> | unknown = unknown> implements Rpc.WorkflowEntrypointBranded {
+        [Rpc.__WORKFLOW_ENTRYPOINT_BRAND]: never;
+        protected ctx: ExecutionContext;
+        protected env: Env;
+        constructor(ctx: ExecutionContext, env: Env);
+        run(event: Readonly<WorkflowEvent<T>>, step: WorkflowStep): Promise<unknown>;
+    }
+    export const env: Cloudflare.Env;
+}
+declare module "cloudflare:email" {
+    let _EmailMessage: {
+        prototype: EmailMessage;
+        new (from: string, to: string, raw: ReadableStream | string): EmailMessage;
+    };
+    export { _EmailMessage as EmailMessage };
+}
+interface Hyperdrive {
+    /**
+     * Connect directly to Hyperdrive as if it's your database, returning a TCP socket.
      *
-     * Only available for Enterprise customers.
-     */
-    cacheKey?: string;
-    /**
-     * This allows you to append additional Cache-Tag response headers
-     * to the origin response without modifications to the origin server.
-     * This will allow for greater control over the Purge by Cache Tag feature
-     * utilizing changes only in the Workers process.
+     * Calling this method returns an idential socket to if you call
+     * `connect("host:port")` using the `host` and `port` fields from this object.
+     * Pick whichever approach works better with your preferred DB client library.
      *
-     * Only available for Enterprise customers.
+     * Note that this socket is not yet authenticated -- it's expected that your
+     * code (or preferably, the client library of your choice) will authenticate
+     * using the information in this class's readonly fields.
      */
-    cacheTags?: string[];
+    connect(): Socket;
     /**
-     * Force response to be cached for a given number of seconds. (e.g. 300)
+     * A valid DB connection string that can be passed straight into the typical
+     * client library/driver/ORM. This will typically be the easiest way to use
+     * Hyperdrive.
      */
-    cacheTtl?: number;
-    /**
-     * Force response to be cached for a given number of seconds based on the Origin status code.
-     * (e.g. { '200-299': 86400, '404': 1, '500-599': 0 })
+    readonly connectionString: string;
+    /*
+     * A randomly generated hostname that is only valid within the context of the
+     * currently running Worker which, when passed into `connect()` function from
+     * the "cloudflare:sockets" module, will connect to the Hyperdrive instance
+     * for your database.
      */
-    cacheTtlByStatus?: Record<string, number>;
-    scrapeShield?: boolean;
-    apps?: boolean;
-    image?: RequestInitCfPropertiesImage;
-    minify?: RequestInitCfPropertiesImageMinify;
-    mirage?: boolean;
-    polish?: "lossy" | "lossless" | "off";
-    r2?: RequestInitCfPropertiesR2;
+    readonly host: string;
+    /*
+     * The port that must be paired the the host field when connecting.
+     */
+    readonly port: number;
+    /*
+     * The username to use when authenticating to your database via Hyperdrive.
+     * Unlike the host and password, this will be the same every time
+     */
+    readonly user: string;
+    /*
+     * The randomly generated password to use when authenticating to your
+     * database via Hyperdrive. Like the host field, this password is only valid
+     * within the context of the currently running Worker instance from which
+     * it's read.
+     */
+    readonly password: string;
+    /*
+     * The name of the database to connect to.
+     */
+    readonly database: string;
+}
+// Copyright (c) 2024 Cloudflare, Inc.
+// Licensed under the Apache 2.0 license found in the LICENSE file or at:
+//     https://opensource.org/licenses/Apache-2.0
+type ImageInfoResponse = {
+    format: 'image/svg+xml';
+} | {
+    format: string;
+    fileSize: number;
+    width: number;
+    height: number;
+};
+type ImageTransform = {
+    width?: number;
+    height?: number;
+    background?: string;
+    blur?: number;
+    border?: {
+        color?: string;
+        width?: number;
+    } | {
+        top?: number;
+        bottom?: number;
+        left?: number;
+        right?: number;
+    };
+    brightness?: number;
+    contrast?: number;
+    fit?: 'scale-down' | 'contain' | 'pad' | 'squeeze' | 'cover' | 'crop';
+    flip?: 'h' | 'v' | 'hv';
+    gamma?: number;
+    gravity?: 'left' | 'right' | 'top' | 'bottom' | 'center' | 'auto' | 'entropy' | {
+        x?: number;
+        y?: number;
+        mode: 'remainder' | 'box-center';
+    };
+    rotate?: 0 | 90 | 180 | 270;
+    saturation?: number;
+    sharpen?: number;
+    trim?: "border" | {
+        top?: number;
+        bottom?: number;
+        left?: number;
+        right?: number;
+        width?: number;
+        height?: number;
+        border?: boolean | {
+            color?: string;
+            tolerance?: number;
+            keep?: number;
+        };
+    };
+};
+type ImageDrawOptions = {
+    opacity?: number;
+    repeat?: boolean | string;
+    top?: number;
+    left?: number;
+    bottom?: number;
+    right?: number;
+};
+type ImageOutputOptions = {
+    format: 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp' | 'image/avif' | 'rgb' | 'rgba';
+    quality?: number;
+    background?: string;
+};
+interface ImagesBinding {
     /**
-     * Redirects the request to an alternate origin server. You can use this,
-     * for example, to implement load balancing across several origins.
-     * (e.g.us-east.example.com)
+     * Get image metadata (type, width and height)
+     * @throws {@link ImagesError} with code 9412 if input is not an image
+     * @param stream The image bytes
+     */
+    info(stream: ReadableStream<Uint8Array>): Promise<ImageInfoResponse>;
+    /**
+     * Begin applying a series of transformations to an image
+     * @param stream The image bytes
+     * @returns A transform handle
+     */
+    input(stream: ReadableStream<Uint8Array>): ImageTransformer;
+}
+interface ImageTransformer {
+    /**
+     * Apply transform next, returning a transform handle.
+     * You can then apply more transformations, draw, or retrieve the output.
+     * @param transform
+     */
+    transform(transform: ImageTransform): ImageTransformer;
+    /**
+     * Draw an image on this transformer, returning a transform handle.
+     * You can then apply more transformations, draw, or retrieve the output.
+     * @param image The image (or transformer that will give the image) to draw
+     * @param options The options configuring how to draw the image
+     */
+    draw(image: ReadableStream<Uint8Array> | ImageTransformer, options?: ImageDrawOptions): ImageTransformer;
+    /**
+     * Retrieve the image that results from applying the transforms to the
+     * provided input
+     * @param options Options that apply to the output e.g. output format
+     */
+    output(options: ImageOutputOptions): Promise<ImageTransformationResult>;
+}
+interface ImageTransformationResult {
+    /**
+     * The image as a response, ready to store in cache or return to users
+     */
+    response(): Response;
+    /**
+     * The content type of the returned image
+     */
+    contentType(): string;
+    /**
+     * The bytes of the response
+     */
+    image(): ReadableStream<Uint8Array>;
+}
+interface ImagesError extends Error {
+    readonly code: number;
+    readonly message: string;
+    readonly stack?: string;
+}
+type Params<P extends string = any> = Record<P, string | string[]>;
+type EventContext<Env, P extends string, Data> = {
+    request: Request<unknown, IncomingRequestCfProperties<unknown>>;
+    functionPath: string;
+    waitUntil: (promise: Promise<any>) => void;
+    passThroughOnException: () => void;
+    next: (input?: Request | string, init?: RequestInit) => Promise<Response>;
+    env: Env & {
+        ASSETS: {
+            fetch: typeof fetch;
+        };
+    };
+    params: Params<P>;
+    data: Data;
+};
+type PagesFunction<Env = unknown, Params extends string = any, Data extends Record<string, unknown> = Record<string, unknown>> = (context: EventContext<Env, Params, Data>) => Response | Promise<Response>;
+type EventPluginContext<Env, P extends string, Data, PluginArgs> = {
+    request: Request<unknown, IncomingRequestCfProperties<unknown>>;
+    functionPath: string;
+    waitUntil: (promise: Promise<any>) => void;
+    passThroughOnException: () => void;
+    next: (input?: Request | string, init?: RequestInit) => Promise<Response>;
+    env: Env & {
+        ASSETS: {
+            fetch: typeof fetch;
+        };
+    };
+    params: Params<P>;
+    data: Data;
+    pluginArgs: PluginArgs;
+};
+type PagesPluginFunction<Env = unknown, Params extends string = any, Data extends Record<string, unknown> = Record<string, unknown>, PluginArgs = unknown> = (context: EventPluginContext<Env, Params, Data, PluginArgs>) => Response | Promise<Response>;
+declare module "assets:*" {
+    export const onRequest: PagesFunction;
+}
+// Copyright (c) 2022-2023 Cloudflare, Inc.
+// Licensed under the Apache 2.0 license found in the LICENSE file or at:
+//     https://opensource.org/licenses/Apache-2.0
+declare module "cloudflare:pipelines" {
+    export abstract class PipelineTransformationEntrypoint<Env = unknown, I extends PipelineRecord = PipelineRecord, O extends PipelineRecord = PipelineRecord> {
+        protected env: Env;
+        protected ctx: ExecutionContext;
+        constructor(ctx: ExecutionContext, env: Env);
+        /**
+         * run recieves an array of PipelineRecord which can be
+         * transformed and returned to the pipeline
+         * @param records Incoming records from the pipeline to be transformed
+         * @param metadata Information about the specific pipeline calling the transformation entrypoint
+         * @returns A promise containing the transformed PipelineRecord array
+         */
+        public run(records: I[], metadata: PipelineBatchMetadata): Promise<O[]>;
+    }
+    export type PipelineRecord = Record<string, unknown>;
+    export type PipelineBatchMetadata = {
+        pipelineId: string;
+        pipelineName: string;
+    };
+    export interface Pipeline<T extends PipelineRecord = PipelineRecord> {
+        /**
+         * The Pipeline interface represents the type of a binding to a Pipeline
+         *
+         * @param records The records to send to the pipeline
+         */
+        send(records: T[]): Promise<void>;
+    }
+}
+// PubSubMessage represents an incoming PubSub message.
+// The message includes metadata about the broker, the client, and the payload
+// itself.
+// https://developers.cloudflare.com/pub-sub/
+interface PubSubMessage {
+    // Message ID
+    readonly mid: number;
+    // MQTT broker FQDN in the form mqtts://BROKER.NAMESPACE.cloudflarepubsub.com:PORT
+    readonly broker: string;
+    // The MQTT topic the message was sent on.
+    readonly topic: string;
+    // The client ID of the client that published this message.
+    readonly clientId: string;
+    // The unique identifier (JWT ID) used by the client to authenticate, if token
+    // auth was used.
+    readonly jti?: string;
+    // A Unix timestamp (seconds from Jan 1, 1970), set when the Pub/Sub Broker
+    // received the message from the client.
+    readonly receivedAt: number;
+    // An (optional) string with the MIME type of the payload, if set by the
+    // client.
+    readonly contentType: string;
+    // Set to 1 when the payload is a UTF-8 string
+    // https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901063
+    readonly payloadFormatIndicator: number;
+    // Pub/Sub (MQTT) payloads can be UTF-8 strings, or byte arrays.
+    // You can use payloadFormatIndicator to inspect this before decoding.
+    payload: string | Uint8Array;
+}
+// JsonWebKey extended by kid parameter
+interface JsonWebKeyWithKid extends JsonWebKey {
+    // Key Identifier of the JWK
+    readonly kid: string;
+}
+interface RateLimitOptions {
+    key: string;
+}
+interface RateLimitOutcome {
+    success: boolean;
+}
+interface RateLimit {
+    /**
+     * Rate limit a request based on the provided options.
+     * @see https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/
+     * @returns A promise that resolves with the outcome of the rate limit.
+     */
+    limit(options: RateLimitOptions): Promise<RateLimitOutcome>;
+}
+// Namespace for RPC utility types. Unfortunately, we can't use a `module` here as these types need
+// to referenced by `Fetcher`. This is included in the "importable" version of the types which
+// strips all `module` blocks.
+declare namespace Rpc {
+    // Branded types for identifying `WorkerEntrypoint`/`DurableObject`/`Target`s.
+    // TypeScript uses *structural* typing meaning anything with the same shape as type `T` is a `T`.
+    // For the classes exported by `cloudflare:workers` we want *nominal* typing (i.e. we only want to
+    // accept `WorkerEntrypoint` from `cloudflare:workers`, not any other class with the same shape)
+    export const __RPC_STUB_BRAND: '__RPC_STUB_BRAND';
+    export const __RPC_TARGET_BRAND: '__RPC_TARGET_BRAND';
+    export const __WORKER_ENTRYPOINT_BRAND: '__WORKER_ENTRYPOINT_BRAND';
+    export const __DURABLE_OBJECT_BRAND: '__DURABLE_OBJECT_BRAND';
+    export const __WORKFLOW_ENTRYPOINT_BRAND: '__WORKFLOW_ENTRYPOINT_BRAND';
+    export interface RpcTargetBranded {
+        [__RPC_TARGET_BRAND]: never;
+    }
+    export interface WorkerEntrypointBranded {
+        [__WORKER_ENTRYPOINT_BRAND]: never;
+    }
+    export interface DurableObjectBranded {
+        [__DURABLE_OBJECT_BRAND]: never;
+    }
+    export interface WorkflowEntrypointBranded {
+        [__WORKFLOW_ENTRYPOINT_BRAND]: never;
+    }
+    export type EntrypointBranded = WorkerEntrypointBranded | DurableObjectBranded | WorkflowEntrypointBranded;
+    // Types that can be used through `Stub`s
+    export type Stubable = RpcTargetBranded | ((...args: any[]) => any);
+    // Types that can be passed over RPC
+    // The reason for using a generic type here is to build a serializable subset of structured
+    //   cloneable composite types. This allows types defined with the "interface" keyword to pass the
+    //   serializable check as well. Otherwise, only types defined with the "type" keyword would pass.
+    type Serializable<T> = 
+    // Structured cloneables
+    BaseType
+    // Structured cloneable composites
+     | Map<T extends Map<infer U, unknown> ? Serializable<U> : never, T extends Map<unknown, infer U> ? Serializable<U> : never> | Set<T extends Set<infer U> ? Serializable<U> : never> | ReadonlyArray<T extends ReadonlyArray<infer U> ? Serializable<U> : never> | {
+        [K in keyof T]: K extends number | string ? Serializable<T[K]> : never;
+    }
+    // Special types
+     | Stub<Stubable>
+    // Serialized as stubs, see `Stubify`
+     | Stubable;
+    // Base type for all RPC stubs, including common memory management methods.
+    // `T` is used as a marker type for unwrapping `Stub`s later.
+    interface StubBase<T extends Stubable> extends Disposable {
+        [__RPC_STUB_BRAND]: T;
+        dup(): this;
+    }
+    export type Stub<T extends Stubable> = Provider<T> & StubBase<T>;
+    // This represents all the types that can be sent as-is over an RPC boundary
+    type BaseType = void | undefined | null | boolean | number | bigint | string | TypedArray | ArrayBuffer | DataView | Date | Error | RegExp | ReadableStream<Uint8Array> | WritableStream<Uint8Array> | Request | Response | Headers;
+    // Recursively rewrite all `Stubable` types with `Stub`s
+    // prettier-ignore
+    type Stubify<T> = T extends Stubable ? Stub<T> : T extends Map<infer K, infer V> ? Map<Stubify<K>, Stubify<V>> : T extends Set<infer V> ? Set<Stubify<V>> : T extends Array<infer V> ? Array<Stubify<V>> : T extends ReadonlyArray<infer V> ? ReadonlyArray<Stubify<V>> : T extends BaseType ? T : T extends {
+        [key: string | number]: any;
+    } ? {
+        [K in keyof T]: Stubify<T[K]>;
+    } : T;
+    // Recursively rewrite all `Stub<T>`s with the corresponding `T`s.
+    // Note we use `StubBase` instead of `Stub` here to avoid circular dependencies:
+    // `Stub` depends on `Provider`, which depends on `Unstubify`, which would depend on `Stub`.
+    // prettier-ignore
+    type Unstubify<T> = T extends StubBase<infer V> ? V : T extends Map<infer K, infer V> ? Map<Unstubify<K>, Unstubify<V>> : T extends Set<infer V> ? Set<Unstubify<V>> : T extends Array<infer V> ? Array<Unstubify<V>> : T extends ReadonlyArray<infer V> ? ReadonlyArray<Unstubify<V>> : T extends BaseType ? T : T extends {
+        [key: string | number]: unknown;
+    } ? {
+        [K in keyof T]: Unstubify<T[K]>;
+    } : T;
+    type UnstubifyAll<A extends any[]> = {
+        [I in keyof A]: Unstubify<A[I]>;
+    };
+    // Utility type for adding `Provider`/`Disposable`s to `object` types only.
+    // Note `unknown & T` is equivalent to `T`.
+    type MaybeProvider<T> = T extends object ? Provider<T> : unknown;
+    type MaybeDisposable<T> = T extends object ? Disposable : unknown;
+    // Type for method return or property on an RPC interface.
+    // - Stubable types are replaced by stubs.
+    // - Serializable types are passed by value, with stubable types replaced by stubs
+    //   and a top-level `Disposer`.
+    // Everything else can't be passed over PRC.
+    // Technically, we use custom thenables here, but they quack like `Promise`s.
+    // Intersecting with `(Maybe)Provider` allows pipelining.
+    // prettier-ignore
+    type Result<R> = R extends Stubable ? Promise<Stub<R>> & Provider<R> : R extends Serializable<R> ? Promise<Stubify<R> & MaybeDisposable<R>> & MaybeProvider<R> : never;
+    // Type for method or property on an RPC interface.
+    // For methods, unwrap `Stub`s in parameters, and rewrite returns to be `Result`s.
+    // Unwrapping `Stub`s allows calling with `Stubable` arguments.
+    // For properties, rewrite types to be `Result`s.
+    // In each case, unwrap `Promise`s.
+    type MethodOrProperty<V> = V extends (...args: infer P) => infer R ? (...args: UnstubifyAll<P>) => Result<Awaited<R>> : Result<Awaited<V>>;
+    // Type for the callable part of an `Provider` if `T` is callable.
+    // This is intersected with methods/properties.
+    type MaybeCallableProvider<T> = T extends (...args: any[]) => any ? MethodOrProperty<T> : unknown;
+    // Base type for all other types providing RPC-like interfaces.
+    // Rewrites all methods/properties to be `MethodOrProperty`s, while preserving callable types.
+    // `Reserved` names (e.g. stub method names like `dup()`) and symbols can't be accessed over RPC.
+    export type Provider<T extends object, Reserved extends string = never> = MaybeCallableProvider<T> & {
+        [K in Exclude<keyof T, Reserved | symbol | keyof StubBase<never>>]: MethodOrProperty<T[K]>;
+    };
+}
+declare namespace Cloudflare {
+    interface Env {
+    }
+}
+declare module "cloudflare:workers" {
+    export type RpcStub<T extends Rpc.Stubable> = Rpc.Stub<T>;
+    export const RpcStub: {
+        new <T extends Rpc.Stubable>(value: T): Rpc.Stub<T>;
+    };
+    export abstract class RpcTarget implements Rpc.RpcTargetBranded {
+        [Rpc.__RPC_TARGET_BRAND]: never;
+    }
+    // `protected` fields don't appear in `keyof`s, so can't be accessed over RPC
+    export abstract class WorkerEntrypoint<Env = unknown> implements Rpc.WorkerEntrypointBranded {
+        [Rpc.__WORKER_ENTRYPOINT_BRAND]: never;
+        protected ctx: ExecutionContext;
+        protected env: Env;
+        constructor(ctx: ExecutionContext, env: Env);
+        fetch?(request: Request): Response | Promise<Response>;
+        tail?(events: TraceItem[]): void | Promise<void>;
+        trace?(traces: TraceItem[]): void | Promise<void>;
+        scheduled?(controller: ScheduledController): void | Promise<void>;
+        queue?(batch: MessageBatch<unknown>): void | Promise<void>;
+        test?(controller: TestController): void | Promise<void>;
+    }
+    export abstract class DurableObject<Env = unknown> implements Rpc.DurableObjectBranded {
+        [Rpc.__DURABLE_OBJECT_BRAND]: never;
+        protected ctx: DurableObjectState;
+        protected env: Env;
+        constructor(ctx: DurableObjectState, env: Env);
+        fetch?(request: Request): Response | Promise<Response>;
+        alarm?(alarmInfo?: AlarmInvocationInfo): void | Promise<void>;
+        webSocketMessage?(ws: WebSocket, message: string | ArrayBuffer): void | Promise<void>;
+        webSocketClose?(ws: WebSocket, code: number, reason: string, wasClean: boolean): void | Promise<void>;
+        webSocketError?(ws: WebSocket, error: unknown): void | Promise<void>;
+    }
+    export type WorkflowDurationLabel = 'second' | 'minute' | 'hour' | 'day' | 'week' | 'month' | 'year';
+    export type WorkflowSleepDuration = `${number} ${WorkflowDurationLabel}${'s' | ''}` | number;
+    export type WorkflowDelayDuration = WorkflowSleepDuration;
+    export type WorkflowTimeoutDuration = WorkflowSleepDuration;
+    export type WorkflowBackoff = 'constant' | 'linear' | 'exponential';
+    export type WorkflowStepConfig = {
+        retries?: {
+            limit: number;
+            delay: WorkflowDelayDuration | number;
+            backoff?: WorkflowBackoff;
+        };
+        timeout?: WorkflowTimeoutDuration | number;
+    };
+    export type WorkflowEvent<T> = {
+        payload: Readonly<T>;
+        timestamp: Date;
+        instanceId: string;
+    };
+    export type WorkflowStepEvent<T> = {
+        payload: Readonly<T>;
+        timestamp: Date;
+        type: string;
+    };
+    export abstract class WorkflowStep {
+        do<T extends Rpc.Serializable<T>>(name: string, callback: () => Promise<T>): Promise<T>;
+        do<T extends Rpc.Serializable<T>>(name: string, config: WorkflowStepConfig, callback: () => Promise<T>): Promise<T>;
+        sleep: (name: string, duration: WorkflowSleepDuration) => Promise<void>;
+        sleepUntil: (name: string, timestamp: Date | number) => Promise<void>;
+        waitForEvent<T extends Rpc.Serializable<T>>(name: string, options: {
+            type: string;
+            timeout?: WorkflowTimeoutDuration | number;
+        }): Promise<WorkflowStepEvent<T>>;
+    }
+    export abstract class WorkflowEntrypoint<Env = unknown, T extends Rpc.Serializable<T> | unknown = unknown> implements Rpc.WorkflowEntrypointBranded {
+        [Rpc.__WORKFLOW_ENTRYPOINT_BRAND]: never;
+        protected ctx: ExecutionContext;
+        protected env: Env;
+        constructor(ctx: ExecutionContext, env: Env);
+        run(event: Readonly<WorkflowEvent<T>>, step: WorkflowStep): Promise<unknown>;
+    }
+    export const env: Cloudflare.Env;
+}
+declare module "cloudflare:email" {
+    let _EmailMessage: {
+        prototype: EmailMessage;
+        new (from: string, to: string, raw: ReadableStream | string): EmailMessage;
+    };
+    export { _EmailMessage as EmailMessage };
+}
+interface Hyperdrive {
+    /**
+     * Connect directly to Hyperdrive as if it's your database, returning a TCP socket.
      *
+     * Calling this method returns an idential socket to if you call
+     * `connect("host:port")` using the `host` and `port` fields from this object.
+     * Pick whichever approach works better with your preferred DB client library.
+     *
+     * Note that this socket is not yet authenticated -- it's expected that your
+     * code (or preferably, the client library of your choice) will authenticate
+     * using the information in this class's readonly fields.
+     */
+    connect(): Socket;
+    /**
+     * A valid DB connection string that can be passed straight into the typical
+     * client library/driver/ORM. This will typically be the easiest way to use
+     * Hyperdrive.
+     */
+    readonly connectionString: string;
+    /*
+     * A randomly generated hostname that is only valid within the context of the
+     * currently running Worker which, when passed into `connect()` function from
+     * the "cloudflare:sockets" module, will connect to the Hyperdrive instance
+     * for your database.
+     */
+    readonly host: string;
+    /*
+     * The port that must be paired the the host field when connecting.
+     */
+    readonly port: number;
+    /*
+     * The username to use when authenticating to your database via Hyperdrive.
+     * Unlike the host and password, this will be the same every time
+     */
+    readonly user: string;
+    /*
+     * The randomly generated password to use when authenticating to your
+     * database via Hyperdrive. Like the host field, this password is only valid
+     * within the context of the currently running Worker instance from which
+     * it's read.
+     */
+    readonly password: string;
+    /*
+     * The name of the database to connect to.
+     */
+    readonly database: string;
+}
+// Copyright (c) 2024 Cloudflare, Inc.
+// Licensed under the Apache 2.0 license found in the LICENSE file or at:
+//     https://opensource.org/licenses/Apache-2.0
+type ImageInfoResponse = {
+    format: 'image/svg+xml';
+} | {
+    format: string;
+    fileSize: number;
+    width: number;
+    height: number;
+};
+type ImageTransform = {
+    width?: number;
+    height?: number;
+    background?: string;
+    blur?: number;
+    border?: {
+        color?: string;
+        width?: number;
+    } | {
+        top?: number;
+        bottom?: number;
+        left?: number;
+        right?: number;
+    };
+    brightness?: number;
+    contrast?: number;
+    fit?: 'scale-down' | 'contain' | 'pad' | 'squeeze' | 'cover' | 'crop';
+    flip?: 'h' | 'v' | 'hv';
+    gamma?: number;
+    gravity?: 'left' | 'right' | 'top' | 'bottom' | 'center' | 'auto' | 'entropy' | {
+        x?: number;
+        y?: number;
+        mode: 'remainder' | 'box-center';
+    };
+    rotate?: 0 | 90 | 180 | 270;
+    saturation?: number;
+    sharpen?: number;
+    trim?: "border" | {
+        top?: number;
+        bottom?: number;
+        left?: number;
+        right?: number;
+        width?: number;
+        height?: number;
+        border?: boolean | {
+            color?: string;
+            tolerance?: number;
+            keep?: number;
+        };
+    };
+};
+type ImageDrawOptions = {
+    opacity?: number;
+    repeat?: boolean | string;
+    top?: number;
+    left?: number;
+    bottom?: number;
+    right?: number;
+};
+type ImageOutputOptions = {
+    format: 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp' | 'image/avif' | 'rgb' | 'rgba';
+    quality?: number;
+    background?: string;
+};
+interface ImagesBinding {
+    /**
+     * Get image metadata (type, width and height)
+     * @throws {@link ImagesError} with code 9412 if input is not an image
+     * @param stream The image bytes
+     */
+    info(stream: ReadableStream<Uint8Array>): Promise<ImageInfoResponse>;
+    /**
+     * Begin applying a series of transformations to an image
+     * @param stream The image bytes
+     * @returns A transform handle
+     */
+    input(stream: ReadableStream<Uint8Array>): ImageTransformer;
+}
+interface ImageTransformer {
+    /**
+     * Apply transform next, returning a transform handle.
+     * You can then apply more transformations, draw, or retrieve the output.
+     * @param transform
+     */
+    transform(transform: ImageTransform): ImageTransformer;
+    /**
+     * Draw an image on this transformer, returning a transform handle.
+     * You can then apply more transformations, draw, or retrieve the output.
+     * @param image The image (or transformer that will give the image) to draw
+     * @param options The options configuring how to draw the image
+     */
+    draw(image: ReadableStream<Uint8Array> | ImageTransformer, options?: ImageDrawOptions): ImageTransformer;
+    /**
+     * Retrieve the image that results from applying the transforms to the
+     * provided input
+     * @param options Options that apply to the output e.g. output format
+     */
+    output(options: ImageOutputOptions): Promise<ImageTransformationResult>;
+}
+interface ImageTransformationResult {
+    /**
+     * The image as a response, ready to store in cache or return to users
+     */
+    response(): Response;
+    /**
+     * The content type of the returned image
+     */
+    contentType(): string;
+    /**
+     * The bytes of the response
+     */
+    image(): ReadableStream<Uint8Array>;
+}
+interface ImagesError extends Error {
+    readonly code: number;
+    readonly message: string;
+    readonly stack?: string;
+}
+type Params<P extends string = any> = Record<P, string | string[]>;
+type EventContext<Env, P extends string, Data> = {
+    request: Request<unknown, IncomingRequestCfProperties<unknown>>;
+    functionPath: string;
+    waitUntil: (promise: Promise<any>) => void;
+    passThroughOnException: () => void;
+    next: (input?: Request | string, init?: RequestInit) => Promise<Response>;
+    env: Env & {
+        ASSETS: {
+            fetch: typeof fetch;
+        };
+    };
+    params: Params<P>;
+    data: Data;
+};
+type PagesFunction<Env = unknown, Params extends string = any, Data extends Record<string, unknown> = Record<string, unknown>> = (context: EventContext<Env, Params, Data>) => Response | Promise<Response>;
+type EventPluginContext<Env, P extends string, Data, PluginArgs> = {
+    request: Request<unknown, IncomingRequestCfProperties<unknown>>;
+    functionPath: string;
+    waitUntil: (promise: Promise<any>) => void;
+    passThroughOnException: () => void;
+    next: (input?: Request | string, init?: RequestInit) => Promise<Response>;
+    env: Env & {
+        ASSETS: {
+            fetch: typeof fetch;
+        };
+    };
+    params: Params<P>;
+    data: Data;
+    pluginArgs: PluginArgs;
+};
+type PagesPluginFunction<Env = unknown, Params extends string = any, Data extends Record<string, unknown> = Record<string, unknown>, PluginArgs = unknown> = (context: EventPluginContext<Env, Params, Data, PluginArgs>) => Response | Promise<Response>;
+declare module "assets:*" {
+    export const onRequest: PagesFunction;
+}
+// Copyright (c) 2022-2023 Cloudflare, Inc.
+// Licensed under the Apache 2.0 license found in the LICENSE file or at:
+//     https://opensource.org/licenses/Apache-2.0
+declare module "cloudflare:pipelines" {
+    export abstract class PipelineTransformationEntrypoint<Env = unknown, I extends PipelineRecord = PipelineRecord, O extends PipelineRecord = PipelineRecord> {
+        protected env: Env;
+        protected ctx: ExecutionContext;
+        constructor(ctx: ExecutionContext, env: Env);
+        /**
+         * run recieves an array of PipelineRecord which can be
+         * transformed and returned to the pipeline
+         * @param records Incoming records from the pipeline to be transformed
+         * @param metadata Information about the specific pipeline calling the transformation entrypoint
+         * @returns A promise containing the transformed PipelineRecord array
+         */
+        public run(records: I[], metadata: PipelineBatchMetadata): Promise<O[]>;
+    }
+    export type PipelineRecord = Record<string, unknown>;
+    export type PipelineBatchMetadata = {
+        pipelineId: string;
+        pipelineName: string;
+    };
+    export interface Pipeline<T extends PipelineRecord = PipelineRecord> {
+        /**
+         * The Pipeline interface represents the type of a binding to a Pipeline
+         *
+         * @param records The records to send to the pipeline
+         */
+        send(records: T[]): Promise<void>;
+    }
+}
+// PubSubMessage represents an incoming PubSub message.
+// The message includes metadata about the broker, the client, and the payload
+// itself.
+// https://developers.cloudflare.com/pub-sub/
+interface PubSubMessage {
+    // Message ID
+    readonly mid: number;
+    // MQTT broker FQDN in the form mqtts://BROKER.NAMESPACE.cloudflarepubsub.com:PORT
+    readonly broker: string;
+    // The MQTT topic the message was sent on.
+    readonly topic: string;
+    // The client ID of the client that published this message.
+    readonly clientId: string;
+    // The unique identifier (JWT ID) used by the client to authenticate, if token
+    // auth was used.
+    readonly jti?: string;
+    // A Unix timestamp (seconds from Jan 1, 1970), set when the Pub/Sub Broker
+    // received the message from the client.
+    readonly receivedAt: number;
+    // An (optional) string with the MIME type of the payload, if set by the
+    // client.
+    readonly contentType: string;
+    // Set to 1 when the payload is a UTF-8 string
+    // https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901063
+    readonly payloadFormatIndicator: number;
+    // Pub/Sub (MQTT) payloads can be UTF-8 strings, or byte arrays.
+    // You can use payloadFormatIndicator to inspect this before decoding.
+    payload: string | Uint8Array;
+}
+// JsonWebKey extended by kid parameter
+interface JsonWebKeyWithKid extends JsonWebKey {
+    // Key Identifier of the JWK
+    readonly kid: string;
+}
+interface RateLimitOptions {
+    key: string;
+}
+interface RateLimitOutcome {
+    success: boolean;
+}
+interface RateLimit {
+    /**
+     * Rate limit a request based on the provided options.
+     * @see https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/
+     * @returns A promise that resolves with the outcome of the rate limit.
+     */
+    limit(options: RateLimitOptions): Promise<RateLimitOutcome>;
+}
+// Namespace for RPC utility types. Unfortunately, we can't use a `module` here as these types need
+// to referenced by `Fetcher`. This is included in the "importable" version of the types which
+// strips all `module` blocks.
+declare namespace Rpc {
+    // Branded types for identifying `WorkerEntrypoint`/`DurableObject`/`Target`s.
+    // TypeScript uses *structural* typing meaning anything with the same shape as type `T` is a `T`.
+    // For the classes exported by `cloudflare:workers` we want *nominal* typing (i.e. we only want to
+    // accept `WorkerEntrypoint` from `cloudflare:workers`, not any other class with the same shape)
+    export const __RPC_STUB_BRAND: '__RPC_STUB_BRAND';
+    export const __RPC_TARGET_BRAND: '__RPC_TARGET_BRAND';
+    export const __WORKER_ENTRYPOINT_BRAND: '__WORKER_ENTRYPOINT_BRAND';
+    export const __DURABLE_OBJECT_BRAND: '__DURABLE_OBJECT_BRAND';
+    export const __WORKFLOW_ENTRYPOINT_BRAND: '__WORKFLOW_ENTRYPOINT_BRAND';
+    export interface RpcTargetBranded {
+        [__RPC_TARGET_BRAND]: never;
+    }
+    export interface WorkerEntrypointBranded {
+        [__WORKER_ENTRYPOINT_BRAND]: never;
+    }
+    export interface DurableObjectBranded {
+        [__DURABLE_OBJECT_BRAND]: never;
+    }
+    export interface WorkflowEntrypointBranded {
+        [__WORKFLOW_ENTRYPOINT_BRAND]: never;
+    }
+    export type EntrypointBranded = WorkerEntrypointBranded | DurableObjectBranded | WorkflowEntrypointBranded;
+    // Types that can be used through `Stub`s
+    export type Stubable = RpcTargetBranded | ((...args: any[]) => any);
+    // Types that can be passed over RPC
+    // The reason for using a generic type here is to build a serializable subset of structured
+    //   cloneable composite types. This allows types defined with the "interface" keyword to pass the
+    //   serializable check as well. Otherwise, only types defined with the "type" keyword would pass.
+    type Serializable<T> = 
+    // Structured cloneables
+    BaseType
+    // Structured cloneable composites
+     | Map<T extends Map<infer U, unknown> ? Serializable<U> : never, T extends Map<unknown, infer U> ? Serializable<U> : never> | Set<T extends Set<infer U> ? Serializable<U> : never> | ReadonlyArray<T extends ReadonlyArray<infer U> ? Serializable<U> : never> | {
+        [K in keyof T]: K extends number | string ? Serializable<T[K]> : never;
+    }
+    // Special types
+     | Stub<Stubable>
+    // Serialized as stubs, see `Stubify`
+     | Stubable;
+    // Base type for all RPC stubs, including common memory management methods.
+    // `T` is used as a marker type for unwrapping `Stub`s later.
+    interface StubBase<T extends Stubable> extends Disposable {
+        [__RPC_STUB_BRAND]: T;
+        dup(): this;
+    }
+    export type Stub<T extends Stubable> = Provider<T> & StubBase<T>;
+    // This represents all the types that can be sent as-is over an RPC boundary
+    type BaseType = void | undefined | null | boolean | number | bigint | string | TypedArray | ArrayBuffer | DataView | Date | Error | RegExp | ReadableStream<Uint8Array> | WritableStream<Uint8Array> | Request | Response | Headers;
+    // Recursively rewrite all `Stubable` types with `Stub`s
+    // prettier-ignore
+    type Stubify<T> = T extends Stubable ? Stub<T> : T extends Map<infer K, infer V> ? Map<Stubify<K>, Stubify<V>> : T extends Set<infer V> ? Set<Stubify<V>> : T extends Array<infer V> ? Array<Stubify<V>> : T extends ReadonlyArray<infer V> ? ReadonlyArray<Stubify<V>> : T extends BaseType ? T : T extends {
+        [key: string | number]: any;
+    } ? {
+        [K in keyof T]: Stubify<T[K]>;
+    } : T;
+    // Recursively rewrite all `Stub<T>`s with the corresponding `T`s.
+    // Note we use `StubBase` instead of `Stub` here to avoid circular dependencies:
+    // `Stub` depends on `Provider`, which depends on `Unstubify`, which would depend on `Stub`.
+    // prettier-ignore
+    type Unstubify<T> = T extends StubBase<infer V> ? V : T extends Map<infer K, infer V> ? Map<Unstubify<K>, Unstubify<V>> : T extends Set<infer V> ? Set<Unstubify<V>> : T extends Array<infer V> ? Array<Unstubify<V>> : T extends ReadonlyArray<infer V> ? ReadonlyArray<Unstubify<V>> : T extends BaseType ? T : T extends {
+        [key: string | number]: unknown;
+    } ? {
+        [K in keyof T]: Unstubify<T[K]>;
+    } : T;
+    type UnstubifyAll<A extends any[]> = {
+        [I in keyof A]: Unstubify<A[I]>;
+    };
+    // Utility type for adding `Provider`/`Disposable`s to `object` types only.
+    // Note `unknown & T` is equivalent to `T`.
+    type MaybeProvider<T> = T extends object ? Provider<T> : unknown;
+    type MaybeDisposable<T> = T extends object ? Disposable : unknown;
+    // Type for method return or property on an RPC interface.
+    // - Stubable types are replaced by stubs.
+    // - Serializable types are passed by value, with stubable types replaced by stubs
+    //   and a top-level `Disposer`.
+    // Everything else can't be passed over PRC.
+    // Technically, we use custom thenables here, but they quack like `Promise`s.
+    // Intersecting with `(Maybe)Provider` allows pipelining.
+    // prettier-ignore
+    type Result<R> = R extends Stubable ? Promise<Stub<R>> & Provider<R> : R extends Serializable<R> ? Promise<Stubify<R> & MaybeDisposable<R>> & MaybeProvider<R> : never;
+    // Type for method or property on an RPC interface.
+    // For methods, unwrap `Stub`s in parameters, and rewrite returns to be `Result`s.
+    // Unwrapping `Stub`s allows calling with `Stubable` arguments.
+    // For properties, rewrite types to be `Result`s.
+    // In each case, unwrap `Promise`s.
+    type MethodOrProperty<V> = V extends (...args: infer P) => infer R ? (...args: UnstubifyAll<P>) => Result<Awaited<R>> : Result<Awaited<V>>;
      * Note - For security reasons, the hostname set in resolveOverride must
      * be proxied on the same Cloudflare zone of the incoming request.
      * Otherwise, the setting is ignored. CNAME hosts are allowed, so to
