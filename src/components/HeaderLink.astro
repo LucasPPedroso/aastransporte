@@ -10,104 +10,15 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 ---
 
 <a href={href} class:list={[className, { active: isActive }]} {...props}>
-	<slot />
+    <slot />
 </a>
 <style>
-	a {
-		display: inline-block;
-		text-decoration: none;
-	}
-	a.active {
-		font-weight: bolder;
-		text-decoration: underline;
-	}
-</style>
-<header>
-  <div class="header-container">
-    <div class="logo-container">
-      <a href="/" class="logo">
-        <img src="/logo.png" alt="AAS Transportes Logo" class="logo-img" />
-      </a>
-    </div>
-
-    <nav class="main-nav" aria-label="Navegação principal">
-      <!-- ...menu desktop igual ao anterior... -->
-      <!-- ...existing code... -->
-    </nav>
-
-    <div class="header-actions">
-      <a href="https://wa.me/5541988287226" class="whatsapp-link" title="Fale no WhatsApp" target="_blank" rel="noopener">
-        <!-- ...svg... -->
-      </a>
-      <button class="search-btn" aria-label="Buscar">
-        <!-- ...svg... -->
-      </button>
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-      <label for="menu-toggle" class="menu-button" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </div>
-  </div>
-
-  <!-- O menu mobile deve ser irmão do menu-toggle/menu-button -->
-  <nav class="mobile-nav">
-    <!-- ...menu mobile igual ao anterior... -->
-    <!-- ...existing code... -->
-  </nav>
-</header>
-
-<style>
-/* ...existing styles... */
-
-.menu-toggle,
-.menu-button {
-  display: none;
-}
-
-/* ...existing styles... */
-
-@media (max-width: 900px) {
-  .main-nav {
-    display: none;
-  }
-  .menu-toggle,
-  .menu-button {
-    display: block;
-  }
-  .menu-toggle {
-    position: absolute;
-    left: -9999px;
-  }
-  .menu-button {
-    /* ...existing styles... */
-  }
-  .mobile-nav {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 85vw;
-    max-width: 370px;
-    height: 100vh;
-    background: white;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.08);
-    z-index: 101;
-    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
-    transition: right 0.3s cubic-bezier(.4,0,.2,1);
-    overflow-y: auto;
-  }
-  .menu-toggle:checked ~ .mobile-nav {
-    display: block;
-    right: 0;
-  }
-}
-
-/* Garante que o menu mobile não aparece em telas grandes */
-@media (min-width: 901px) {
-  .mobile-nav {
-    display: none !important;
-  }
-}
+    a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    a.active {
+        font-weight: bolder;
+        text-decoration: underline;
+    }
 </style>
