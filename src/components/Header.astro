@@ -2,242 +2,318 @@
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 ---
-
 <header>
-    <div class="header-container">
-        <div class="logo-container">
-            <a href="/" class="logo">
-                <img 
-                    src="/logo.png" 
-                    alt="AAS Transportes Logo" 
-                    class="logo-img"
-                />
-            </a>
-        </div>
-        
-        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-        <label for="menu-toggle" class="menu-button">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-        
-        <nav class="main-nav">
-            <div class="nav-links">
-                <HeaderLink href="/">Início</HeaderLink>
-                <HeaderLink href="/solucoes">Soluções</HeaderLink>
-                <HeaderLink href="/frota">Nossa Frota</HeaderLink>
-                <HeaderLink href="/roteiros">Roteiros</HeaderLink>
-                <HeaderLink href="/servicos">Serviços</HeaderLink>
-                <HeaderLink href="/motoristas">Motoristas</HeaderLink>
-                <HeaderLink href="/sobre">Sobre Nós</HeaderLink>
-                <HeaderLink href="/contato" class="contact-button">Contato</HeaderLink>
-            </div>
-        </nav>
-        
-        <div class="contact-info">
-            <a href="tel:+5541988287226" class="phone-link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                <span>(41) 98828-7226</span>
-            </a>
-        </div>
+  <div class="header-container">
+    <div class="logo-container">
+      <a href="/" class="logo">
+        <img src="/logo.png" alt="AAS Transportes Logo" class="logo-img" />
+      </a>
     </div>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <ul class="nav-links">
+        <li><HeaderLink href="/">Início</HeaderLink></li>
+        <li class="has-dropdown">
+          <span>Serviços</span>
+          <ul class="dropdown">
+            <li><HeaderLink href="/servicos">Todos os Serviços</HeaderLink></li>
+            <li><HeaderLink href="/transporte-cargas-excedentes">Cargas Excedentes</HeaderLink></li>
+            <li><HeaderLink href="/transporte-cargas-indivisiveis">Cargas Indivisíveis</HeaderLink></li>
+            <li><HeaderLink href="/transporte-cargas-superdimensionadas">Superdimensionadas</HeaderLink></li>
+            <li><HeaderLink href="/transporte-cargas-alto-valor">Alto Valor</HeaderLink></li>
+            <li><HeaderLink href="/transporte-cargas-perigosas">Cargas Perigosas</HeaderLink></li>
+            <li><HeaderLink href="/transporte-equipamentos-industriais">Equipamentos Industriais</HeaderLink></li>
+            <li><HeaderLink href="/transporte-equipamentos-sensiveis">Equipamentos Sensíveis</HeaderLink></li>
+            <li><HeaderLink href="/transporte-containers-especiais">Containers Especiais</HeaderLink></li>
+            <li><HeaderLink href="/transporte-com-escolta">Com Escolta</HeaderLink></li>
+            <li><HeaderLink href="/retirada-cargas-excedentes-portos">Retirada em Portos</HeaderLink></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <span>Locais</span>
+          <ul class="dropdown">
+            <li><HeaderLink href="/roteiros">Roteiros</HeaderLink></li>
+            <li><HeaderLink href="/locais/parana">Paraná</HeaderLink></li>
+            <li><HeaderLink href="/locais/santa-catarina">Santa Catarina</HeaderLink></li>
+            <li><HeaderLink href="/locais/rio-grande-do-sul">Rio Grande do Sul</HeaderLink></li>
+            <li><HeaderLink href="/locais/sao-paulo">São Paulo</HeaderLink></li>
+            <li><HeaderLink href="/locais/goiania">Goiânia</HeaderLink></li>
+            <li><HeaderLink href="/locais/tres-lagoas">Três Lagoas</HeaderLink></li>
+            <!-- Adicione outros locais conforme necessário -->
+          </ul>
+        </li>
+        <li><HeaderLink href="/solucoes">Soluções</HeaderLink></li>
+        <li><HeaderLink href="/frota">Nossa Frota</HeaderLink></li>
+        <li><HeaderLink href="/motoristas">Motoristas</HeaderLink></li>
+        <li><HeaderLink href="/sobre">Sobre Nós</HeaderLink></li>
+        <li><HeaderLink href="/contato" class="contact-button">Contato</HeaderLink></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="https://wa.me/5541988287226" class="whatsapp-link" title="Fale no WhatsApp" target="_blank" rel="noopener">
+        <svg width="22" height="22" fill="none" stroke="#25d366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21.67 20.13A10 10 0 1 0 3.87 21.67l2.2-.61a1 1 0 0 1 .95.26l2.2 2.2a10 10 0 0 0 12.45-3.39z"/><path d="M16.24 7.76a5 5 0 0 1 0 7.07l-1.41 1.41a5 5 0 0 1-7.07 0l-1.41-1.41a5 5 0 0 1 0-7.07l1.41-1.41a5 5 0 0 1 7.07 0z"/></svg>
+      </a>
+      <button class="search-btn" aria-label="Buscar">
+        <svg width="22" height="22" fill="none" stroke="#003366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="menu-button" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Menu Mobile -->
+  <nav class="mobile-nav">
+    <ul>
+      <li><HeaderLink href="/">Início</HeaderLink></li>
+      <li><span>Serviços</span>
+        <ul>
+          <li><HeaderLink href="/servicos">Todos os Serviços</HeaderLink></li>
+          <li><HeaderLink href="/transporte-cargas-excedentes">Cargas Excedentes</HeaderLink></li>
+          <li><HeaderLink href="/transporte-cargas-indivisiveis">Cargas Indivisíveis</HeaderLink></li>
+          <li><HeaderLink href="/transporte-cargas-superdimensionadas">Superdimensionadas</HeaderLink></li>
+          <li><HeaderLink href="/transporte-cargas-alto-valor">Alto Valor</HeaderLink></li>
+          <li><HeaderLink href="/transporte-cargas-perigosas">Cargas Perigosas</HeaderLink></li>
+          <li><HeaderLink href="/transporte-equipamentos-industriais">Equipamentos Industriais</HeaderLink></li>
+          <li><HeaderLink href="/transporte-equipamentos-sensiveis">Equipamentos Sensíveis</HeaderLink></li>
+          <li><HeaderLink href="/transporte-containers-especiais">Containers Especiais</HeaderLink></li>
+          <li><HeaderLink href="/transporte-com-escolta">Com Escolta</HeaderLink></li>
+          <li><HeaderLink href="/retirada-cargas-excedentes-portos">Retirada em Portos</HeaderLink></li>
+        </ul>
+      </li>
+      <li><span>Locais</span>
+        <ul>
+          <li><HeaderLink href="/roteiros">Roteiros</HeaderLink></li>
+          <li><HeaderLink href="/locais/parana">Paraná</HeaderLink></li>
+          <li><HeaderLink href="/locais/santa-catarina">Santa Catarina</HeaderLink></li>
+          <li><HeaderLink href="/locais/rio-grande-do-sul">Rio Grande do Sul</HeaderLink></li>
+          <li><HeaderLink href="/locais/sao-paulo">São Paulo</HeaderLink></li>
+          <li><HeaderLink href="/locais/goiania">Goiânia</HeaderLink></li>
+          <li><HeaderLink href="/locais/tres-lagoas">Três Lagoas</HeaderLink></li>
+        </ul>
+      </li>
+      <li><HeaderLink href="/solucoes">Soluções</HeaderLink></li>
+      <li><HeaderLink href="/frota">Nossa Frota</HeaderLink></li>
+      <li><HeaderLink href="/motoristas">Motoristas</HeaderLink></li>
+      <li><HeaderLink href="/sobre">Sobre Nós</HeaderLink></li>
+      <li><HeaderLink href="/contato" class="contact-button">Contato</HeaderLink></li>
+      <li>
+        <a href="https://wa.me/5541988287226" class="whatsapp-link" target="_blank" rel="noopener">WhatsApp</a>
+      </li>
+    </ul>
+  </nav>
 </header>
 
-<section class="hero">
-  <!-- Hero content goes here -->
-</section>
-
 <style>
-	header {
-		position: sticky;
-		top: 0;
-		z-index: 100;
-		background-color: white;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-	}
-	
-	.header-container {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 1rem 2rem;
-		max-width: 1400px;
-		margin: 0 auto;
-	}
-	
-	.logo-container {
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 1.5rem;
 }
 .logo-img {
-        height: 48px;
-        width: auto;
-        display: block;
-    }
-
-    @media (max-width: 768px) {
-        .logo-img {
-            height: 40px;
-        }
-    }
-	
-	.nav-links {
-		display: flex;
-		justify-content: center;
-		gap: 1.5rem;
-	}
-	
-	.nav-links a {
-		color: #333;
-		text-decoration: none;
-		font-weight: 500;
-		font-size: 1rem;
-		padding: 0.5rem 0;
-		position: relative;
-		transition: color 0.3s ease;
-	}
-	
-	.nav-links a:hover {
-		color: #FF9900;
-	}
-	
-	.nav-links a::after {
-		content: '';
-		position: absolute;
-		width: 0;
-		height: 2px;
-		bottom: 0;
-		left: 0;
-		background-color: #FF9900;
-		transition: width 0.3s ease;
-	}
-	
-	.nav-links a:hover::after,
-	.nav-links a.active::after {
-		width: 100%;
-	}
-	
-	.contact-button {
-		background-color: #FF9900;
-		color: white !important;
-		padding: 0.5rem 1rem !important;
-		border-radius: 4px;
-		transition: background-color 0.3s ease !important;
-	}
-	
-	.contact-button:hover {
-		background-color: #e68a00;
-	}
-	
-	.contact-button::after {
-		display: none !important;
-	}
-	
-	.contact-info {
-		flex: 1;
-		display: flex;
-		justify-content: flex-end;
-	}
-	
-	.phone-link {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		color: #003366;
-		text-decoration: none;
-		font-weight: 500;
-		transition: color 0.3s ease;
-	}
-	
-	.phone-link:hover {
-		color: #FF9900;
-	}
-	
-	.menu-toggle {
-		display: none;
-	}
-	
-	.menu-button {
-		display: none;
-		flex-direction: column;
-		justify-content: space-between;
-		width: 30px;
-		height: 21px;
-		cursor: pointer;
-	}
-	
-	.menu-button span {
-		display: block;
-		height: 3px;
-		width: 100%;
-		background-color: #003366;
-		border-radius: 3px;
-		transition: all 0.3s ease;
-	}
-	
-	@media (max-width: 992px) {
-		.header-container {
-			padding: 1rem;
-		}
-		
-		.nav-links {
-			gap: 1rem;
-		}
-	}
-	
-	@media (max-width: 768px) {
-		.menu-button {
-			display: flex;
-			z-index: 101;
-		}
-		
-		.menu-toggle:checked ~ .menu-button span:nth-child(1) {
-			transform: translateY(9px) rotate(45deg);
-		}
-		
-		.menu-toggle:checked ~ .menu-button span:nth-child(2) {
-			opacity: 0;
-		}
-		
-		.menu-toggle:checked ~ .menu-button span:nth-child(3) {
-			transform: translateY(-9px) rotate(-45deg);
-		}
-		
-		.main-nav {
-			position: fixed;
-			top: 0;
-			right: -100%;
-			width: 70%;
-			height: 100vh;
-			background-color: white;
-			box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-			transition: right 0.3s ease;
-			z-index: 100;
-		}
-		
-		.menu-toggle:checked ~ .main-nav {
-			right: 0;
-		}
-		
-		.nav-links {
-			flex-direction: column;
-			align-items: center;
-			justify-content: flex-start;
-			padding-top: 5rem;
-			height: 100%;
-		}
-		
-		.contact-info {
-			display: none;
-		}
-	}
+  height: 48px;
+  width: auto;
+  display: block;
+}
+.main-nav {
+  flex: 2;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li {
+  position: relative;
+}
+.nav-links .has-dropdown > span {
+  cursor: pointer;
+  font-weight: 500;
+  color: #003366;
+  padding: 0.5rem 0.7rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.nav-links .has-dropdown:hover > span,
+.nav-links .has-dropdown:focus-within > span {
+  background: #f5f5f5;
+}
+.nav-links .dropdown {
+  display: none;
+  position: absolute;
+  top: 2.2rem;
+  left: 0;
+  background: white;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-radius: 6px;
+  min-width: 220px;
+  z-index: 10;
+  padding: 0.5rem 0;
+}
+.nav-links .has-dropdown:hover .dropdown,
+.nav-links .has-dropdown:focus-within .dropdown {
+  display: block;
+}
+.dropdown li {
+  padding: 0;
+}
+.dropdown a {
+  display: block;
+  padding: 0.7rem 1.2rem;
+  color: #003366;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.dropdown a:hover {
+  background: #f5f5f5;
+  color: #FF9900;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.whatsapp-link {
+  display: flex;
+  align-items: center;
+  background: #25d3661a;
+  border-radius: 50%;
+  padding: 0.4rem;
+  transition: background 0.2s;
+}
+.whatsapp-link:hover {
+  background: #25d36633;
+}
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.search-btn:hover {
+  background: #f5f5f5;
+}
+.menu-toggle,
+.menu-button {
+  display: none;
+}
+.contact-button {
+  background-color: #FF9900;
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 4px;
+  transition: background-color 0.3s ease !important;
+  margin-left: 0.5rem;
+}
+.contact-button:hover {
+  background-color: #e68a00;
+}
+@media (max-width: 1100px) {
+  .header-container {
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 900px) {
+  .main-nav {
+    display: none;
+  }
+  .menu-toggle,
+  .menu-button {
+    display: block;
+  }
+  .menu-toggle {
+    position: absolute;
+    left: -9999px;
+  }
+  .menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 102;
+  }
+  .menu-button span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #003366;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  .menu-toggle:checked ~ .menu-button span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .menu-toggle:checked ~ .menu-button span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle:checked ~ .menu-button span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  .mobile-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    width: 85vw;
+    max-width: 370px;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.08);
+    z-index: 101;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    transition: right 0.3s cubic-bezier(.4,0,.2,1);
+    overflow-y: auto;
+  }
+  .menu-toggle:checked ~ .mobile-nav {
+    right: 0;
+  }
+  .mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .mobile-nav > ul > li {
+    margin-bottom: 1.2rem;
+  }
+  .mobile-nav ul ul {
+    margin-top: 0.5rem;
+    margin-left: 1.2rem;
+    border-left: 2px solid #f5f5f5;
+    padding-left: 1rem;
+  }
+  .mobile-nav a,
+  .mobile-nav span {
+    display: block;
+    color: #003366;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    font-weight: 500;
+  }
+  .mobile-nav .contact-button {
+    margin-top: 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+}
 </style>
