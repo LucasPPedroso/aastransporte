@@ -1,6 +1,5 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
 ---
 <header>
   <div class="header-container">
@@ -9,13 +8,12 @@ import { SITE_TITLE } from '../consts';
         <img src="/logo.png" alt="AAS Transportes Logo" class="logo-img" />
       </a>
     </div>
-
     <nav class="main-nav" aria-label="Navegação principal">
       <ul class="nav-links">
         <li><HeaderLink href="/">Início</HeaderLink></li>
-        <li class="has-dropdown">
+        <li class="has-dropdown" tabindex="0" aria-haspopup="true" aria-expanded="false">
           <span>Serviços</span>
-          <ul class="dropdown">
+          <ul class="dropdown" role="menu">
             <li><HeaderLink href="/servicos">Todos os Serviços</HeaderLink></li>
             <li><HeaderLink href="/transporte-cargas-excedentes">Cargas Excedentes</HeaderLink></li>
             <li><HeaderLink href="/transporte-cargas-indivisiveis">Cargas Indivisíveis</HeaderLink></li>
@@ -29,9 +27,9 @@ import { SITE_TITLE } from '../consts';
             <li><HeaderLink href="/retirada-cargas-excedentes-portos">Retirada em Portos</HeaderLink></li>
           </ul>
         </li>
-        <li class="has-dropdown">
+        <li class="has-dropdown" tabindex="0" aria-haspopup="true" aria-expanded="false">
           <span>Locais</span>
-          <ul class="dropdown">
+          <ul class="dropdown" role="menu">
             <li><HeaderLink href="/roteiros">Roteiros</HeaderLink></li>
             <li><HeaderLink href="/locais/parana">Paraná</HeaderLink></li>
             <li><HeaderLink href="/locais/santa-catarina">Santa Catarina</HeaderLink></li>
@@ -49,7 +47,6 @@ import { SITE_TITLE } from '../consts';
         <li><HeaderLink href="/contato" class="contact-button">Contato</HeaderLink></li>
       </ul>
     </nav>
-
     <div class="header-actions">
       <a href="https://wa.me/5541988287226" class="whatsapp-link" title="Fale no WhatsApp" target="_blank" rel="noopener">
         <svg width="22" height="22" fill="none" stroke="#25d366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21.67 20.13A10 10 0 1 0 3.87 21.67l2.2-.61a1 1 0 0 1 .95.26l2.2 2.2a10 10 0 0 0 12.45-3.39z"/><path d="M16.24 7.76a5 5 0 0 1 0 7.07l-1.41 1.41a5 5 0 0 1-7.07 0l-1.41-1.41a5 5 0 0 1 0-7.07l1.41-1.41a5 5 0 0 1 7.07 0z"/></svg>
@@ -58,55 +55,71 @@ import { SITE_TITLE } from '../consts';
         <svg width="22" height="22" fill="none" stroke="#003366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </button>
       <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-      <label for="menu-toggle" class="menu-button" aria-label="Abrir menu">
+      <label for="menu-toggle" class="menu-button" aria-label="Abrir menu" tabindex="0">
         <span></span>
         <span></span>
         <span></span>
       </label>
     </div>
+    <!-- Menu Mobile -->
+    <nav class="mobile-nav" aria-label="Menu mobile" role="navigation">
+      <ul>
+        <li><HeaderLink href="/">Início</HeaderLink></li>
+        <li><span>Serviços</span>
+          <ul>
+            <li><HeaderLink href="/servicos">Todos os Serviços</HeaderLink></li>
+            <li><HeaderLink href="/transporte-cargas-excedentes">Cargas Excedentes</HeaderLink></li>
+            <li><HeaderLink href="/transporte-cargas-indivisiveis">Cargas Indivisíveis</HeaderLink></li>
+            <li><HeaderLink href="/transporte-cargas-superdimensionadas">Superdimensionadas</HeaderLink></li>
+            <li><HeaderLink href="/transporte-cargas-alto-valor">Alto Valor</HeaderLink></li>
+            <li><HeaderLink href="/transporte-cargas-perigosas">Cargas Perigosas</HeaderLink></li>
+            <li><HeaderLink href="/transporte-equipamentos-industriais">Equipamentos Industriais</HeaderLink></li>
+            <li><HeaderLink href="/transporte-equipamentos-sensiveis">Equipamentos Sensíveis</HeaderLink></li>
+            <li><HeaderLink href="/transporte-containers-especiais">Containers Especiais</HeaderLink></li>
+            <li><HeaderLink href="/transporte-com-escolta">Com Escolta</HeaderLink></li>
+            <li><HeaderLink href="/retirada-cargas-excedentes-portos">Retirada em Portos</HeaderLink></li>
+          </ul>
+        </li>
+        <li><span>Locais</span>
+          <ul>
+            <li><HeaderLink href="/roteiros">Roteiros</HeaderLink></li>
+            <li><HeaderLink href="/locais/parana">Paraná</HeaderLink></li>
+            <li><HeaderLink href="/locais/santa-catarina">Santa Catarina</HeaderLink></li>
+            <li><HeaderLink href="/locais/rio-grande-do-sul">Rio Grande do Sul</HeaderLink></li>
+            <li><HeaderLink href="/locais/sao-paulo">São Paulo</HeaderLink></li>
+            <li><HeaderLink href="/locais/goiania">Goiânia</HeaderLink></li>
+            <li><HeaderLink href="/locais/tres-lagoas">Três Lagoas</HeaderLink></li>
+          </ul>
+        </li>
+        <li><HeaderLink href="/solucoes">Soluções</HeaderLink></li>
+        <li><HeaderLink href="/frota">Nossa Frota</HeaderLink></li>
+        <li><HeaderLink href="/motoristas">Motoristas</HeaderLink></li>
+        <li><HeaderLink href="/sobre">Sobre Nós</HeaderLink></li>
+        <li><HeaderLink href="/contato" class="contact-button">Contato</HeaderLink></li>
+        <li>
+          <a href="https://wa.me/5541988287226" class="whatsapp-link" target="_blank" rel="noopener">WhatsApp</a>
+        </li>
+      </ul>
+    </nav>
   </div>
-
-  <!-- Menu Mobile -->
-  <nav class="mobile-nav">
-    <ul>
-      <li><HeaderLink href="/">Início</HeaderLink></li>
-      <li><span>Serviços</span>
-        <ul>
-          <li><HeaderLink href="/servicos">Todos os Serviços</HeaderLink></li>
-          <li><HeaderLink href="/transporte-cargas-excedentes">Cargas Excedentes</HeaderLink></li>
-          <li><HeaderLink href="/transporte-cargas-indivisiveis">Cargas Indivisíveis</HeaderLink></li>
-          <li><HeaderLink href="/transporte-cargas-superdimensionadas">Superdimensionadas</HeaderLink></li>
-          <li><HeaderLink href="/transporte-cargas-alto-valor">Alto Valor</HeaderLink></li>
-          <li><HeaderLink href="/transporte-cargas-perigosas">Cargas Perigosas</HeaderLink></li>
-          <li><HeaderLink href="/transporte-equipamentos-industriais">Equipamentos Industriais</HeaderLink></li>
-          <li><HeaderLink href="/transporte-equipamentos-sensiveis">Equipamentos Sensíveis</HeaderLink></li>
-          <li><HeaderLink href="/transporte-containers-especiais">Containers Especiais</HeaderLink></li>
-          <li><HeaderLink href="/transporte-com-escolta">Com Escolta</HeaderLink></li>
-          <li><HeaderLink href="/retirada-cargas-excedentes-portos">Retirada em Portos</HeaderLink></li>
-        </ul>
-      </li>
-      <li><span>Locais</span>
-        <ul>
-          <li><HeaderLink href="/roteiros">Roteiros</HeaderLink></li>
-          <li><HeaderLink href="/locais/parana">Paraná</HeaderLink></li>
-          <li><HeaderLink href="/locais/santa-catarina">Santa Catarina</HeaderLink></li>
-          <li><HeaderLink href="/locais/rio-grande-do-sul">Rio Grande do Sul</HeaderLink></li>
-          <li><HeaderLink href="/locais/sao-paulo">São Paulo</HeaderLink></li>
-          <li><HeaderLink href="/locais/goiania">Goiânia</HeaderLink></li>
-          <li><HeaderLink href="/locais/tres-lagoas">Três Lagoas</HeaderLink></li>
-        </ul>
-      </li>
-      <li><HeaderLink href="/solucoes">Soluções</HeaderLink></li>
-      <li><HeaderLink href="/frota">Nossa Frota</HeaderLink></li>
-      <li><HeaderLink href="/motoristas">Motoristas</HeaderLink></li>
-      <li><HeaderLink href="/sobre">Sobre Nós</HeaderLink></li>
-      <li><HeaderLink href="/contato" class="contact-button">Contato</HeaderLink></li>
-      <li>
-        <a href="https://wa.me/5541988287226" class="whatsapp-link" target="_blank" rel="noopener">WhatsApp</a>
-      </li>
-    </ul>
-  </nav>
 </header>
+
+<script>
+// Fecha o menu mobile ao clicar em qualquer link
+if (typeof window !== 'undefined') {
+  window.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    if (mobileNav && menuToggle) {
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.checked = false;
+        });
+      });
+    }
+  });
+}
+</script>
 
 <style>
 .header-container {
@@ -117,6 +130,7 @@ import { SITE_TITLE } from '../consts';
   max-width: 1400px;
   margin: 0 auto;
   gap: 1.5rem;
+  position: relative;
 }
 .logo-img {
   height: 48px;
@@ -233,7 +247,7 @@ import { SITE_TITLE } from '../consts';
 }
 @media (max-width: 900px) {
   .main-nav {
-    display: none;
+    display: none !important;
   }
   .menu-toggle,
   .menu-button {
@@ -260,17 +274,17 @@ import { SITE_TITLE } from '../consts';
     border-radius: 3px;
     transition: all 0.3s ease;
   }
-  .menu-toggle:checked ~ .menu-button span:nth-child(1) {
+  .menu-toggle:checked + .menu-button span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
   }
-  .menu-toggle:checked ~ .menu-button span:nth-child(2) {
+  .menu-toggle:checked + .menu-button span:nth-child(2) {
     opacity: 0;
   }
-  .menu-toggle:checked ~ .menu-button span:nth-child(3) {
+  .menu-toggle:checked + .menu-button span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
   }
   .mobile-nav {
-    display: block;
+    display: none;
     position: fixed;
     top: 0;
     right: -100vw;
@@ -285,6 +299,7 @@ import { SITE_TITLE } from '../consts';
     overflow-y: auto;
   }
   .menu-toggle:checked ~ .mobile-nav {
+    display: block;
     right: 0;
   }
   .mobile-nav ul {
@@ -314,6 +329,15 @@ import { SITE_TITLE } from '../consts';
     margin-top: 1.5rem;
     width: 100%;
     text-align: center;
+  }
+}
+@media (min-width: 901px) {
+  .mobile-nav {
+    display: none !important;
+  }
+  .menu-toggle,
+  .menu-button {
+    display: none !important;
   }
 }
 </style>
