@@ -59,82 +59,54 @@ import HeaderLink from './HeaderLink.astro';
         <span></span>
       </label>
       
-      <nav class="mobile-nav">
+      <nav class="mobile-nav" aria-label="Menu mobile" role="navigation">
         <ul>
+          <li><HeaderLink href="/">Início</HeaderLink></li>
           <li>
             <span>Serviços</span>
             <ul>
-              <li><a href="/locacao-de-onibus">Locação de Ônibus</a></li>
-              <li><a href="/transporte-escolar">Transporte Escolar</a></li>
-              <li><a href="/excursao">Excursão</a></li>
-              <li><a href="/roteiros">Roteiros</a></li>
+              <li><HeaderLink href="/servicos">Todos os Serviços</HeaderLink></li>
+              <li><HeaderLink href="/transporte-cargas-excedentes">Cargas Excedentes</HeaderLink></li>
+              <li><HeaderLink href="/transporte-cargas-indivisiveis">Cargas Indivisíveis</HeaderLink></li>
+              <li><HeaderLink href="/transporte-cargas-superdimensionadas">Superdimensionadas</HeaderLink></li>
+              <li><HeaderLink href="/transporte-cargas-alto-valor">Alto Valor</HeaderLink></li>
+              <li><HeaderLink href="/transporte-cargas-perigosas">Cargas Perigosas</HeaderLink></li>
+              <li><HeaderLink href="/transporte-equipamentos-industriais">Equipamentos Industriais</HeaderLink></li>
+              <li><HeaderLink href="/transporte-equipamentos-sensiveis">Equipamentos Sensíveis</HeaderLink></li>
+              <li><HeaderLink href="/transporte-containers-especiais">Containers Especiais</HeaderLink></li>
+              <li><HeaderLink href="/transporte-com-escolta">Com Escolta</HeaderLink></li>
+              <li><HeaderLink href="/retirada-cargas-excedentes-portos">Retirada em Portos</HeaderLink></li>
             </ul>
           </li>
           <li>
             <span>Locais</span>
             <ul>
-              <li><a href="/parana">Paraná</a></li>
-              <li><a href="/santa-catarina">Santa Catarina</a></li>
-              <li><a href="/rio-grande-do-sul">Rio Grande do Sul</a></li>
-              <li><a href="/sao-paulo">São Paulo</a></li>
-              <li><a href="/minas-gerais">Minas Gerais</a></li>
-              <li><a href="/mato-grosso-do-sul">Mato Grosso do Sul</a></li>
-              <li><a href="/goias">Goiás</a></li>
+              <li><HeaderLink href="/roteiros">Todos os Roteiros</HeaderLink></li>
+              <li><HeaderLink href="/locais/parana">Paraná</HeaderLink></li>
+              <li><HeaderLink href="/locais/santa-catarina">Santa Catarina</HeaderLink></li>
+              <li><HeaderLink href="/locais/rio-grande-do-sul">Rio Grande do Sul</HeaderLink></li>
+              <li><HeaderLink href="/locais/sao-paulo">São Paulo</HeaderLink></li>
+              <li><HeaderLink href="/locais/minas-gerais">Minas Gerais</HeaderLink></li>
+              <li><HeaderLink href="/locais/mato-grosso-do-sul">Mato Grosso do Sul</HeaderLink></li>
+              <li><HeaderLink href="/locais/goias">Goiás</HeaderLink></li>
             </ul>
           </li>
-          <li><a href="/sobre">Sobre</a></li>
-          <li><a href="/contato">Contato</a></li>
+          <li><HeaderLink href="/solucoes">Soluções</HeaderLink></li>
+          <li><HeaderLink href="/frota">Nossa Frota</HeaderLink></li>
+          <li><HeaderLink href="/motoristas">Motoristas</HeaderLink></li>
+          <li><HeaderLink href="/sobre">Sobre Nós</HeaderLink></li>
+          <li><HeaderLink href="/contato" class="contact-button">Contato</HeaderLink></li>
           <li>
-            <a href="https://wa.me/5541999999999" class="whatsapp-link">
+            <a href="https://wa.me/5541988287226" class="whatsapp-link" target="_blank" rel="noopener">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.787 23.4l4.444-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.447 16.997c-.243.687-1.209 1.256-1.979 1.422-.527.111-1.216.2-3.534-.758-2.972-1.23-4.881-4.25-5.027-4.443-.142-.193-1.188-1.58-1.188-3.016 0-1.435.737-2.144 1.027-2.445.243-.253.643-.367.926-.367.112 0 .212.006.303.01.265.011.398.027.573.447.219.526.751 1.822.815 1.955.065.132.13.31.039.483-.085.173-.16.25-.293.398-.132.147-.258.26-.39.418-.122.14-.259.29-.106.547.153.257.681 1.098 1.463 1.778 1.006.874 1.853 1.145 2.117 1.272.265.132.423.11.58-.066.16-.178.675-.788.854-1.057.18-.27.36-.225.606-.135.247.09 1.57.74 1.841.875.271.136.45.202.515.31.066.11.066.628-.177 1.316z" fill="currentColor"/>
-            </svg>
-            WhatsApp
+              </svg>
+              WhatsApp
             </a>
           </li>
         </ul>
       </nav>
     </div>
-    <!-- Menu Mobile -->
-    <nav class="mobile-nav" aria-label="Menu mobile" role="navigation">
-      <ul>
-        <li><HeaderLink href="/">Início</HeaderLink></li>
-        <li><span>Serviços</span>
-          <ul>
-            <li><HeaderLink href="/servicos">Todos os Serviços</HeaderLink></li>
-            <li><HeaderLink href="/transporte-cargas-excedentes">Cargas Excedentes</HeaderLink></li>
-            <li><HeaderLink href="/transporte-cargas-indivisiveis">Cargas Indivisíveis</HeaderLink></li>
-            <li><HeaderLink href="/transporte-cargas-superdimensionadas">Superdimensionadas</HeaderLink></li>
-            <li><HeaderLink href="/transporte-cargas-alto-valor">Alto Valor</HeaderLink></li>
-            <li><HeaderLink href="/transporte-cargas-perigosas">Cargas Perigosas</HeaderLink></li>
-            <li><HeaderLink href="/transporte-equipamentos-industriais">Equipamentos Industriais</HeaderLink></li>
-            <li><HeaderLink href="/transporte-equipamentos-sensiveis">Equipamentos Sensíveis</HeaderLink></li>
-            <li><HeaderLink href="/transporte-containers-especiais">Containers Especiais</HeaderLink></li>
-            <li><HeaderLink href="/transporte-com-escolta">Com Escolta</HeaderLink></li>
-            <li><HeaderLink href="/retirada-cargas-excedentes-portos">Retirada em Portos</HeaderLink></li>
-          </ul>
-        </li>        <li><span>Locais</span>
-          <ul>
-            <li><HeaderLink href="/roteiros">Todos os Roteiros</HeaderLink></li>
-            <li><HeaderLink href="/locais/parana">Paraná</HeaderLink></li>
-            <li><HeaderLink href="/locais/santa-catarina">Santa Catarina</HeaderLink></li>
-            <li><HeaderLink href="/locais/rio-grande-do-sul">Rio Grande do Sul</HeaderLink></li>
-            <li><HeaderLink href="/locais/sao-paulo">São Paulo</HeaderLink></li>
-            <li><HeaderLink href="/locais/minas-gerais">Minas Gerais</HeaderLink></li>
-            <li><HeaderLink href="/locais/mato-grosso-do-sul">Mato Grosso do Sul</HeaderLink></li>
-            <li><HeaderLink href="/locais/goias">Goiás</HeaderLink></li>
-          </ul>
-        </li>
-        <li><HeaderLink href="/solucoes">Soluções</HeaderLink></li>
-        <li><HeaderLink href="/frota">Nossa Frota</HeaderLink></li>
-        <li><HeaderLink href="/motoristas">Motoristas</HeaderLink></li>
-        <li><HeaderLink href="/sobre">Sobre Nós</HeaderLink></li>
-        <li><HeaderLink href="/contato" class="contact-button">Contato</HeaderLink></li>
-        <li>
-          <a href="https://wa.me/5541988287226" class="whatsapp-link" target="_blank" rel="noopener">WhatsApp</a>
-        </li>
-      </ul>
-    </nav>
   </div>
 </header>
 
