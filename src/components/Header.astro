@@ -151,47 +151,76 @@ if (typeof window !== 'undefined') {
 .nav-links li {
   position: relative;
 }
-.nav-links .has-dropdown > span {
-  cursor: pointer;
+.nav-links a,
+.nav-links span {
+  color: #232323;
   font-weight: 500;
-  color: #003366;
-  padding: 0.5rem 0.7rem;
-  border-radius: 4px;
-  transition: background 0.2s;
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+  padding: 0.5rem 0.9rem;
+  border-radius: 5px;
+  transition: background 0.18s, color 0.18s;
+  text-decoration: none;
 }
+.nav-links a.active,
+.nav-links a:focus,
+.nav-links a:hover,
 .nav-links .has-dropdown:hover > span,
 .nav-links .has-dropdown:focus-within > span {
-  background: #f5f5f5;
+  background: #fff6ea;
+  color: #FF9900;
+}
+.nav-links .has-dropdown > span {
+  cursor: pointer;
+  position: relative;
+}
+.nav-links .has-dropdown > span::after {
+  content: '\25BC';
+  font-size: 0.7em;
+  margin-left: 0.4em;
+  color: #bdbdbd;
+  transition: color 0.2s;
+}
+.nav-links .has-dropdown:hover > span::after,
+.nav-links .has-dropdown:focus-within > span::after {
+  color: #FF9900;
 }
 .nav-links .dropdown {
   display: none;
   position: absolute;
-  top: 2.2rem;
+  top: 2.5rem;
   left: 0;
-  background: white;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  border-radius: 6px;
-  min-width: 220px;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  border-radius: 12px;
+  min-width: 230px;
   z-index: 10;
   padding: 0.5rem 0;
+  border: 1px solid #f2f2f2;
+  animation: fadeIn 0.18s;
 }
-.nav-links .has-dropdown:hover .dropdown,
-.nav-links .has-dropdown:focus-within .dropdown {
-  display: block;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .dropdown li {
   padding: 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+.dropdown li:last-child {
+  border-bottom: none;
 }
 .dropdown a {
   display: block;
-  padding: 0.7rem 1.2rem;
-  color: #003366;
-  text-decoration: none;
+  padding: 0.7rem 1.3rem;
+  color: #232323;
   font-size: 1rem;
-  transition: background 0.2s;
+  border-radius: 0;
+  background: none;
+  transition: background 0.18s, color 0.18s;
 }
 .dropdown a:hover {
-  background: #f5f5f5;
+  background: #fff6ea;
   color: #FF9900;
 }
 .header-actions {
@@ -202,13 +231,16 @@ if (typeof window !== 'undefined') {
 .whatsapp-link {
   display: flex;
   align-items: center;
-  background: #25d3661a;
+  border: 1.5px solid #25d36633;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(37,211,102,0.07);
   border-radius: 50%;
   padding: 0.4rem;
   transition: background 0.2s;
 }
 .whatsapp-link:hover {
-  background: #25d36633;
+  background: #eafff3;
+  border-color: #25d366;
 }
 .search-btn {
   background: none;
@@ -227,11 +259,13 @@ if (typeof window !== 'undefined') {
 }
 .contact-button {
   background-color: #FF9900;
-  color: white !important;
-  padding: 0.5rem 1rem !important;
-  border-radius: 4px;
-  transition: background-color 0.3s ease !important;
+  color: #fff !important;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem !important;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(255,153,0,0.07);
   margin-left: 0.5rem;
+  border: none;
 }
 .contact-button:hover {
   background-color: #e68a00;
@@ -292,11 +326,13 @@ if (typeof window !== 'undefined') {
     max-width: 370px;
     height: 100vh;
     background: white;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.08);
+    box-shadow: -8px 0 32px rgba(0,0,0,0.10);
     z-index: 101;
     padding: 2.5rem 1.5rem 1.5rem 1.5rem;
     transition: right 0.3s cubic-bezier(.4,0,.2,1);
     overflow-y: auto;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
   }
   .menu-toggle:checked ~ .mobile-nav {
     display: block;
@@ -313,22 +349,36 @@ if (typeof window !== 'undefined') {
   .mobile-nav ul ul {
     margin-top: 0.5rem;
     margin-left: 1.2rem;
-    border-left: 2px solid #f5f5f5;
+    border-left: 2px solid #fff6ea;
     padding-left: 1rem;
   }
   .mobile-nav a,
   .mobile-nav span {
     display: block;
-    color: #003366;
-    font-size: 1.1rem;
+    color: #232323;
+    font-size: 1.08rem;
     text-decoration: none;
     padding: 0.5rem 0;
     font-weight: 500;
+    border-radius: 5px;
+    transition: background 0.18s, color 0.18s;
+  }
+  .mobile-nav a:focus,
+  .mobile-nav a:hover,
+  .mobile-nav span:focus,
+  .mobile-nav span:hover {
+    background: #fff6ea;
+    color: #FF9900;
   }
   .mobile-nav .contact-button {
     margin-top: 1.5rem;
     width: 100%;
     text-align: center;
+    background: #FF9900;
+    color: #fff !important;
+    font-weight: 600;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(255,153,0,0.07);
   }
 }
 @media (min-width: 901px) {
