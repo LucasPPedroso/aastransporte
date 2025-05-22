@@ -10,75 +10,99 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+<html lang="pt-br">
+    <head>
+        <BaseHead title={title} description={description} />
+        <style>
+            main {
+                width: 100%;
+                max-width: 100vw;
+                margin: 0;
+                background: #fafbfc;
+            }
+            article {
+                max-width: 800px;
+                margin: 2rem auto;
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
+                padding: 0;
+            }
+            .hero-image {
+                width: 100%;
+            }
+            .hero-image img {
+                display: block;
+                margin: 0 auto;
+                border-radius: 12px 12px 0 0;
+                box-shadow: var(--box-shadow);
+                max-width: 100%;
+                height: auto;
+            }
+            .prose {
+                width: 100%;
+                max-width: 720px;
+                margin: auto;
+                padding: 2em 1.5em 2em 1.5em;
+                color: rgb(var(--gray-dark));
+                font-size: 1.08rem;
+                line-height: 1.7;
+            }
+            .title {
+                margin-bottom: 1em;
+                padding: 1em 0 0.5em 0;
+                text-align: center;
+                line-height: 1.1;
+            }
+            .title h1 {
+                margin: 0 0 0.5em 0;
+                font-size: 2.1rem;
+                font-weight: 700;
+                color: #1a1a1a;
+            }
+            .date {
+                margin-bottom: 0.5em;
+                color: rgb(var(--gray));
+            }
+            .last-updated-on {
+                font-style: italic;
+            }
+            @media (max-width: 800px) {
+                article {
+                    margin: 1rem 0.5rem;
+                }
+                .prose {
+                    padding: 1em 0.5em 1.5em 0.5em;
+                }
+            }
+        </style>
+    </head>
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+    <body>
+        <Header />
+        <main>
+            <article>
+                <div class="hero-image">
+                    {heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+                </div>
+                <div class="prose">
+                    <div class="title">
+                        <div class="date">
+                            {
+                                updatedDate && (
+                                    <div class="last-updated-on">
+                                        Last updated on <FormattedDate date={updatedDate} />
+                                    </div>
+                                )
+                            }
+                        </div>
+                        <h1>{title}</h1>
+                        <hr />
+                    </div>
+                    <slot />
+                </div>
+            </article>
+        </main>
+        <Footer />
+    </body>
 </html>
